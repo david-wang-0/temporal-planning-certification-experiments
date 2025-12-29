@@ -1,0 +1,66 @@
+
+
+instance Robot r0;
+
+
+instance Parallel p0;
+
+instance Parallel p1;
+
+instance Parallel p2;
+
+instance Parallel p3;
+
+instance Parallel p4;
+
+instance Parallel p5;
+
+instance Parallel p6;
+
+instance Parallel p7;
+
+
+
+[start] exD(r0) := true;
+[start] exC(r0) := true;
+[start] pA(r0) := false;
+[start] pG(r0) := false;
+
+dur_c1(r0) := 5;
+dur_c2(r0) := 2;
+
+
+[start] pB(r0, p0) := false;
+[start] pX(r0, p0) := false;
+dur_d(r0, p0) := 46;
+
+[start] pB(r0, p1) := false;
+[start] pX(r0, p1) := false;
+dur_d(r0, p1) := 5;
+
+[start] pB(r0, p2) := false;
+[start] pX(r0, p2) := false;
+dur_d(r0, p2) := 3;
+
+[start] pB(r0, p3) := false;
+[start] pX(r0, p3) := false;
+dur_d(r0, p3) := 43;
+
+[start] pB(r0, p4) := false;
+[start] pX(r0, p4) := false;
+dur_d(r0, p4) := 15;
+
+[start] pB(r0, p5) := false;
+[start] pX(r0, p5) := false;
+dur_d(r0, p5) := 50;
+
+[start] pB(r0, p6) := false;
+[start] pX(r0, p6) := false;
+dur_d(r0, p6) := 19;
+
+[start] pB(r0, p7) := false;
+[start] pX(r0, p7) := false;
+dur_d(r0, p7) := 6;
+
+
+[end] pG(r0);

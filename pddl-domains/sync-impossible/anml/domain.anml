@@ -1,0 +1,61 @@
+type Robot;
+type Parallel;
+
+constant float dur_c1(Robot r);
+constant float dur_c2(Robot r);
+constant float dur_d(Robot r, Parallel p);
+
+fluent boolean pA(Robot r);
+fluent boolean pB(Robot r, Parallel p);
+fluent boolean pG(Robot r);
+fluent boolean exC(Robot r);
+fluent boolean exD(Robot r);
+fluent boolean pX(Robot r, Parallel p);
+
+
+action c1(Robot r) {
+   (duration == dur_c1(r));
+   [start] exC(r) == true;
+   [start] exD(r) == true;
+   [end] forall (Parallel p) {
+      pB(r, p) == true;
+   };
+   [start] (exC(r) := false);
+   [end] (exC(r) := true);
+
+   [start] forall (Parallel p) {
+      (pB(r, p) := false);
+   };
+
+   [start] (pA(r) := true);
+   [end] (pA(r) := false);
+};
+
+
+action c2(Robot r) {
+   (duration == dur_c2(r));
+   [end] forall (Parallel p) {
+      pX(r, p) == true;
+   };
+   [start] exC(r) == true;
+
+   [start] (exC(r) := false);
+   [end] (exC(r) := true);
+
+   [start] forall (Parallel p) {
+      (pX(r, p) := false);
+   };
+   [end] (pG(r) := true);
+};
+
+
+action d(Robot r, Parallel p) {
+   (duration == dur_d(r, p));
+   [start] pA(r) == true;
+
+   [start] (exD(r) := false);
+   [end] (exD(r) := true);
+
+   [start] (pB(r, p) := true);
+   [end] (pX(r, p) := true);
+};
