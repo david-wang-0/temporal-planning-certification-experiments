@@ -215,18 +215,30 @@ __marimo__/
 # Streamlit
 .streamlit/secrets.toml
 
+# Compiled software
 grounder
 tamer
 plan_cert
 tck-reach
+nuXmv
+
 todo.md
 
+# Files that can be generated
 ground-pddl-problems/
 muntax-dir/
 tck_examples/
 tck-dir/
+uppaal-dir/
+smv-dir/
+nuxmv-dir/
 examples/
 
+# Shell scripts for figuring out how shell scripts behave
 memory.sh
 files.sh
 time.sh
+args.sh
+
+# result csv
+results_temp.csv
