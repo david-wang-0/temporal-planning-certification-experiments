@@ -15,27 +15,27 @@ benchmarks=()
 # %M   maximum resident set size in KB
 run_with_timeout () {
     local f=$1
-    local regex="(.*)%%([0-9]+)%([\.0-9]+)%([0-9]+)"
-    msg=$(timeout -p $TIMEOUT bash -c "ulimit -HSv $MEM_LIMIT && { command time -f \"%%%%%x%%%e%%%M\" bash -c \"$f\" ; } 2>&1")
+    local regex='(.*)%%%([0-9]+)%([\.0-9]+)%([0-9]+)'
+    msg=$(timeout -p $TIMEOUT bash -c "ulimit -HSv $MEM_LIMIT && { command time -f \"%%%%%%%x%%%e%%%M\" bash -c \"$f\" ; } 2>&1")
     err=$?
     if [[ $err == 143 ]] ## time out
     then 
-        echo "143%%%%"
+        echo "143>%<>%<>%<>%<"
     elif [[ $err == 1 || $err == 127 ]] ## out of memory -- terminated
     then
-        echo "128%%%%"
+        echo "128>%<>%<>%<>%<"
     elif [[ $err == 0 ]] ## okay
     then
         if [[ $msg =~ $regex ]]
         then 
-            echo "${BASH_REMATCH[2]}%${BASH_REMATCH[3]}%${BASH_REMATCH[4]}%${BASH_REMATCH[1]}%"
-            # exit_code%time%memory%stdout
+            echo "${BASH_REMATCH[2]}>%<${BASH_REMATCH[3]}>%<${BASH_REMATCH[4]}>%<${BASH_REMATCH[1]}>%<"
+            # exit_code>%<time>%<memory>%<stdout
             # exit code will be whatever the command output
         else
-            echo "129%%%$msg%" ## something unexpected happened
+            echo "129>%<>%<>%<$msg>%<" ## something unexpected happened
         fi
     else
-        echo "${err}%%%$msg%" ## unknown
+        echo "${err}>%<>%<>%<$msg>%<" ## unknown
     fi
 }
 
@@ -169,16 +169,48 @@ run_tfd_unsolv () {
     local problem=$2
     local plan=$3
 
-    msg=$(./tfd/downward/tfd $domain $problem $plan 2>&1)
+    msg=$((./tfd/downward/tfd $domain $problem $plan) 2>&1)
     err=$?
     if [[ $err == 1 && $msg =~ $tfd_unsolv_regex ]]
     then
         echo $msg
     else
-        echo $msg4321; exit $err4321
+        echo $msg; exit $err
     fi
 }
 export -f run_tfd_unsolv
+
+optic_unsolv_regex=".*;; Problem unsolvable!.*"
+
+run_optic () {
+    local domain=$1
+    local problem=$2
+
+    msg=$((./optic-clp $domain $problem) 2>&1)
+    err=$?
+    if [[ $err == 1 && $msg =~ $optic_unsolv_regex ]]
+    then
+        echo $msg
+    else
+        echo $msg; exit $err
+    fi
+}
+export -f run_optic
+
+run_popf () {
+    local domain=$1
+    local problem=$2
+
+    msg=$((./popf3-clp $domain $problem) 2>&1)
+    err=$?
+    if [[ $err == 1 && $msg =~ $optic_unsolv_regex ]]
+    then
+        echo $msg
+    else
+        echo $msg; exit $err
+    fi
+}
+export -f run_popf
 
 # todo: use a regex to detect if they have succeeded in detecting unsolvability and then change the return value
 
@@ -186,7 +218,7 @@ cmd_output_matches () {
     local msg=$1
     local to_match=$2
 
-    local regex="(-?[0-9]+)%(.*)%(.*)%(.*)%(.*)"
+    local regex="(-?[0-9]+)>%<(.*)>%<(.*)>%<(.*)>%<(.*)"
 
     if [[ $msg =~ $regex ]]
     then
@@ -197,12 +229,12 @@ cmd_output_matches () {
         local additional_info=${BASH_REMATCH[5]}
         if [[ $cmd_output =~ $to_match ]]
         then
-            echo "$return_code%$time%$memory_usage%true%$additional_info"
+            echo "$return_code>%<$time>%<$memory_usage>%<true>%<$additional_info"
         else
-            echo "$return_code%$time%$memory_usage%false%$additional_info|$cmd_output"
+            echo "$return_code>%<$time>%<$memory_usage>%<false>%<$additional_info|$cmd_output"
         fi
     else
-        echo "130%%%%$msg" # input ill-formatted
+        echo "130>%<>%<>%<>%<$msg" # input ill-formatted
     fi
 }
 
@@ -281,6 +313,24 @@ time_tfd () {
     run_and_match_output "$cmd" "$unsolvable_regex"
 }
 
+time_optic () {
+    local domain=$1
+    local problem=$2
+    
+    local cmd="run_optic $domain $problem"
+    local unsolvable_regex=";; Problem unsolvable!"
+    run_and_match_output "$cmd" "$unsolvable_regex"
+}
+
+time_popf () {
+    local domain=$1
+    local problem=$2
+    
+    local cmd="run_popf $domain $problem"
+    local unsolvable_regex=";; Problem unsolvable!"
+    run_and_match_output "$cmd" "$unsolvable_regex"
+}
+
 # directories and files
 ground_dir_name () {
     echo "$out_dir/ground-pddl-problems/$domain_dir_name"
@@ -318,7 +368,8 @@ make_dirs() {
 
 plan_file () {
     local file_name=$1
-    echo "$(plan_dir_name)/${file_name}_plan.pddl"
+    local planner=$2
+    echo "$(plan_dir_name)/${planner}_${file_name}_plan.pddl"
 }
 
 ground_domain_file () {
@@ -460,9 +511,35 @@ time_tfd_on_pddl () {
     local instance=$2
     local file_name=$3
 
-    local plan_file=$(plan_file $file_name)
+    local plan_file=$(plan_file $file_name 'tfd')
 
     time_tfd $domain $instance $plan_file
+}
+
+time_optic_on_pddl () {
+    local domain=$1
+    local instance=$2
+
+    time_optic $domain $instance
+}
+
+time_popf_on_pddl () {
+    local domain=$1
+    local instance=$2
+
+    time_popf $domain $instance
+}
+
+ground_and_time_popf () {
+    local domain=$1
+    local instance=$2
+    local file_name=$3
+
+    local ground_domain_file=$(ground_domain_file $file_name)
+    local ground_problem_file=$(ground_problem_file $file_name)
+
+    ground_example $domain $instance $ground_domain_file $ground_problem_file
+    time_popf $ground_domain_file $ground_problem_file
 }
 
 # converting to certificate
@@ -477,10 +554,10 @@ time_convert_to_cert() {
 
     if [[ ! -f $muntax_file ]]
     then 
-        echo "131%%%%No model to obtain renaming. Expected: $muntax_file"
+        echo "131>%<>%<>%<>%<No model to obtain renaming. Expected: $muntax_file"
     elif  [[ ! -f $dot_file ]]
     then 
-        echo "131%%%%No certificate to convert. Expected: $dot_file"
+        echo "131>%<>%<>%<>%<No certificate to convert. Expected: $dot_file"
     else 
         rename $muntax_file $renaming_file
         time_dot_to_cert_conversion $muntax_file $renaming_file $dot_file $cert_file
@@ -497,13 +574,13 @@ time_muntac_check_cert () {
 
     if [[ ! -f $muntax_file ]]
     then 
-        echo "131%%%%No model to obtain renaming. Expected: $muntax_file"
+        echo "131>%<>%<>%<>%<No model to obtain renaming. Expected: $muntax_file"
     elif [[ ! -f $renaming_file ]]
     then 
-        echo "131%%%%No renaming file. Expected: $renaming_file"
+        echo "131>%<>%<>%<>%<No renaming file. Expected: $renaming_file"
     elif [[ ! -f $cert_file ]]
     then 
-        echo "131%%%%No certificate to check. Expected: $cert_file"
+        echo "131>%<>%<>%<>%<No certificate to check. Expected: $cert_file"
     else 
         time_cert_check $muntax_file $renaming_file $cert_file
     fi
@@ -553,7 +630,7 @@ record_result () {
     local solver=$2
     local res=$3
 
-    local regex="(-?[0-9]+)%(.*)%(.*)%(.*)%(.*)"
+    local regex="(-?[0-9]+)>%<(.*)>%<(.*)>%<(.*)>%<(.*)"
 
     if [[ $res =~ $regex ]]
     then
@@ -645,6 +722,18 @@ run_benchmarks () {
         then 
             echo -e "\tRunning TFD (2014 IPC version)."
             record_result "$instance_name" "tfd" "$(time_tfd_on_pddl $domain_file $instance_file $instance_name)"
+        elif [[ $benchmark == "optic" ]]
+        then 
+            echo -e "\tRunning OPTIC."
+            record_result "$instance_name" "OPTIC" "$(time_optic_on_pddl $domain_file $instance_file)"
+        elif [[ $benchmark == "popf3" ]]
+        then 
+            echo -e "\tRunning POPF2/3."
+            record_result "$instance_name" "POPF" "$(time_popf_on_pddl $domain_file $instance_file)"
+        elif [[ $benchmark == "popf3-ground" ]]
+        then 
+            echo -e "\tRunning POPF2/3 (ground)."
+            record_result "$instance_name-ground" "POPF" "$(ground_and_time_popf $domain_file $instance_file $instance_name)"
         else
             echo -e "\tWARNING: Benchmark \"$benchmark\" unknown."
         fi

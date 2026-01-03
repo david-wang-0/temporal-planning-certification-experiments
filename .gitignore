@@ -246,6 +246,8 @@ files.sh
 time.sh
 args.sh
 run_tfd.sh
+run_optic.sh
+
 
 # result csv
 *.temp.csv
