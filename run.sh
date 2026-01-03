@@ -1,4 +1,4 @@
-TIMEOUT=900s
+TIMEOUT=600s
 
 MEM_LIMIT=56000000 # kibibytes
 
@@ -276,7 +276,7 @@ time_tfd () {
     local problem=$2
     local plan=$3
     
-    local cmd="run_tfd $domain $problem $plan"
+    local cmd="run_tfd_unsolv $domain $problem $plan"
     local unsolvable_regex="$tfd_unsolv_regex"
     run_and_match_output "$cmd" "$unsolvable_regex"
 }
@@ -336,9 +336,14 @@ muntax_file () {
     echo "$(muntax_dir_name)/${file_name}.muntax"
 }
 
-rename_file () {
+renaming_file () {
     local file_name=$1
     echo "$(muntax_dir_name)/${file_name}.rnm"
+}
+
+cert_file () {
+    local file_name=$1
+    echo "$(muntax_dir_name)/${file_name}.cert"
 }
 
 tck_file () {
@@ -466,19 +471,18 @@ time_convert_to_cert() {
 
     local muntax_file="$(muntax_file $file_name)"
     local renaming_file="$(renaming_file $file_name)"
-    local dot_file="$(dot_file $file_name)"
+    local dot_file="$(dot_file $file_name 'covreach')"
     local cert_file="$(cert_file $file_name)"
 
-    if [ ! -f $muntax_file ]
+
+    if [[ ! -f $muntax_file ]]
     then 
         echo "131%%%%No model to obtain renaming. Expected: $muntax_file"
-    elif [ ! -f $renaming_file ]
-    then 
-        echo "131%%%%No renaming file. Expected: $renaming_file"
-    elif  [ ! -f $dot_file ]
+    elif  [[ ! -f $dot_file ]]
     then 
         echo "131%%%%No certificate to convert. Expected: $dot_file"
     else 
+        rename $muntax_file $renaming_file
         time_dot_to_cert_conversion $muntax_file $renaming_file $dot_file $cert_file
     fi
 }
@@ -491,13 +495,13 @@ time_muntac_check_cert () {
     local renaming_file="$(renaming_file $file_name)"
     local cert_file="$(cert_file $file_name)"
 
-    if [ ! -f $muntax_file ]
+    if [[ ! -f $muntax_file ]]
     then 
         echo "131%%%%No model to obtain renaming. Expected: $muntax_file"
-    elif [ ! -f $renaming_file ]
+    elif [[ ! -f $renaming_file ]]
     then 
         echo "131%%%%No renaming file. Expected: $renaming_file"
-    elif  [ ! -f $cert_file ]
+    elif [[ ! -f $cert_file ]]
     then 
         echo "131%%%%No certificate to check. Expected: $cert_file"
     else 
@@ -632,10 +636,10 @@ run_benchmarks () {
         elif [[ $benchmark == "cert-conv" ]]
         then 
             echo -e "\tConverting certificate from \`.dot\` to \`.cert\`."
-            record_result "$instance_name-cert-conv" "" "$(time_convert_to_cert $instance_name)"
+            record_result "$instance_name-cert-conv" "shell-script" "$(time_convert_to_cert $instance_name)"
         elif [[ $benchmark == "muntac-cert-check" ]]
         then 
-            echo -e "\tConverting certificate using muntac."
+            echo -e "\tChecking certificate using muntac."
             record_result "$instance_name-muntac-cert-check" "muntac" "$(time_muntac_check_cert $instance_name)"
         elif [[ $benchmark == "tfd" ]]
         then 
@@ -658,6 +662,8 @@ show_help () {
   echo "-o : where to output all files to ; if left out, then into subdirectories in this one"
   echo "-b : set of benchmarks ; -b <tck-covreach> -b <tck-aLU> -b <tamer-ctp> ; if left out just grounds the problem"
   echo "-f : log file ; if unspecified writes to stdout"
+  echo "-m : memory limit ; same syntax as ulimit"
+  echo "-t : time out ; same syntax as timeout"
 }
 
 # https://stackoverflow.com/a/14203146
