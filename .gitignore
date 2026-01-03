@@ -221,6 +221,11 @@ tamer
 plan_cert
 tck-reach
 nuXmv
+nextflap
+TFD/
+tfd/
+optic-clp
+popf3-clp
 
 todo.md
 
@@ -233,12 +238,17 @@ uppaal-dir/
 smv-dir/
 nuxmv-dir/
 examples/
+plan-dir/
 
 # Shell scripts for figuring out how shell scripts behave
 memory.sh
 files.sh
 time.sh
 args.sh
+run_tfd.sh
 
 # result csv
-results_temp.csv
+*.temp.csv
+
+# valgrind
+massif.out.*

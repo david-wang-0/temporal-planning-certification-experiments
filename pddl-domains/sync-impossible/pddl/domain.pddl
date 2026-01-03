@@ -7,12 +7,6 @@
         Parallel - object
     )
 
-    (:functions
-     (dur_c1 ?r - Robot)
-     (dur_c2 ?r - Robot)
-     (dur_d ?r - Robot ?p - Parallel)
-    )
-
     (:predicates
         (pA ?r - Robot)
         (pB ?r - Robot ?p - Parallel)
@@ -20,6 +14,12 @@
         (pG ?r - Robot)
         (exD ?r - Robot)
         (exC ?r - Robot)
+    )
+
+    (:functions
+     (dur_c1 ?r - Robot)
+     (dur_c2 ?r - Robot)
+     (dur_d ?r - Robot ?p - Parallel)
     )
 
     (:durative-action c1

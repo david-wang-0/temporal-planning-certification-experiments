@@ -1,4 +1,4 @@
-TIMEOUT=100s
+TIMEOUT=900s
 
 MEM_LIMIT=56000000 # kibibytes
 
@@ -20,22 +20,22 @@ run_with_timeout () {
     err=$?
     if [[ $err == 143 ]] ## time out
     then 
-        echo "143%%%"
+        echo "143%%%%"
     elif [[ $err == 1 || $err == 127 ]] ## out of memory -- terminated
     then
-        echo "128%%%"
+        echo "128%%%%"
     elif [[ $err == 0 ]] ## okay
     then
         if [[ $msg =~ $regex ]]
         then 
-            echo "${BASH_REMATCH[2]}%${BASH_REMATCH[3]}%${BASH_REMATCH[4]}%${BASH_REMATCH[1]}"
+            echo "${BASH_REMATCH[2]}%${BASH_REMATCH[3]}%${BASH_REMATCH[4]}%${BASH_REMATCH[1]}%"
             # exit_code%time%memory%stdout
             # exit code will be whatever the command output
         else
-            echo "129%%%$msg" ## something unexpected happened
+            echo "129%%%$msg%" ## something unexpected happened
         fi
     else
-        echo "${err}%%%$msg" ## unknown
+        echo "${err}%%%$msg%" ## unknown
     fi
 }
 
@@ -108,19 +108,6 @@ ground_and_convert_to_tck () {
     convert_to_tck $5 $6
 }
 
-convert_dot_to_cert () {
-    local muntax=$1
-    local rename=$2
-    local dot=$3
-    local cert=$4
-    python -m convert_models.convert_certificate -m $muntax $dot $rename $cert
-}
-
-rename_and_convert_dot_to_cert () {
-    rename $1 $2
-    convert_dot_to_cert $1 $2 $3 $4
-}
-
 # running and timing
 run_tchecker () {
     local tck=$1
@@ -157,13 +144,49 @@ run_uppaal () {
 }
 export -f run_uppaal
 
+convert_dot_to_cert () {
+    local muntax=$1
+    local rename=$2
+    local dot=$3
+    local cert=$4
+    python -m convert_models.convert_certificate -m $muntax $dot $rename $cert
+}
+export -f convert_dot_to_cert
+
+check_certificate () {
+    local muntax=$1
+    local rename=$2
+    local cert=$3
+    ./muntac -m $muntax -r $rename -c $cert
+}
+export -f check_certificate
+
+tfd_unsolv_regex=".*Completely explored state space -- no solution!.*"
+
+# We don't use return codes to indicate solvability, but tfd does. Therefore, we detect the case in which the return code is 1 due to unsolvability
+run_tfd_unsolv () {
+    local domain=$1
+    local problem=$2
+    local plan=$3
+
+    msg=$(./tfd/downward/tfd $domain $problem $plan 2>&1)
+    err=$?
+    if [[ $err == 1 && $msg =~ $tfd_unsolv_regex ]]
+    then
+        echo $msg
+    else
+        echo $msg4321; exit $err4321
+    fi
+}
+export -f run_tfd_unsolv
+
 # todo: use a regex to detect if they have succeeded in detecting unsolvability and then change the return value
 
 cmd_output_matches () {
     local msg=$1
     local to_match=$2
 
-    local regex="(-?[0-9]+)%(.*)%(.*)%(.*)"
+    local regex="(-?[0-9]+)%(.*)%(.*)%(.*)%(.*)"
 
     if [[ $msg =~ $regex ]]
     then
@@ -171,14 +194,15 @@ cmd_output_matches () {
         local time=${BASH_REMATCH[2]}
         local memory_usage=${BASH_REMATCH[3]}
         local cmd_output=${BASH_REMATCH[4]}
+        local additional_info=${BASH_REMATCH[5]}
         if [[ $cmd_output =~ $to_match ]]
         then
-            echo "$return_code%$time%$memory_usage%true"
+            echo "$return_code%$time%$memory_usage%true%$additional_info"
         else
-            echo "$return_code%$time%$memory_usage%false"
+            echo "$return_code%$time%$memory_usage%false%$additional_info|$cmd_output"
         fi
     else
-        echo "130%%%" # input ill-formatted
+        echo "130%%%%$msg" # input ill-formatted
     fi
 }
 
@@ -226,6 +250,37 @@ time_uppaal () {
     run_and_match_output "$cmd" "$unsolvable_regex"
 }
 
+time_dot_to_cert_conversion () {
+    local muntax=$1
+    local rename=$2
+    local dot=$3
+    local cert=$4
+
+    local cmd="convert_dot_to_cert $muntax $rename $dot $cert"
+    local ok_regex="^$" # empty string
+    run_and_match_output "$cmd" "$ok_regex"
+}
+
+time_cert_check () {
+    local muntax=$1
+    local rename=$2
+    local cert=$3
+
+    local cmd="check_certificate $muntax $rename $cert"
+    local ok_regex=".*Certificate was accepted.*"
+    run_and_match_output "$cmd" "$ok_regex"
+}
+
+time_tfd () {
+    local domain=$1
+    local problem=$2
+    local plan=$3
+    
+    local cmd="run_tfd $domain $problem $plan"
+    local unsolvable_regex="$tfd_unsolv_regex"
+    run_and_match_output "$cmd" "$unsolvable_regex"
+}
+
 # directories and files
 ground_dir_name () {
     echo "$out_dir/ground-pddl-problems/$domain_dir_name"
@@ -247,6 +302,10 @@ nuxmv_dir_name () {
     echo "$out_dir/nuxmv-dir/$domain_dir_name"
 }
 
+plan_dir_name () {
+    echo "$out_dir/plan-dir/$domain_dir_name"
+}
+
 make_dirs() {
     echo "Making folders"
     mkdir -p $(ground_dir_name)
@@ -254,8 +313,13 @@ make_dirs() {
     mkdir -p $(tck_dir_name)
     mkdir -p $(nuxmv_dir_name)
     mkdir -p $(uppaal_dir_name)
+    mkdir -p $(plan_dir_name)
 }
 
+plan_file () {
+    local file_name=$1
+    echo "$(plan_dir_name)/${file_name}_plan.pddl"
+}
 
 ground_domain_file () {
     local file_name=$1
@@ -386,6 +450,61 @@ ground_and_time_uppaal () {
     time_uppaal $ta_file $q_file
 }
 
+time_tfd_on_pddl () {
+    local domain=$1
+    local instance=$2
+    local file_name=$3
+
+    local plan_file=$(plan_file $file_name)
+
+    time_tfd $domain $instance $plan_file
+}
+
+# converting to certificate
+time_convert_to_cert() {
+    local file_name=$1
+
+    local muntax_file="$(muntax_file $file_name)"
+    local renaming_file="$(renaming_file $file_name)"
+    local dot_file="$(dot_file $file_name)"
+    local cert_file="$(cert_file $file_name)"
+
+    if [ ! -f $muntax_file ]
+    then 
+        echo "131%%%%No model to obtain renaming. Expected: $muntax_file"
+    elif [ ! -f $renaming_file ]
+    then 
+        echo "131%%%%No renaming file. Expected: $renaming_file"
+    elif  [ ! -f $dot_file ]
+    then 
+        echo "131%%%%No certificate to convert. Expected: $dot_file"
+    else 
+        time_dot_to_cert_conversion $muntax_file $renaming_file $dot_file $cert_file
+    fi
+}
+
+# checking certificate
+time_muntac_check_cert () {
+    local file_name=$1
+
+    local muntax_file="$(muntax_file $file_name)"
+    local renaming_file="$(renaming_file $file_name)"
+    local cert_file="$(cert_file $file_name)"
+
+    if [ ! -f $muntax_file ]
+    then 
+        echo "131%%%%No model to obtain renaming. Expected: $muntax_file"
+    elif [ ! -f $renaming_file ]
+    then 
+        echo "131%%%%No renaming file. Expected: $renaming_file"
+    elif  [ ! -f $cert_file ]
+    then 
+        echo "131%%%%No certificate to check. Expected: $cert_file"
+    else 
+        time_cert_check $muntax_file $renaming_file $cert_file
+    fi
+}
+
 # just grounding
 ground_instance () {
     local domain=$1
@@ -414,6 +533,9 @@ to_status () {
     elif [[ $return_code == "130" ]]
     then
         echo "could not interpret correctness of result"
+    elif [[ $return_code == "131" ]]
+    then
+        echo "file missing"
     elif [[ $return_code == "0" ]]
     then
         echo "okay"
@@ -427,7 +549,7 @@ record_result () {
     local solver=$2
     local res=$3
 
-    local regex="(-?[0-9]+)%(.*)%(.*)%(.*)"
+    local regex="(-?[0-9]+)%(.*)%(.*)%(.*)%(.*)"
 
     if [[ $res =~ $regex ]]
     then
@@ -435,21 +557,22 @@ record_result () {
         local time=${BASH_REMATCH[2]}
         local memory_usage=${BASH_REMATCH[3]}
         local correctly_identified=${BASH_REMATCH[4]}
+        local info=${BASH_REMATCH[5]}
 
         local status=$(to_status "$return_code")
 
         if [[ ! -z $file ]]
         then 
-            echo "$domain_dir_name,$instance,$solver,$time,$memory_usage,$correctly_identified,$status" >> "$file"
+            echo "$domain_dir_name,$instance,$solver,$time,$memory_usage,$correctly_identified,$status,$info" >> "$file"
         else 
-            echo "$domain_dir_name,$instance,$solver,$time,$memory_usage,$correctly_identified,$status"
+            echo "$domain_dir_name,$instance,$solver,$time,$memory_usage,$correctly_identified,$status,$info"
         fi
     else
         if [[ ! -z $file ]]
         then 
-            echo "Something went wrong while recording result for domain \"$domain_dir_name\": \"$res\"" >> "$file"
+            echo "$domain_dir_name,,,,,,,\"Error: '$res'\"" >> "$file"
         else 
-            echo "Something went wrong while recording result for domain \"$domain_dir_name\": \"$res\""
+            echo "$domain_dir_name,,,,,,,\"Error: '$res'\""
         fi
     fi
 }
@@ -506,8 +629,20 @@ run_benchmarks () {
         then
             echo -e "\tRunning UPPAAL (ground)."
             record_result "$instance_name-ground" "UPPAAL" "$(ground_and_time_uppaal $domain_file $instance_file $instance_name)"
+        elif [[ $benchmark == "cert-conv" ]]
+        then 
+            echo -e "\tConverting certificate from \`.dot\` to \`.cert\`."
+            record_result "$instance_name-cert-conv" "" "$(time_convert_to_cert $instance_name)"
+        elif [[ $benchmark == "muntac-cert-check" ]]
+        then 
+            echo -e "\tConverting certificate using muntac."
+            record_result "$instance_name-muntac-cert-check" "muntac" "$(time_muntac_check_cert $instance_name)"
+        elif [[ $benchmark == "tfd" ]]
+        then 
+            echo -e "\tRunning TFD (2014 IPC version)."
+            record_result "$instance_name" "tfd" "$(time_tfd_on_pddl $domain_file $instance_file $instance_name)"
         else
-            echo -e "Benchmark \"$benchmark\" unknown."
+            echo -e "\tWARNING: Benchmark \"$benchmark\" unknown."
         fi
     done
 }
@@ -529,7 +664,7 @@ show_help () {
 
 OPTIND=1         # Reset in case getopts has been used previously in the shell.
 
-while getopts "h?p:i:b:d:o:f:" opt; do
+while getopts "h?p:i:b:d:o:f:t:m:" opt; do
   case $opt in
     h|\?)
       show_help
@@ -547,8 +682,21 @@ while getopts "h?p:i:b:d:o:f:" opt; do
       ;;
     f) file=$OPTARG
       ;;
+    t) TIMEOUT=$OPTARG
+      ;;
+    m) MEM_LIMIT=$OPTARG
+      ;;
   esac
 done
+
+# checking that a reasonable timeout and memory limit were specified; ls should not run out of memory
+msg=$(timeout -p $TIMEOUT bash -c "ulimit -HSv $MEM_LIMIT && { ls -lah ; } 2>&1")
+err=$?
+if [[ ! $err == 0 || $TIMEOUT < 1 ]]
+then
+    echo "Unreasonable memory limit \"$MEM_LIMIT\" or time out \"$TIMEOUT\""
+    exit 1
+fi
 
 # obtaining files if none provided
 get_instances () {
@@ -652,6 +800,7 @@ fi
 
 # what do we need?
 # - a folder for pddl
+# - a folder for ground pddl
 # - a folder for muntax and renamings and cert
 # - a folder for tchecker
 # - a folder for uppaal
@@ -660,11 +809,18 @@ fi
 # which benchmarks do we have?
 # - running tchecker with aLU subsumption
 # - running tchecker with coverage subsumption
-# - running munta?
+# - converting certificates
 # - checking coverage subsumption certificates
 # - running tamer
 # - running uppaal
 # - running nuXmv
+# to do:
+# - running munta directly
+# - tflap
+# - tfd
+# - optic
+# - popf
+
 
 # what information do we need?
 # - time (according to program or time shell command?)
