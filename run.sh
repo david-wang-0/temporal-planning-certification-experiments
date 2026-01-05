@@ -212,6 +212,20 @@ run_popf () {
 }
 export -f run_popf
 
+
+nextflap_unsolvable_regex='.*Goals not reached.*'
+run_nextflap () {
+    msg=$((./nextflap "pddl-domains/driverlog/domain.pddl" "pddl-domains/driverlog/instances/instance_1_1_1_1.pddl") 2>&1)
+    err=$?
+    if [[ $err == 134 && $msg =~ $nextflap_unsolvable_regex ]]
+    then
+        echo $msg
+    else
+        echo $msg; exit $err
+    fi
+}
+export -f run_nextflap
+
 # todo: use a regex to detect if they have succeeded in detecting unsolvability and then change the return value
 
 cmd_output_matches () {
@@ -318,8 +332,7 @@ time_optic () {
     local problem=$2
     
     local cmd="run_optic $domain $problem"
-    local unsolvable_regex=";; Problem unsolvable!"
-    run_and_match_output "$cmd" "$unsolvable_regex"
+    run_and_match_output "$cmd" "$optic_unsolv_regex"
 }
 
 time_popf () {
@@ -327,8 +340,15 @@ time_popf () {
     local problem=$2
     
     local cmd="run_popf $domain $problem"
-    local unsolvable_regex=";; Problem unsolvable!"
-    run_and_match_output "$cmd" "$unsolvable_regex"
+    run_and_match_output "$cmd" "$optic_unsolv_regex"
+}
+
+time_nextflap () {
+    local domain=$1
+    local problem=$2
+    
+    local cmd="run_nextflap $domain $problem"
+    run_and_match_output "$cmd" "$nextflap_unsolvable_regex"
 }
 
 # directories and files
@@ -528,6 +548,13 @@ time_popf_on_pddl () {
     local instance=$2
 
     time_popf $domain $instance
+}
+
+time_nextflap_on_pddl () {
+    local domain=$1
+    local instance=$2
+
+    time_nextflap $domain $instance
 }
 
 ground_and_time_popf () {
@@ -734,6 +761,10 @@ run_benchmarks () {
         then 
             echo -e "\tRunning POPF2/3 (ground)."
             record_result "$instance_name-ground" "POPF" "$(ground_and_time_popf $domain_file $instance_file $instance_name)"
+        elif [[ $benchmark == "nextflap" ]]
+        then 
+            echo -e "\tRunning nextflap."
+            record_result "$instance_name" "nextflap" "$(time_nextflap_on_pddl $domain_file $instance_file)"
         else
             echo -e "\tWARNING: Benchmark \"$benchmark\" unknown."
         fi

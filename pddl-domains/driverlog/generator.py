@@ -3,6 +3,7 @@ from os import mkdir
 from itertools import combinations
 from collections import namedtuple
 from jinja2 import Template
+import pathlib
 
 PDDL_TEMPLATE = Template('''(define (problem {{problem_name}})
   (:domain driverlog)
@@ -74,7 +75,7 @@ def rand_locs(locatables, locations):
 
 def main():
     seed(42)
-    mkdir("instances")
+    pathlib.Path("instances\").mkdir(parents=True, exist_ok=True)
     for nt in range(1, 4):
         for nd in range(1, 4):
             for ns in range(1, 4):

@@ -1,0 +1,97 @@
+domain,instance,solver,time(s),memory(kB),identified as unsolvable,status
+sync-impossible,instance_1_2,tck-aLUcovreach,0.01,11468,true,okay,
+sync-impossible,instance_1_2,tck-covreach,0.00,11764,true,okay,
+sync-impossible,instance_1_2-ground,TAMER-ctp,0.00,4452,true,okay,
+sync-impossible,instance_1_2-ground,TAMER-ftp,,,false,out of memory,|
+sync-impossible,instance_1_2-ground,nuXmv,0.14,57996,true,okay,
+sync-impossible,instance_1_2-ground,UPPAAL,0.02,19580,true,okay,
+sync-impossible,instance_1_2-cert-conv,shell-script,0.07,14100,true,okay,
+sync-impossible,instance_1_2-muntac-cert-check,muntac,0.04,22996,true,okay,
+sync-impossible,instance_1_2,tfd,0.09,13536,true,okay,
+sync-impossible,instance_1_2,OPTIC,,,false,out of time,|
+sync-impossible,instance_1_2-ground,POPF,,,false,out of time,|
+sync-impossible,instance_1_2,nextflap,0.11,5400,true,okay,
+sync-impossible,instance_1_3,tck-aLUcovreach,0.06,20612,true,okay,
+sync-impossible,instance_1_3,tck-covreach,0.11,19684,true,okay,
+sync-impossible,instance_1_3-ground,TAMER-ctp,0.02,4716,true,okay,
+sync-impossible,instance_1_3-ground,TAMER-ftp,,,false,out of memory,|
+sync-impossible,instance_1_3-ground,nuXmv,0.21,60024,true,okay,
+sync-impossible,instance_1_3-ground,UPPAAL,0.05,23420,true,okay,
+sync-impossible,instance_1_3-cert-conv,shell-script,0.49,48208,true,okay,
+sync-impossible,instance_1_3-muntac-cert-check,muntac,0.24,158180,true,okay,
+sync-impossible,instance_1_3,tfd,0.05,13800,true,okay,
+sync-impossible,instance_1_3,OPTIC,,,false,out of time,|
+sync-impossible,instance_1_3-ground,POPF,,,false,out of time,|
+sync-impossible,instance_1_3,nextflap,0.10,5396,true,okay,
+sync-impossible,instance_1_4,tck-aLUcovreach,1.37,36392,true,okay,
+sync-impossible,instance_1_4,tck-covreach,4.48,51944,true,okay,
+sync-impossible,instance_1_4-ground,TAMER-ctp,0.32,11116,true,okay,
+sync-impossible,instance_1_4-ground,TAMER-ftp,,,false,out of memory,|
+sync-impossible,instance_1_4-ground,nuXmv,3.69,103364,true,okay,
+sync-impossible,instance_1_4-ground,UPPAAL,1.53,73408,true,okay,
+sync-impossible,instance_1_4-cert-conv,shell-script,9.69,708720,true,okay,
+sync-impossible,instance_1_4-muntac-cert-check,muntac,5.78,1800936,true,okay,
+sync-impossible,instance_1_4,tfd,0.05,13220,true,okay,
+sync-impossible,instance_1_4,OPTIC,,,false,out of time,|
+sync-impossible,instance_1_4-ground,POPF,,,false,out of time,|
+sync-impossible,instance_1_4,nextflap,0.09,5400,true,okay,
+sync-impossible,instance_1_5,tck-aLUcovreach,133.71,169008,true,okay,
+sync-impossible,instance_1_5,tck-covreach,,,false,out of time,|
+sync-impossible,instance_1_5-ground,TAMER-ctp,2.18,40944,true,okay,
+sync-impossible,instance_1_5-ground,TAMER-ftp,,,false,out of memory,|
+sync-impossible,instance_1_5-ground,nuXmv,541.45,3745000,true,okay,
+sync-impossible,instance_1_5-ground,UPPAAL,131.05,909000,true,okay,
+sync-impossible,instance_1_5-cert-conv,shell-script,,,true,out of memory,
+sync-impossible,instance_1_5-muntac-cert-check,muntac,,,,file missing,No certificate to check. Expected: ./muntax-dir/sync-impossible/instance_1_5.cert
+sync-impossible,instance_1_5,tfd,0.05,13596,true,okay,
+sync-impossible,instance_1_5,OPTIC,,,false,out of time,|
+sync-impossible,instance_1_5-ground,POPF,,,false,out of time,|
+sync-impossible,instance_1_5,nextflap,0.10,5396,true,okay,
+sync-impossible,instance_1_6,tck-aLUcovreach,,,false,out of time,|
+sync-impossible,instance_1_6,tck-covreach,,,false,out of time,|
+sync-impossible,instance_1_6-ground,TAMER-ctp,30.91,428912,true,okay,
+sync-impossible,instance_1_6-ground,TAMER-ftp,,,false,out of memory,|
+sync-impossible,instance_1_6-ground,nuXmv,3.48,104012,true,okay,
+sync-impossible,instance_1_6-ground,UPPAAL,,,false,out of time,|
+sync-impossible,instance_1_6-cert-conv,shell-script,,,true,out of memory,
+sync-impossible,instance_1_6-muntac-cert-check,muntac,,,,file missing,No certificate to check. Expected: ./muntax-dir/sync-impossible/instance_1_6.cert
+sync-impossible,instance_1_6,tfd,0.04,13772,true,okay,
+sync-impossible,instance_1_6,OPTIC,,,false,out of time,|
+sync-impossible,instance_1_6-ground,POPF,,,false,out of time,|
+sync-impossible,instance_1_6,nextflap,0.12,5112,true,okay,
+sync-impossible,instance_1_7,tck-aLUcovreach,,,false,out of time,|
+sync-impossible,instance_1_7,tck-covreach,,,false,out of time,|
+sync-impossible,instance_1_7-ground,TAMER-ctp,,,false,out of time,|
+sync-impossible,instance_1_7-ground,TAMER-ftp,,,false,out of memory,|
+sync-impossible,instance_1_7-ground,nuXmv,6.75,171248,true,okay,
+sync-impossible,instance_1_7-ground,UPPAAL,,,false,out of time,|
+sync-impossible,instance_1_7-cert-conv,shell-script,,,true,out of memory,
+sync-impossible,instance_1_7-muntac-cert-check,muntac,,,,file missing,No certificate to check. Expected: ./muntax-dir/sync-impossible/instance_1_7.cert
+sync-impossible,instance_1_7,tfd,0.05,13932,true,okay,
+sync-impossible,instance_1_7,OPTIC,,,false,out of time,|
+sync-impossible,instance_1_7-ground,POPF,,,false,out of time,|
+sync-impossible,instance_1_7,nextflap,0.09,5400,true,okay,
+sync-impossible,instance_1_8,tck-aLUcovreach,,,false,out of time,|
+sync-impossible,instance_1_8,tck-covreach,,,false,out of time,|
+sync-impossible,instance_1_8-ground,TAMER-ctp,,,false,out of time,|
+sync-impossible,instance_1_8-ground,TAMER-ftp,,,false,out of memory,|
+sync-impossible,instance_1_8-ground,nuXmv,,,false,out of time,|
+sync-impossible,instance_1_8-ground,UPPAAL,,,false,out of time,|
+sync-impossible,instance_1_8-cert-conv,shell-script,,,true,out of memory,
+sync-impossible,instance_1_8-muntac-cert-check,muntac,,,,file missing,No certificate to check. Expected: ./muntax-dir/sync-impossible/instance_1_8.cert
+sync-impossible,instance_1_8,tfd,0.05,13596,true,okay,
+sync-impossible,instance_1_8,OPTIC,,,false,out of time,|
+sync-impossible,instance_1_8-ground,POPF,,,false,out of time,|
+sync-impossible,instance_1_8,nextflap,0.06,5388,true,okay,
+sync-impossible,instance_1_9,tck-aLUcovreach,,,false,out of time,|
+sync-impossible,instance_1_9,tck-covreach,,,false,out of time,|
+sync-impossible,instance_1_9-ground,TAMER-ctp,,,false,out of time,|
+sync-impossible,instance_1_9-ground,TAMER-ftp,,,false,out of time,|
+sync-impossible,instance_1_9-ground,nuXmv,407.25,3695340,true,okay,
+sync-impossible,instance_1_9-ground,UPPAAL,,,false,out of time,|
+sync-impossible,instance_1_9-cert-conv,shell-script,,,true,out of memory,
+sync-impossible,instance_1_9-muntac-cert-check,muntac,,,,file missing,No certificate to check. Expected: ./muntax-dir/sync-impossible/instance_1_9.cert
+sync-impossible,instance_1_9,tfd,0.05,14032,true,okay,
+sync-impossible,instance_1_9,OPTIC,,,false,out of time,|
+sync-impossible,instance_1_9-ground,POPF,,,false,out of time,|
+sync-impossible,instance_1_9,nextflap,0.11,5388,true,okay,

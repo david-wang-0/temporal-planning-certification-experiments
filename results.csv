@@ -1,0 +1,1071 @@
+domain,instance,solver,time(s),memory(kB),identified as unsolvable,status
+MatchCellar-impossible,instance_02,tck-aLUcovreach,0.01,11260,true,okay,
+MatchCellar-impossible,instance_02,tck-covreach,0.01,9904,true,okay,
+MatchCellar-impossible,instance_02-ground,TAMER-ctp,0.01,5380,true,okay,
+MatchCellar-impossible,instance_02-ground,nuXmv,0.16,59156,true,okay,
+MatchCellar-impossible,instance_02-ground,UPPAAL,0.01,19492,true,okay,
+MatchCellar-impossible,instance_02-cert-conv,shell-script,0.06,16732,true,okay,
+MatchCellar-impossible,instance_02-muntac-cert-check,muntac,0.03,26616,true,okay,
+MatchCellar-impossible,instance_02,tfd,0.05,15868,true,okay,
+MatchCellar-impossible,instance_02,OPTIC,0.01,13744,true,okay,
+MatchCellar-impossible,instance_02-ground,POPF,0.01,12332,true,okay,
+MatchCellar-impossible,instance_03,tck-aLUcovreach,0.01,14828,true,okay,
+MatchCellar-impossible,instance_03,tck-covreach,0.01,14648,true,okay,
+MatchCellar-impossible,instance_03-ground,TAMER-ctp,0.03,5376,true,okay,
+MatchCellar-impossible,instance_03-ground,nuXmv,0.44,64048,true,okay,
+MatchCellar-impossible,instance_03-ground,UPPAAL,0.02,20524,true,okay,
+MatchCellar-impossible,instance_03-cert-conv,shell-script,0.14,22372,true,okay,
+MatchCellar-impossible,instance_03-muntac-cert-check,muntac,0.07,55060,true,okay,
+MatchCellar-impossible,instance_03,tfd,0.05,15600,true,okay,
+MatchCellar-impossible,instance_03,OPTIC,0.01,13220,true,okay,
+MatchCellar-impossible,instance_03-ground,POPF,0.01,12420,true,okay,
+MatchCellar-impossible,instance_04,tck-aLUcovreach,9.01,133132,true,okay,
+MatchCellar-impossible,instance_04,tck-covreach,74.46,240276,true,okay,
+MatchCellar-impossible,instance_04-ground,TAMER-ctp,,,false,out of time,|
+MatchCellar-impossible,instance_04-ground,nuXmv,,,false,out of time,|
+MatchCellar-impossible,instance_04-ground,UPPAAL,,,false,out of memory,|
+MatchCellar-impossible,instance_04-cert-conv,shell-script,82.14,5977012,true,okay,
+MatchCellar-impossible,instance_04-muntac-cert-check,muntac,76.77,32763084,true,okay,
+MatchCellar-impossible,instance_04,tfd,0.28,39852,true,okay,
+MatchCellar-impossible,instance_04,OPTIC,54.68,2378572,true,okay,
+MatchCellar-impossible,instance_04-ground,POPF,58.80,2356788,true,okay,
+MatchCellar-impossible,instance_05,tck-aLUcovreach,,,false,out of time,|
+MatchCellar-impossible,instance_05,tck-covreach,,,false,out of time,|
+MatchCellar-impossible,instance_05-ground,TAMER-ctp,,,false,out of time,|
+MatchCellar-impossible,instance_05-ground,nuXmv,,,false,out of time,|
+MatchCellar-impossible,instance_05-ground,UPPAAL,,,false,out of memory,|
+MatchCellar-impossible,instance_05-cert-conv,shell-script,,,true,out of memory,
+MatchCellar-impossible,instance_05-muntac-cert-check,muntac,,,,file missing,No certificate to check. Expected: ./muntax-dir/MatchCellar-impossible/instance_05.cert
+MatchCellar-impossible,instance_05,tfd,162.95,2231504,true,okay,
+MatchCellar-impossible,instance_05,OPTIC,,,false,out of time,|
+MatchCellar-impossible,instance_05-ground,POPF,,,false,out of time,|
+MatchCellar-impossible,instance_06,tck-aLUcovreach,,,false,out of time,|
+MatchCellar-impossible,instance_06,tck-covreach,,,false,out of time,|
+MatchCellar-impossible,instance_06-ground,TAMER-ctp,,,false,out of time,|
+MatchCellar-impossible,instance_06-ground,nuXmv,,,false,out of time,|
+MatchCellar-impossible,instance_06-ground,UPPAAL,,,false,out of memory,|
+MatchCellar-impossible,instance_06-cert-conv,shell-script,,,true,out of memory,
+MatchCellar-impossible,instance_06-muntac-cert-check,muntac,,,,file missing,No certificate to check. Expected: ./muntax-dir/MatchCellar-impossible/instance_06.cert
+MatchCellar-impossible,instance_06,tfd,,,false,out of time,|
+MatchCellar-impossible,instance_06,OPTIC,,,false,out of time,|
+MatchCellar-impossible,instance_06-ground,POPF,,,false,out of time,|
+MatchCellar-impossible,instance_07,tck-aLUcovreach,,,false,out of time,|
+MatchCellar-impossible,instance_07,tck-covreach,,,false,out of time,|
+MatchCellar-impossible,instance_07-ground,TAMER-ctp,,,false,out of time,|
+MatchCellar-impossible,instance_07-ground,nuXmv,,,false,out of time,|
+MatchCellar-impossible,instance_07-ground,UPPAAL,,,false,out of memory,|
+MatchCellar-impossible,instance_07-cert-conv,shell-script,,,true,out of memory,
+MatchCellar-impossible,instance_07-muntac-cert-check,muntac,,,,file missing,No certificate to check. Expected: ./muntax-dir/MatchCellar-impossible/instance_07.cert
+MatchCellar-impossible,instance_07,tfd,,,false,out of time,|
+MatchCellar-impossible,instance_07,OPTIC,,,false,out of time,|
+MatchCellar-impossible,instance_07-ground,POPF,,,false,out of time,|
+MatchCellar-impossible,instance_08,tck-aLUcovreach,,,false,out of time,|
+MatchCellar-impossible,instance_08,tck-covreach,,,false,out of time,|
+MatchCellar-impossible,instance_08-ground,TAMER-ctp,,,false,out of memory,|
+MatchCellar-impossible,instance_08-ground,nuXmv,,,false,out of time,|
+MatchCellar-impossible,instance_08-ground,UPPAAL,,,false,out of memory,|
+MatchCellar-impossible,instance_08-cert-conv,shell-script,,,true,out of memory,
+MatchCellar-impossible,instance_08-muntac-cert-check,muntac,,,,file missing,No certificate to check. Expected: ./muntax-dir/MatchCellar-impossible/instance_08.cert
+MatchCellar-impossible,instance_08,tfd,,,false,out of time,|
+MatchCellar-impossible,instance_08,OPTIC,,,false,out of time,|
+MatchCellar-impossible,instance_08-ground,POPF,,,false,out of time,|
+MatchCellar-impossible,instance_09,tck-aLUcovreach,,,false,out of time,|
+MatchCellar-impossible,instance_09,tck-covreach,,,false,out of time,|
+MatchCellar-impossible,instance_09-ground,TAMER-ctp,,,false,out of memory,|
+MatchCellar-impossible,instance_09-ground,nuXmv,,,false,out of time,|
+MatchCellar-impossible,instance_09-ground,UPPAAL,,,false,out of memory,|
+MatchCellar-impossible,instance_09-cert-conv,shell-script,,,true,out of memory,
+MatchCellar-impossible,instance_09-muntac-cert-check,muntac,,,,file missing,No certificate to check. Expected: ./muntax-dir/MatchCellar-impossible/instance_09.cert
+MatchCellar-impossible,instance_09,tfd,,,false,out of time,|
+MatchCellar-impossible,instance_09,OPTIC,,,false,out of time,|
+MatchCellar-impossible,instance_09-ground,POPF,,,false,out of time,|
+MatchCellar-impossible,instance_10,tck-aLUcovreach,,,false,out of memory,|
+MatchCellar-impossible,instance_10,tck-covreach,,,false,out of memory,|
+MatchCellar-impossible,instance_10-ground,TAMER-ctp,,,false,out of memory,|
+MatchCellar-impossible,instance_10-ground,nuXmv,,,false,out of time,|
+MatchCellar-impossible,instance_10-ground,UPPAAL,,,false,out of memory,|
+MatchCellar-impossible,instance_10-cert-conv,shell-script,,,true,out of memory,
+MatchCellar-impossible,instance_10-muntac-cert-check,muntac,,,,file missing,No certificate to check. Expected: ./muntax-dir/MatchCellar-impossible/instance_10.cert
+MatchCellar-impossible,instance_10,tfd,,,false,out of time,|
+MatchCellar-impossible,instance_10,OPTIC,,,false,out of time,|
+MatchCellar-impossible,instance_10-ground,POPF,,,false,out of time,|
+MatchCellar-impossible,instance_solvable,tck-aLUcovreach,0.02,10600,false,okay,|COVERED_STATES 13
+MEMORY_MAX_RSS 10600
+REACHABLE true
+RUNNING_TIME_SECONDS 0.000810912
+STORED_STATES 45
+VISITED_STATES 39
+VISITED_TRANSITIONS 57
+MatchCellar-impossible,instance_solvable,tck-covreach,0.00,8908,false,okay,|COVERED_STATES 15
+MEMORY_MAX_RSS 8908
+REACHABLE true
+RUNNING_TIME_SECONDS 0.000331543
+STORED_STATES 55
+VISITED_STATES 49
+VISITED_TRANSITIONS 69
+MatchCellar-impossible,instance_solvable-ground,TAMER-ctp,0.01,4680,false,okay,|;; A plan has been found:
+0: action__light_match_match0_() [5]
+0.01: action__mend_fuse_fuse0_match0_() [2]
+2.02: action__mend_fuse_fuse1_match0_() [2]
+MatchCellar-impossible,instance_solvable-ground,nuXmv,0.04,58288,false,okay,|*** This is nuXmv 2.1.0 (compiled on Fri Nov 29 13:41:31 2024)
+*** Copyright (c) 2014-2024, Fondazione Bruno Kessler
+*** For more information on nuXmv see https://nuxmv.fbk.eu
+*** or email to <nuxmv@fbk.eu>.
+*** Please report bugs at Please report bugs to <nusmv-users@fbk.eu>
+*** (click on "Login Anonymously" to access)
+*** Alternatively write to <nuxmv@fbk.eu>.
+
+*** This version of nuXmv is linked to NuSMV 2.7.0.
+*** For more information on NuSMV see <http://nusmv.fbk.eu>
+*** or email to <nusmv-users@fbk.eu>.
+*** Copyright (C) 2010-2024, Fondazione Bruno Kessler
+
+*** This version of nuXmv is linked to the CUDD library version 2.4.1
+*** Copyright (c) 1995-2004, Regents of the University of Colorado
+
+*** This version of nuXmv is linked to the MiniSat SAT solver. 
+*** See http://minisat.se/MiniSat.html
+*** Copyright (c) 2003-2006, Niklas Een, Niklas Sorensson
+*** Copyright (c) 2007-2010, Niklas Sorensson
+
+*** This version of nuXmv is linked to MathSAT
+*** Copyright (C) 2009-2019 by Fondazione Bruno Kessler
+*** Copyright (C) 2009-2019 by University of Trento and others
+*** See http://mathsat.fbk.eu
+
+nuXmv > -- no proof or counterexample found with bound 0
+-- no proof or counterexample found with bound 1
+-- no proof or counterexample found with bound 2
+-- no proof or counterexample found with bound 3
+-- invariant !((((!action__light_match_match0__running & !action__mend_fuse_fuse0_match0__running) & !action__mend_fuse_fuse1_match0__running) & mended_fuse1) & mended_fuse0)  is false
+-- as demonstrated by the following execution sequence
+Trace Description: IC3 smt counterexample 
+Trace Type: Counterexample 
+  -> State: 1.1 <-
+    action__light_match_match0__clock = 0.0
+    action__mend_fuse_fuse0_match0__clock = 0.0
+    action__mend_fuse_fuse1_match0__clock = 0.0
+    handfree = TRUE
+    light_match0 = FALSE
+    mended_fuse0 = FALSE
+    mended_fuse1 = FALSE
+    unused_match0 = TRUE
+    action__light_match_match0__running = FALSE
+    action__mend_fuse_fuse0_match0__running = FALSE
+    action__mend_fuse_fuse0_match0__0 = FALSE
+    action__mend_fuse_fuse1_match0__running = FALSE
+    action__mend_fuse_fuse1_match0__0 = FALSE
+  -- [ discrete transition ] --
+  -> State: 1.2 <-
+    light_match0 = TRUE
+    unused_match0 = FALSE
+    action__light_match_match0__running = TRUE
+  -- [ time elapse: time = 0.0; delta = 1.0 ] --
+  -> State: 1.3 <-
+    action__light_match_match0__clock = 1.0
+    action__mend_fuse_fuse0_match0__clock = 1.0
+    action__mend_fuse_fuse1_match0__clock = 1.0
+  -- [ discrete transition ] --
+  -> State: 1.4 <-
+    action__mend_fuse_fuse0_match0__clock = 0.0
+    handfree = FALSE
+    action__mend_fuse_fuse0_match0__running = TRUE
+  -- [ time elapse: time = 1.0; delta = 2.0 ] --
+  -> State: 1.5 <-
+    action__light_match_match0__clock = 3.0
+    action__mend_fuse_fuse0_match0__clock = 2.0
+    action__mend_fuse_fuse1_match0__clock = 3.0
+  -- [ discrete transition ] --
+  -> State: 1.6 <-
+    handfree = TRUE
+    mended_fuse0 = TRUE
+    action__mend_fuse_fuse0_match0__running = FALSE
+    action__mend_fuse_fuse0_match0__0 = TRUE
+  -- [ discrete transition ] --
+  -> State: 1.7 <-
+    action__mend_fuse_fuse1_match0__clock = 0.0
+    handfree = FALSE
+    action__mend_fuse_fuse1_match0__running = TRUE
+  -- [ time elapse: time = 3.0; delta = 2.0 ] --
+  -> State: 1.8 <-
+    action__light_match_match0__clock = 5.0
+    action__mend_fuse_fuse0_match0__clock = 4.0
+    action__mend_fuse_fuse1_match0__clock = 2.0
+  -- [ discrete transition ] --
+  -> State: 1.9 <-
+    handfree = TRUE
+    light_match0 = FALSE
+    mended_fuse1 = TRUE
+    action__light_match_match0__running = FALSE
+    action__mend_fuse_fuse1_match0__running = FALSE
+    action__mend_fuse_fuse1_match0__0 = TRUE
+MatchCellar-impossible,instance_solvable-ground,UPPAAL,,,false,out of memory,|
+MatchCellar-impossible,instance_solvable-cert-conv,shell-script,,,true,out of memory,
+MatchCellar-impossible,instance_solvable-muntac-cert-check,muntac,,,,file missing,No certificate to check. Expected: ./muntax-dir/MatchCellar-impossible/instance_solvable.cert
+MatchCellar-impossible,instance_solvable,tfd,0.24,13392,false,okay,|Parsing... Contains quantified condition(s): False Instantiating... Trivial rules: Converted to facts. Starting instantiation [12 rules]... Finding invariants... Finding invariants... 7 initial candidates [0.000s CPU, 0.000s wall-clock] Checking invariant weight... [0.000s CPU, 0.000s wall-clock] Instantiating groups... Choosing groups... 5 uncovered facts (before using the results from the invariant synthesis) 3 uncovered facts Building translation key... Building STRIPS to SAS dictionary... Translating task... Processing axioms... Found 0 axioms that are always true and 0 that are always false constrained 3 conditions Writing output... Done! contains_quantified_conditions: 0 Building causal graph... The causal graph is not acyclic. 6 variables of 6 necessary 3 of 3 operators necessary. 0 of 0 Axiom_relational rules necessary. 0 of 0 Axiom_functional rules necessary. Building domain transition graphs... solveable in poly time 0 Building successor generator... all_operator_indices.size(): 3 Writing output... printing SG 6 done Planner Paramters: Anytime Search: Enabled Timeout if plan was found: 0 seconds (no timeout) Timeout while no plan was found: 0 seconds (no timeout) Greedy Search: Disabled Verbose: Enabled Lazy Heuristic Evaluation: Enabled Use caching in heuristic. Cyclic CG heuristic: Enabled Preferred Operators: Enabled Makespan heuristic: Disabled Preferred Operators: Disabled No Heuristic: Disabled Cg Heuristic Zero Cost Waiting Transitions: Enabled Cg Heuristic Fire Waiting Transitions Only If Local Problems Matches State: Disabled PrefOpsOrderedMode: Enabled with 1 goals PrefOpsCheapestMode: Enabled with 1 goals PrefOpsMostExpensiveMode: Disabled with 1000 goals PrefOpsRandMode: Disabled with 1000 goals PrefOpsConcurrentMode: Disabled Reset after solution was found: Enabled Reward only preferred operators queue: Disabled GValues by: Timestamp Queue management mode: Priority based Known by logical state only filtering: Disabled use_subgoals_to_break_makespan_ties: Disabled Reschedule plans: Enabled Epsilonize internally: Enabled Epsilonize externally: Disabled Keep original plans: Enabled Plan name: "/home/david/work/tchecker-experiments/plan-dir/MatchCellar-impossible/tfd_instance_solvable_plan.pddl" Plan monitor file: "" (no monitoring) Monitoring verify timestamps: Disabled Contains universal conditions: 0 Giving prior boost to open list 0 INIT Open list sizes (priorities): 0 (-5000), 0 (0), 0 (0), 0 (0), Initializing cyclic causal graph heuristic...done. Best heuristic values of queues: 14/-1/-1/-1 [expanded 1 state(s)] Best heuristic values of queues: 4/-1/-1/-1 [expanded 2 state(s)] Best heuristic values of queues: 3.98/-1/-1/-1 [expanded 3 state(s)] Best heuristic values of queues: 2/-1/-1/-1 [expanded 4 state(s)] Best heuristic values of queues: 0.9/-1/-1/-1 [expanded 8 state(s)] Best heuristic values of queues: 0/-1/-1/-1 [expanded 9 state(s)] New solution has been found. Found new plan: 0.00000000: (light_match match0) [5.00000000] 0.01000000: (mend_fuse fuse0 match0) [2.00000000] 2.02000000: (mend_fuse fuse1 match0) [2.00000000] Rescheduled Plan: 0.00100000: (light_match match0) [5.00000000] 0.01100000: (mend_fuse fuse0 match0) [2.00000000] 2.02100000: (mend_fuse fuse1 match0) [2.00000000] Solution with original makespan 5 found (ignoring no-moving-targets-rule). Plan length: 3 step(s). Makespan : 5.001 Rescheduled Makespan : 5.001 INIT Open list sizes (priorities): 1 (-10992), 9 (0), 10 (0), 8 (0), Best heuristic values of queues: 0/-1/-1/3.98 [expanded 10 state(s)] Completely explored state space -- best plan found! New solution has been found. Search time: 0 seconds - Walltime: 0.000808001 seconds Total time: 0 seconds - Walltime: 0.000914097 seconds ('translate/translate.py', '/home/david/work/tchecker-experiments/pddl-domains/MatchCellar-impossible/domain.pddl', '/home/david/work/tchecker-experiments/pddl-domains/MatchCellar-impossible/instances/instance_solvable.pddl') {} ('preprocess/preprocess',) {'stdin': <_io.TextIOWrapper name='output.sas' mode='r' encoding='UTF-8'>} ('search/search', 'y+Y+a+e+r+O+1+C+1+b', 'p', '/home/david/work/tchecker-experiments/plan-dir/MatchCellar-impossible/tfd_instance_solvable_plan.pddl') {'stdin': <_io.TextIOWrapper name='output' mode='r' encoding='UTF-8'>}
+MatchCellar-impossible,instance_solvable,OPTIC,0.02,13076,false,okay,|Number of literals: 5 Constructing lookup tables: Post filtering unreachable actions: Seeing if metric is defined in terms of task vars or a minimal value of makespan - Yes it is Recognised a monotonic-change-induced limit on -1.000*<special> - Must be >= the metric [01;31mLooking for achievers for goal index 0, fact (mended fuse0) with fID 3[00m (mend_fuse fuse0 match0) [01;34mFor limits: literal goal index 0, fact (mended fuse0), could be achieved by operator (mend_fuse fuse0 match0), which has other interesting effects (including one on (handfree) )[00m [01;31mLooking for achievers for goal index 1, fact (mended fuse1) with fID 4[00m (mend_fuse fuse1 match0) [01;34mFor limits: literal goal index 1, fact (mended fuse1), could be achieved by operator (mend_fuse fuse1 match0), which has other interesting effects (including one on (handfree) )[00m 66% of the ground temporal actions in this problem are compression-safe Initial heuristic = 4.000, admissible cost estimate 2.002 b (3.000 | 5.000)b (2.000 | 4.999)b (1.000 | 5.000)(G) ; LP calculated the cost ; Plan found with metric 5.000 ; Theoretical reachable cost 5.000 ; States evaluated so far: 5 ; States pruned based on pre-heuristic cost lower bound: 0 ; Time 0.00 0.000: (light_match match0) [5.000] 0.999: (mend_fuse fuse1 match0) [2.000] 3.000: (mend_fuse fuse0 match0) [2.000] args.sh convert_models examples files.sh grounder ground-pddl-problems makefile massif.out.112262 massif.out.119389 massif.out.119862 massif.out.119933 massif.out.120161 massif.out.120225 massif.out.121416 massif.out.121543 massif.out.123705 massif.out.123723 massif.out.124186 memory.sh muntac muntax-dir nextflap nuXmv nuxmv-dir optic-clp pddl-domains plan_cert plan-dir popf3-clp Readme.md results.csv results.temp.csv run.log run_optic.sh run.py run.sh run_tfd.sh smv-dir tamer tck-dir tck_examples tck-reach tfd time.sh todo.md uppaal-dir All goal deadlines now no later than 5.000 Resorting to best-first search Running WA* with W = 5.000, not restarting with goal states Problem Unsolvable ;;;; Solution Found ; States evaluated: 6 ; Cost: 5.000 ; Time 0.00 0.000: (light_match match0) [5.000] 0.999: (mend_fuse fuse1 match0) [2.000] 3.000: (mend_fuse fuse0 match0) [2.000]
+MatchCellar-impossible,instance_solvable-ground,POPF,0.00,11960,false,okay,|Warnings encountered when parsing Domain/Problem File ----------------------------------------------------- The supplied domain/problem file appear to violate part of the PDDL language specification. Specifically: Errors: 0, warnings: 9 ./ground-pddl-problems/MatchCellar-impossible/instance_solvable_domain.pddl: line: 15: Warning: Undeclared requirement :duration-inequalities ./ground-pddl-problems/MatchCellar-impossible/instance_solvable_domain.pddl: line: 16: Warning: Undeclared requirement :duration-inequalities ./ground-pddl-problems/MatchCellar-impossible/instance_solvable_domain.pddl: line: 25: Warning: Undeclared requirement :durative-actions ./ground-pddl-problems/MatchCellar-impossible/instance_solvable_domain.pddl: line: 30: Warning: Undeclared requirement :duration-inequalities ./ground-pddl-problems/MatchCellar-impossible/instance_solvable_domain.pddl: line: 31: Warning: Undeclared requirement :duration-inequalities ./ground-pddl-problems/MatchCellar-impossible/instance_solvable_domain.pddl: line: 43: Warning: Undeclared requirement :durative-actions ./ground-pddl-problems/MatchCellar-impossible/instance_solvable_domain.pddl: line: 48: Warning: Undeclared requirement :duration-inequalities ./ground-pddl-problems/MatchCellar-impossible/instance_solvable_domain.pddl: line: 49: Warning: Undeclared requirement :duration-inequalities ./ground-pddl-problems/MatchCellar-impossible/instance_solvable_domain.pddl: line: 61: Warning: Undeclared requirement :durative-actions The planner will continue, but you may wish to fix your files accordingly Number of literals: 5 Constructing lookup tables: Post filtering unreachable actions: [01;34mNo analytic limits found, not considering limit effects of goal-only operators[00m 66% of the ground temporal actions in this problem are compression-safe Initial heuristic = 4.000 b (3.000 | 5.000)b (2.000 | 5.000)b (1.000 | 5.000);;;; Solution Found ; States evaluated: 5 ; Cost: 5.000 ; Time 0.00 0.000: (_light_match_match0_) [5.000] 0.001: (_mend_fuse_fuse1_match0_) [2.000] 2.002: (_mend_fuse_fuse0_match0_) [2.000]
+domain,instance,solver,time(s),memory(kB),identified as unsolvable,status
+sync-impossible,*,tck-aLUcovreach,,,false,out of memory,|
+sync-impossible,*,tck-covreach,,,false,out of memory,|
+sync-impossible,*-ground,TAMER-ctp,,,false,out of memory,|
+sync-impossible,*-ground,nuXmv,0.01,32904,false,okay,|*** This is nuXmv 2.1.0 (compiled on Fri Nov 29 13:41:31 2024)
+*** Copyright (c) 2014-2024, Fondazione Bruno Kessler
+*** For more information on nuXmv see https://nuxmv.fbk.eu
+*** or email to <nuxmv@fbk.eu>.
+*** Please report bugs at Please report bugs to <nusmv-users@fbk.eu>
+*** (click on "Login Anonymously" to access)
+*** Alternatively write to <nuxmv@fbk.eu>.
+
+*** This version of nuXmv is linked to NuSMV 2.7.0.
+*** For more information on NuSMV see <http://nusmv.fbk.eu>
+*** or email to <nusmv-users@fbk.eu>.
+*** Copyright (C) 2010-2024, Fondazione Bruno Kessler
+
+*** This version of nuXmv is linked to the CUDD library version 2.4.1
+*** Copyright (c) 1995-2004, Regents of the University of Colorado
+
+*** This version of nuXmv is linked to the MiniSat SAT solver. 
+*** See http://minisat.se/MiniSat.html
+*** Copyright (c) 2003-2006, Niklas Een, Niklas Sorensson
+*** Copyright (c) 2007-2010, Niklas Sorensson
+
+*** This version of nuXmv is linked to MathSAT
+*** Copyright (C) 2009-2019 by Fondazione Bruno Kessler
+*** Copyright (C) 2009-2019 by University of Trento and others
+*** See http://mathsat.fbk.eu
+
+nuXmv > 
+file ./nuxmv-dir/sync-impossible/args.sh.smv: line 1: cannot open input file ./nuxmv-dir/sync-impossible/args.sh.smv
+nuXmv > 
+Use "quit" to leave NuSMV.
+nuXmv > 
+Use "quit" to leave NuSMV.
+nuXmv > 
+Use "quit" to leave NuSMV.
+nuXmv > 
+Use "quit" to leave NuSMV.
+nuXmv > 
+Use "quit" to leave NuSMV.
+nuXmv > 
+sync-impossible,*-ground,UPPAAL,,,false,out of memory,|
+sync-impossible,*-cert-conv,shell-script,,,,file missing,No model to obtain renaming. Expected: ./muntax-dir/sync-impossible/args.sh.muntax
+sync-impossible,*-muntac-cert-check,muntac,,,,file missing,No model to obtain renaming. Expected: ./muntax-dir/sync-impossible/args.sh.muntax
+sync-impossible,*,tfd,0.04,13240,false,okay,|Parsing... Error: Could not read file: /home/david/work/tchecker-experiments/pddl-domains/sync-impossible/domain.pddl Reason: [Errno 2] No such file or directory: '/home/david/work/tchecker-experiments/pddl-domains/sync-impossible/domain.pddl'. ('translate/translate.py', '/home/david/work/tchecker-experiments/pddl-domains/sync-impossible/domain.pddl', '/home/david/work/tchecker-experiments/pddl-domains/sync-impossible/instances/*.pddl') {} Traceback (most recent call last): File "/home/david/work/tchecker-experiments/./tfd/downward/tfd", line 44, in <module> main(domain, problem, result_name, config) ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ File "/home/david/work/tchecker-experiments/./tfd/downward/tfd", line 23, in main run("translate/translate.py", domain, problem) ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ File "/home/david/work/tchecker-experiments/./tfd/downward/tfd", line 20, in run subprocess.check_call(sum([arg.split("+") for arg in args],[]), **redirections) ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ File "/usr/lib/python3.13/subprocess.py", line 419, in check_call raise CalledProcessError(retcode, cmd) subprocess.CalledProcessError: Command '['translate/translate.py', '/home/david/work/tchecker-experiments/pddl-domains/sync-impossible/domain.pddl', '/home/david/work/tchecker-experiments/pddl-domains/sync-impossible/instances/*.pddl']' returned non-zero exit status 1.
+sync-impossible,*,OPTIC,,,false,139,|
+Command exited with non-zero status 139
+%%%139%30.51%7676
+sync-impossible,*-ground,POPF,,,false,139,|
+Command exited with non-zero status 139
+%%%139%12.74%7160
+domain,instance,solver,time(s),memory(kB),identified as unsolvable,status
+driverlog,instance_1_1_1_1,tck-aLUcovreach,0.00,10576,true,okay,
+driverlog,instance_1_1_1_1,tck-covreach,0.00,9080,true,okay,
+driverlog,instance_1_1_1_1-ground,TAMER-ctp,0.00,4452,true,okay,
+driverlog,instance_1_1_1_1-ground,nuXmv,0.05,58280,true,okay,
+driverlog,instance_1_1_1_1-ground,UPPAAL,,,false,out of memory,|
+driverlog,instance_1_1_1_1-cert-conv,shell-script,0.01,11436,true,okay,
+driverlog,instance_1_1_1_1-muntac-cert-check,muntac,0.12,16248,true,okay,
+driverlog,instance_1_1_1_1,tfd,0.05,13908,true,okay,
+driverlog,instance_1_1_1_1,OPTIC,0.00,11276,true,okay,
+driverlog,instance_1_1_1_1-ground,POPF,2.50,10224,true,okay,
+driverlog,instance_1_1_1_2,tck-aLUcovreach,0.02,17300,true,okay,
+driverlog,instance_1_1_1_2,tck-covreach,0.02,17460,true,okay,
+driverlog,instance_1_1_1_2-ground,TAMER-ctp,0.00,4452,true,okay,
+driverlog,instance_1_1_1_2-ground,nuXmv,0.07,60368,true,okay,
+driverlog,instance_1_1_1_2-ground,UPPAAL,,,false,out of memory,|
+driverlog,instance_1_1_1_2-cert-conv,shell-script,0.02,12512,true,okay,
+driverlog,instance_1_1_1_2-muntac-cert-check,muntac,0.05,35936,true,okay,
+driverlog,instance_1_1_1_2,tfd,0.05,13536,true,okay,
+driverlog,instance_1_1_1_2,OPTIC,0.00,11040,true,okay,
+driverlog,instance_1_1_1_2-ground,POPF,3.15,10232,true,okay,
+driverlog,instance_1_1_1_3,tck-aLUcovreach,0.15,131412,true,okay,
+driverlog,instance_1_1_1_3,tck-covreach,0.18,131596,true,okay,
+driverlog,instance_1_1_1_3-ground,TAMER-ctp,0.00,4964,true,okay,
+driverlog,instance_1_1_1_3-ground,nuXmv,0.09,63656,true,okay,
+driverlog,instance_1_1_1_3-ground,UPPAAL,,,false,out of memory,|
+driverlog,instance_1_1_1_3-cert-conv,shell-script,0.03,12884,true,okay,
+driverlog,instance_1_1_1_3-muntac-cert-check,muntac,0.12,69640,true,okay,
+driverlog,instance_1_1_1_3,tfd,0.05,13540,true,okay,
+driverlog,instance_1_1_1_3,OPTIC,0.00,11004,true,okay,
+driverlog,instance_1_1_1_3-ground,POPF,5.12,10532,true,okay,
+driverlog,instance_1_1_2_1,tck-aLUcovreach,0.01,17460,true,okay,
+driverlog,instance_1_1_2_1,tck-covreach,0.02,17488,true,okay,
+driverlog,instance_1_1_2_1-ground,TAMER-ctp,0.00,4708,true,okay,
+driverlog,instance_1_1_2_1-ground,nuXmv,0.10,60696,true,okay,
+driverlog,instance_1_1_2_1-ground,UPPAAL,,,false,out of memory,|
+driverlog,instance_1_1_2_1-cert-conv,shell-script,0.02,12624,true,okay,
+driverlog,instance_1_1_2_1-muntac-cert-check,muntac,0.06,41936,true,okay,
+driverlog,instance_1_1_2_1,tfd,0.05,13904,true,okay,
+driverlog,instance_1_1_2_1,OPTIC,0.00,11040,true,okay,
+driverlog,instance_1_1_2_1-ground,POPF,0.00,10416,true,okay,
+driverlog,instance_1_1_2_2,tck-aLUcovreach,0.07,62988,true,okay,
+driverlog,instance_1_1_2_2,tck-covreach,0.07,62644,true,okay,
+driverlog,instance_1_1_2_2-ground,TAMER-ctp,0.00,4708,true,okay,
+driverlog,instance_1_1_2_2-ground,nuXmv,0.20,64412,true,okay,
+driverlog,instance_1_1_2_2-ground,UPPAAL,,,false,out of memory,|
+driverlog,instance_1_1_2_2-cert-conv,shell-script,0.06,14288,true,okay,
+driverlog,instance_1_1_2_2-muntac-cert-check,muntac,0.14,78004,true,okay,
+driverlog,instance_1_1_2_2,tfd,1.08,13536,true,okay,
+driverlog,instance_1_1_2_2,OPTIC,0.00,10520,true,okay,
+driverlog,instance_1_1_2_2-ground,POPF,0.00,10312,true,okay,
+driverlog,instance_1_1_2_3,tck-aLUcovreach,6.60,329716,true,okay,
+driverlog,instance_1_1_2_3,tck-covreach,0.48,330572,true,okay,
+driverlog,instance_1_1_2_3-ground,TAMER-ctp,0.00,4964,true,okay,
+driverlog,instance_1_1_2_3-ground,nuXmv,0.18,67356,true,okay,
+driverlog,instance_1_1_2_3-ground,UPPAAL,,,false,out of memory,|
+driverlog,instance_1_1_2_3-cert-conv,shell-script,0.07,16460,true,okay,
+driverlog,instance_1_1_2_3-muntac-cert-check,muntac,0.23,121124,true,okay,
+driverlog,instance_1_1_2_3,tfd,0.05,13780,true,okay,
+driverlog,instance_1_1_2_3,OPTIC,0.00,11056,true,okay,
+driverlog,instance_1_1_2_3-ground,POPF,0.00,10452,true,okay,
+driverlog,instance_1_1_3_1,tck-aLUcovreach,0.17,131528,true,okay,
+driverlog,instance_1_1_3_1,tck-covreach,0.15,131164,true,okay,
+driverlog,instance_1_1_3_1-ground,TAMER-ctp,0.00,4708,true,okay,
+driverlog,instance_1_1_3_1-ground,nuXmv,0.10,63792,true,okay,
+driverlog,instance_1_1_3_1-ground,UPPAAL,,,false,out of memory,|
+driverlog,instance_1_1_3_1-cert-conv,shell-script,0.09,18304,true,okay,
+driverlog,instance_1_1_3_1-muntac-cert-check,muntac,0.19,120944,true,okay,
+driverlog,instance_1_1_3_1,tfd,0.05,13908,true,okay,
+driverlog,instance_1_1_3_1,OPTIC,0.00,10940,true,okay,
+driverlog,instance_1_1_3_1-ground,POPF,0.00,10496,true,okay,
+driverlog,instance_1_1_3_2,tck-aLUcovreach,0.43,330404,true,okay,
+driverlog,instance_1_1_3_2,tck-covreach,0.42,330520,true,okay,
+driverlog,instance_1_1_3_2-ground,TAMER-ctp,0.00,4964,true,okay,
+driverlog,instance_1_1_3_2-ground,nuXmv,0.15,67572,true,okay,
+driverlog,instance_1_1_3_2-ground,UPPAAL,,,false,out of memory,|
+driverlog,instance_1_1_3_2-cert-conv,shell-script,0.15,23896,true,okay,
+driverlog,instance_1_1_3_2-muntac-cert-check,muntac,0.33,173764,true,okay,
+driverlog,instance_1_1_3_2,tfd,0.05,13784,true,okay,
+driverlog,instance_1_1_3_2,OPTIC,0.00,10972,true,okay,
+driverlog,instance_1_1_3_2-ground,POPF,0.00,10172,true,okay,
+driverlog,instance_1_1_3_3,tck-aLUcovreach,1.13,1091424,true,okay,
+driverlog,instance_1_1_3_3,tck-covreach,1.25,1091164,true,okay,
+driverlog,instance_1_1_3_3-ground,TAMER-ctp,0.00,5208,true,okay,
+driverlog,instance_1_1_3_3-ground,nuXmv,0.23,70728,true,okay,
+driverlog,instance_1_1_3_3-ground,UPPAAL,,,false,out of memory,|
+driverlog,instance_1_1_3_3-cert-conv,shell-script,0.23,32264,true,okay,
+driverlog,instance_1_1_3_3-muntac-cert-check,muntac,0.61,291732,true,okay,
+driverlog,instance_1_1_3_3,tfd,0.05,13448,true,okay,
+driverlog,instance_1_1_3_3,OPTIC,0.00,10916,true,okay,
+driverlog,instance_1_1_3_3-ground,POPF,0.00,10480,true,okay,
+driverlog,instance_1_2_1_1,tck-aLUcovreach,0.02,17444,true,okay,
+driverlog,instance_1_2_1_1,tck-covreach,0.01,17060,true,okay,
+driverlog,instance_1_2_1_1-ground,TAMER-ctp,0.00,4708,true,okay,
+driverlog,instance_1_2_1_1-ground,nuXmv,0.13,61660,true,okay,
+driverlog,instance_1_2_1_1-ground,UPPAAL,,,false,out of memory,|
+driverlog,instance_1_2_1_1-cert-conv,shell-script,0.02,12204,true,okay,
+driverlog,instance_1_2_1_1-muntac-cert-check,muntac,0.05,37832,true,okay,
+driverlog,instance_1_2_1_1,tfd,0.05,13780,true,okay,
+driverlog,instance_1_2_1_1,OPTIC,0.00,11076,true,okay,
+driverlog,instance_1_2_1_1-ground,POPF,0.00,10112,true,okay,
+driverlog,instance_1_2_1_2,tck-aLUcovreach,0.20,182436,true,okay,
+driverlog,instance_1_2_1_2,tck-covreach,0.20,182784,true,okay,
+driverlog,instance_1_2_1_2-ground,TAMER-ctp,0.00,4964,true,okay,
+driverlog,instance_1_2_1_2-ground,nuXmv,0.37,68076,true,okay,
+driverlog,instance_1_2_1_2-ground,UPPAAL,,,false,out of memory,|
+driverlog,instance_1_2_1_2-cert-conv,shell-script,0.04,13328,true,okay,
+driverlog,instance_1_2_1_2-muntac-cert-check,muntac,0.15,92392,true,okay,
+driverlog,instance_1_2_1_2,tfd,0.05,13508,true,okay,
+driverlog,instance_1_2_1_2,OPTIC,0.00,10924,true,okay,
+driverlog,instance_1_2_1_2-ground,POPF,0.00,10028,true,okay,
+driverlog,instance_1_2_1_3,tck-aLUcovreach,2.91,1946028,true,okay,
+driverlog,instance_1_2_1_3,tck-covreach,2.91,1946244,true,okay,
+driverlog,instance_1_2_1_3-ground,TAMER-ctp,0.01,5476,true,okay,
+driverlog,instance_1_2_1_3-ground,nuXmv,0.36,74840,true,okay,
+driverlog,instance_1_2_1_3-ground,UPPAAL,,,false,out of memory,|
+driverlog,instance_1_2_1_3-cert-conv,shell-script,0.08,16276,true,okay,
+driverlog,instance_1_2_1_3-muntac-cert-check,muntac,0.35,180644,true,okay,
+driverlog,instance_1_2_1_3,tfd,0.05,13904,true,okay,
+driverlog,instance_1_2_1_3,OPTIC,0.00,11052,true,okay,
+driverlog,instance_1_2_1_3-ground,POPF,0.00,10248,true,okay,
+driverlog,instance_1_2_2_1,tck-aLUcovreach,0.26,182896,true,okay,
+driverlog,instance_1_2_2_1,tck-covreach,0.26,182612,true,okay,
+driverlog,instance_1_2_2_1-ground,TAMER-ctp,0.00,4964,true,okay,
+driverlog,instance_1_2_2_1-ground,nuXmv,0.18,66316,true,okay,
+driverlog,instance_1_2_2_1-ground,UPPAAL,,,false,out of memory,|
+driverlog,instance_1_2_2_1-cert-conv,shell-script,0.32,37056,true,okay,
+driverlog,instance_1_2_2_1-muntac-cert-check,muntac,0.49,276276,true,okay,
+driverlog,instance_1_2_2_1,tfd,0.05,13780,true,okay,
+driverlog,instance_1_2_2_1,OPTIC,0.00,11020,true,okay,
+driverlog,instance_1_2_2_1-ground,POPF,0.00,10456,true,okay,
+driverlog,instance_1_2_2_2,tck-aLUcovreach,1.03,882104,true,okay,
+driverlog,instance_1_2_2_2,tck-covreach,1.04,882104,true,okay,
+driverlog,instance_1_2_2_2-ground,TAMER-ctp,0.00,5220,true,okay,
+driverlog,instance_1_2_2_2-ground,nuXmv,0.30,71708,true,okay,
+driverlog,instance_1_2_2_2-ground,UPPAAL,,,false,out of memory,|
+driverlog,instance_1_2_2_2-cert-conv,shell-script,0.56,60200,true,okay,
+driverlog,instance_1_2_2_2-muntac-cert-check,muntac,1.04,580492,true,okay,
+driverlog,instance_1_2_2_2,tfd,0.05,13484,true,okay,
+driverlog,instance_1_2_2_2,OPTIC,0.00,11004,true,okay,
+driverlog,instance_1_2_2_2-ground,POPF,0.00,10420,true,okay,
+driverlog,instance_1_2_2_3,tck-aLUcovreach,8.25,5058732,true,okay,
+driverlog,instance_1_2_2_3,tck-covreach,8.35,5058768,true,okay,
+driverlog,instance_1_2_2_3-ground,TAMER-ctp,0.01,5988,true,okay,
+driverlog,instance_1_2_2_3-ground,nuXmv,0.38,81844,true,okay,
+driverlog,instance_1_2_2_3-ground,UPPAAL,,,false,out of memory,|
+driverlog,instance_1_2_2_3-cert-conv,shell-script,1.70,177176,true,okay,
+driverlog,instance_1_2_2_3-muntac-cert-check,muntac,4.51,1993996,true,okay,
+driverlog,instance_1_2_2_3,tfd,0.04,14016,true,okay,
+driverlog,instance_1_2_2_3,OPTIC,0.00,11384,true,okay,
+driverlog,instance_1_2_2_3-ground,POPF,0.00,10624,true,okay,
+driverlog,instance_1_2_3_1,tck-aLUcovreach,7.67,1945952,true,okay,
+driverlog,instance_1_2_3_1,tck-covreach,9.00,1945876,true,okay,
+driverlog,instance_1_2_3_1-ground,TAMER-ctp,0.01,5476,true,okay,
+driverlog,instance_1_2_3_1-ground,nuXmv,0.30,75160,true,okay,
+driverlog,instance_1_2_3_1-ground,UPPAAL,,,false,out of memory,|
+driverlog,instance_1_2_3_1-cert-conv,shell-script,8.53,795344,true,okay,
+driverlog,instance_1_2_3_1-muntac-cert-check,muntac,18.02,8549496,true,okay,
+driverlog,instance_1_2_3_1,tfd,0.05,13484,true,okay,
+driverlog,instance_1_2_3_1,OPTIC,0.00,10552,true,okay,
+driverlog,instance_1_2_3_1-ground,POPF,0.00,10400,true,okay,
+driverlog,instance_1_2_3_2,tck-aLUcovreach,19.57,5058404,true,okay,
+driverlog,instance_1_2_3_2,tck-covreach,23.39,5058628,true,okay,
+driverlog,instance_1_2_3_2-ground,TAMER-ctp,0.01,5988,true,okay,
+driverlog,instance_1_2_3_2-ground,nuXmv,0.76,83168,true,okay,
+driverlog,instance_1_2_3_2-ground,UPPAAL,,,false,out of memory,|
+driverlog,instance_1_2_3_2-cert-conv,shell-script,16.88,1656496,true,okay,
+driverlog,instance_1_2_3_2-muntac-cert-check,muntac,45.61,19324620,true,okay,
+driverlog,instance_1_2_3_2,tfd,0.05,13908,true,okay,
+driverlog,instance_1_2_3_2,OPTIC,0.00,11012,true,okay,
+driverlog,instance_1_2_3_2-ground,POPF,0.00,10520,true,okay,
+driverlog,instance_1_2_3_3,tck-aLUcovreach,42.06,17022452,true,okay,
+driverlog,instance_1_2_3_3,tck-covreach,45.43,17022580,true,okay,
+driverlog,instance_1_2_3_3-ground,TAMER-ctp,0.02,6500,true,okay,
+driverlog,instance_1_2_3_3-ground,nuXmv,1.00,95688,true,okay,
+driverlog,instance_1_2_3_3-ground,UPPAAL,,,false,out of memory,|
+driverlog,instance_1_2_3_3-cert-conv,shell-script,18.93,1987796,true,okay,
+driverlog,instance_1_2_3_3-muntac-cert-check,muntac,65.53,13221164,true,okay,
+driverlog,instance_1_2_3_3,tfd,0.05,13524,true,okay,
+driverlog,instance_1_2_3_3,OPTIC,0.00,10960,true,okay,
+driverlog,instance_1_2_3_3-ground,POPF,0.00,10484,true,okay,
+driverlog,instance_1_3_1_1,tck-aLUcovreach,0.06,62468,true,okay,
+driverlog,instance_1_3_1_1,tck-covreach,0.05,62652,true,okay,
+driverlog,instance_1_3_1_1-ground,TAMER-ctp,0.00,4964,true,okay,
+driverlog,instance_1_3_1_1-ground,nuXmv,0.17,63788,true,okay,
+driverlog,instance_1_3_1_1-ground,UPPAAL,,,false,out of memory,|
+driverlog,instance_1_3_1_1-cert-conv,shell-script,0.02,12444,true,okay,
+driverlog,instance_1_3_1_1-muntac-cert-check,muntac,0.10,64028,true,okay,
+driverlog,instance_1_3_1_1,tfd,0.05,13656,true,okay,
+driverlog,instance_1_3_1_1,OPTIC,0.00,10992,true,okay,
+driverlog,instance_1_3_1_1-ground,POPF,0.00,10200,true,okay,
+driverlog,instance_1_3_1_2,tck-aLUcovreach,0.91,882512,true,okay,
+driverlog,instance_1_3_1_2,tck-covreach,1.24,882536,true,okay,
+driverlog,instance_1_3_1_2-ground,TAMER-ctp,0.01,5476,true,okay,
+driverlog,instance_1_3_1_2-ground,nuXmv,0.42,74888,true,okay,
+driverlog,instance_1_3_1_2-ground,UPPAAL,,,false,out of memory,|
+driverlog,instance_1_3_1_2-cert-conv,shell-script,0.06,14972,true,okay,
+driverlog,instance_1_3_1_2-muntac-cert-check,muntac,0.29,138736,true,okay,
+driverlog,instance_1_3_1_2,tfd,0.05,13804,true,okay,
+driverlog,instance_1_3_1_2,OPTIC,0.00,11020,true,okay,
+driverlog,instance_1_3_1_2-ground,POPF,0.00,10436,true,okay,
+driverlog,instance_1_3_1_3,tck-aLUcovreach,16.00,9713676,true,okay,
+driverlog,instance_1_3_1_3,tck-covreach,15.80,9714040,true,okay,
+driverlog,instance_1_3_1_3-ground,TAMER-ctp,0.02,6244,true,okay,
+driverlog,instance_1_3_1_3-ground,nuXmv,0.69,90072,true,okay,
+driverlog,instance_1_3_1_3-ground,UPPAAL,,,false,out of memory,|
+driverlog,instance_1_3_1_3-cert-conv,shell-script,0.23,21836,true,okay,
+driverlog,instance_1_3_1_3-muntac-cert-check,muntac,0.83,281448,true,okay,
+driverlog,instance_1_3_1_3,tfd,0.05,13596,true,okay,
+driverlog,instance_1_3_1_3,OPTIC,0.00,11304,true,okay,
+driverlog,instance_1_3_1_3-ground,POPF,0.01,10748,true,okay,
+driverlog,instance_1_3_2_1,tck-aLUcovreach,6.99,882028,true,okay,
+driverlog,instance_1_3_2_1,tck-covreach,9.87,882356,true,okay,
+driverlog,instance_1_3_2_1-ground,TAMER-ctp,0.01,5220,true,okay,
+driverlog,instance_1_3_2_1-ground,nuXmv,0.41,75188,true,okay,
+driverlog,instance_1_3_2_1-ground,UPPAAL,,,false,out of memory,|
+driverlog,instance_1_3_2_1-cert-conv,shell-script,10.21,870540,true,okay,
+driverlog,instance_1_3_2_1-muntac-cert-check,muntac,16.37,8443648,true,okay,
+driverlog,instance_1_3_2_1,tfd,0.05,13536,true,okay,
+driverlog,instance_1_3_2_1,OPTIC,0.00,10808,true,okay,
+driverlog,instance_1_3_2_1-ground,POPF,0.00,10472,true,okay,
+driverlog,instance_1_3_2_2,tck-aLUcovreach,34.18,4378812,true,okay,
+driverlog,instance_1_3_2_2,tck-covreach,48.13,4379228,true,okay,
+driverlog,instance_1_3_2_2-ground,TAMER-ctp,0.01,5988,true,okay,
+driverlog,instance_1_3_2_2-ground,nuXmv,0.51,84560,true,okay,
+driverlog,instance_1_3_2_2-ground,UPPAAL,,,false,out of memory,|
+driverlog,instance_1_3_2_2-cert-conv,shell-script,30.59,2828852,true,okay,
+driverlog,instance_1_3_2_2-muntac-cert-check,muntac,73.47,16927120,true,okay,
+driverlog,instance_1_3_2_2,tfd,0.04,14040,true,okay,
+driverlog,instance_1_3_2_2,OPTIC,0.00,11044,true,okay,
+driverlog,instance_1_3_2_2-ground,POPF,0.00,10308,true,okay,
+driverlog,instance_1_3_2_3,tck-aLUcovreach,112.37,25351360,true,okay,
+driverlog,instance_1_3_2_3,tck-covreach,147.05,25351540,true,okay,
+driverlog,instance_1_3_2_3-ground,TAMER-ctp,0.02,6756,true,okay,
+driverlog,instance_1_3_2_3-ground,nuXmv,0.86,99568,true,okay,
+driverlog,instance_1_3_2_3-ground,UPPAAL,,,false,out of memory,|
+driverlog,instance_1_3_2_3-cert-conv,shell-script,59.07,6104736,true,okay,
+driverlog,instance_1_3_2_3-muntac-cert-check,muntac,220.95,24043064,true,okay,
+driverlog,instance_1_3_2_3,tfd,0.05,13484,true,okay,
+driverlog,instance_1_3_2_3,OPTIC,0.00,11304,true,okay,
+driverlog,instance_1_3_2_3-ground,POPF,0.00,10916,true,okay,
+driverlog,instance_1_3_3_1,tck-aLUcovreach,,,false,out of time,|
+driverlog,instance_1_3_3_1,tck-covreach,,,false,out of time,|
+driverlog,instance_1_3_3_1-ground,TAMER-ctp,0.01,6244,true,okay,
+driverlog,instance_1_3_3_1-ground,nuXmv,6.99,181408,true,okay,
+driverlog,instance_1_3_3_1-ground,UPPAAL,,,false,out of memory,|
+driverlog,instance_1_3_3_1-cert-conv,shell-script,,,true,out of memory,
+driverlog,instance_1_3_3_1-muntac-cert-check,muntac,,,,file missing,No certificate to check. Expected: ./muntax-dir/driverlog/instance_1_3_3_1.cert
+driverlog,instance_1_3_3_1,tfd,0.05,13932,true,okay,
+driverlog,instance_1_3_3_1,OPTIC,0.00,11444,true,okay,
+driverlog,instance_1_3_3_1-ground,POPF,0.01,10692,true,okay,
+driverlog,instance_1_3_3_2,tck-aLUcovreach,,,false,out of time,|
+driverlog,instance_1_3_3_2,tck-covreach,,,false,out of time,|
+driverlog,instance_1_3_3_2-ground,TAMER-ctp,0.02,6756,true,okay,
+driverlog,instance_1_3_3_2-ground,nuXmv,0.65,97292,true,okay,
+driverlog,instance_1_3_3_2-ground,UPPAAL,,,false,out of memory,|
+driverlog,instance_1_3_3_2-cert-conv,shell-script,,,true,out of memory,
+driverlog,instance_1_3_3_2-muntac-cert-check,muntac,,,,file missing,No certificate to check. Expected: ./muntax-dir/driverlog/instance_1_3_3_2.cert
+driverlog,instance_1_3_3_2,tfd,0.05,14052,true,okay,
+driverlog,instance_1_3_3_2,OPTIC,0.00,10904,true,okay,
+driverlog,instance_1_3_3_2-ground,POPF,0.01,11008,true,okay,
+driverlog,instance_1_3_3_3,tck-aLUcovreach,,,false,out of memory,|
+driverlog,instance_1_3_3_3,tck-covreach,,,false,out of memory,|
+driverlog,instance_1_3_3_3-ground,TAMER-ctp,0.03,7524,true,okay,
+driverlog,instance_1_3_3_3-ground,nuXmv,3.66,133772,true,okay,
+driverlog,instance_1_3_3_3-ground,UPPAAL,,,false,out of memory,|
+driverlog,instance_1_3_3_3-cert-conv,shell-script,,,true,out of memory,
+driverlog,instance_1_3_3_3-muntac-cert-check,muntac,,,,file missing,No certificate to check. Expected: ./muntax-dir/driverlog/instance_1_3_3_3.cert
+driverlog,instance_1_3_3_3,tfd,0.05,13352,true,okay,
+driverlog,instance_1_3_3_3,OPTIC,0.00,11288,true,okay,
+driverlog,instance_1_3_3_3-ground,POPF,0.00,10956,true,okay,
+driverlog,instance_2_1_1_1,tck-aLUcovreach,0.01,17324,true,okay,
+driverlog,instance_2_1_1_1,tck-covreach,0.01,17360,true,okay,
+driverlog,instance_2_1_1_1-ground,TAMER-ctp,0.00,4180,true,okay,
+driverlog,instance_2_1_1_1-ground,nuXmv,0.48,65760,true,okay,
+driverlog,instance_2_1_1_1-ground,UPPAAL,,,false,out of memory,|
+driverlog,instance_2_1_1_1-cert-conv,shell-script,0.02,12664,true,okay,
+driverlog,instance_2_1_1_1-muntac-cert-check,muntac,0.05,39736,true,okay,
+driverlog,instance_2_1_1_1,tfd,0.05,13484,true,okay,
+driverlog,instance_2_1_1_1,OPTIC,0.00,10492,true,okay,
+driverlog,instance_2_1_1_1-ground,POPF,0.00,10428,true,okay,
+driverlog,instance_2_1_1_2,tck-aLUcovreach,0.15,131360,true,okay,
+driverlog,instance_2_1_1_2,tck-covreach,0.15,131324,true,okay,
+driverlog,instance_2_1_1_2-ground,TAMER-ctp,0.00,4964,true,okay,
+driverlog,instance_2_1_1_2-ground,nuXmv,0.62,71060,true,okay,
+driverlog,instance_2_1_1_2-ground,UPPAAL,,,false,out of memory,|
+driverlog,instance_2_1_1_2-cert-conv,shell-script,0.03,12976,true,okay,
+driverlog,instance_2_1_1_2-muntac-cert-check,muntac,0.12,64952,true,okay,
+driverlog,instance_2_1_1_2,tfd,0.05,13528,true,okay,
+driverlog,instance_2_1_1_2,OPTIC,0.00,11088,true,okay,
+driverlog,instance_2_1_1_2-ground,POPF,0.00,10072,true,okay,
+driverlog,instance_2_1_1_3,tck-aLUcovreach,1.08,1090772,true,okay,
+driverlog,instance_2_1_1_3,tck-covreach,1.27,1091032,true,okay,
+driverlog,instance_2_1_1_3-ground,TAMER-ctp,0.01,5476,true,okay,
+driverlog,instance_2_1_1_3-ground,nuXmv,1.34,82992,true,okay,
+driverlog,instance_2_1_1_3-ground,UPPAAL,,,false,out of memory,|
+driverlog,instance_2_1_1_3-cert-conv,shell-script,0.06,15324,true,okay,
+driverlog,instance_2_1_1_3-muntac-cert-check,muntac,0.27,128140,true,okay,
+driverlog,instance_2_1_1_3,tfd,0.04,13780,true,okay,
+driverlog,instance_2_1_1_3,OPTIC,0.00,10848,true,okay,
+driverlog,instance_2_1_1_3-ground,POPF,0.00,10280,true,okay,
+driverlog,instance_2_1_2_1,tck-aLUcovreach,0.16,131192,true,okay,
+driverlog,instance_2_1_2_1,tck-covreach,0.16,131508,true,okay,
+driverlog,instance_2_1_2_1-ground,TAMER-ctp,0.00,4964,true,okay,
+driverlog,instance_2_1_2_1-ground,nuXmv,0.31,66768,true,okay,
+driverlog,instance_2_1_2_1-ground,UPPAAL,,,false,out of memory,|
+driverlog,instance_2_1_2_1-cert-conv,shell-script,0.12,20080,true,okay,
+driverlog,instance_2_1_2_1-muntac-cert-check,muntac,0.20,126872,true,okay,
+driverlog,instance_2_1_2_1,tfd,0.05,13780,true,okay,
+driverlog,instance_2_1_2_1,OPTIC,0.00,10864,true,okay,
+driverlog,instance_2_1_2_1-ground,POPF,0.00,10260,true,okay,
+driverlog,instance_2_1_2_2,tck-aLUcovreach,0.71,555928,true,okay,
+driverlog,instance_2_1_2_2,tck-covreach,0.67,556100,true,okay,
+driverlog,instance_2_1_2_2-ground,TAMER-ctp,0.00,5220,true,okay,
+driverlog,instance_2_1_2_2-ground,nuXmv,78.22,1117524,true,okay,
+driverlog,instance_2_1_2_2-ground,UPPAAL,,,false,out of memory,|
+driverlog,instance_2_1_2_2-cert-conv,shell-script,0.19,26188,true,okay,
+driverlog,instance_2_1_2_2-muntac-cert-check,muntac,0.40,194040,true,okay,
+driverlog,instance_2_1_2_2,tfd,0.05,13560,true,okay,
+driverlog,instance_2_1_2_2,OPTIC,0.00,11236,true,okay,
+driverlog,instance_2_1_2_2-ground,POPF,0.00,10360,true,okay,
+driverlog,instance_2_1_2_3,tck-aLUcovreach,4.46,2745684,true,okay,
+driverlog,instance_2_1_2_3,tck-covreach,4.16,2745820,true,okay,
+driverlog,instance_2_1_2_3-ground,TAMER-ctp,0.01,5732,true,okay,
+driverlog,instance_2_1_2_3-ground,nuXmv,2.93,106844,true,okay,
+driverlog,instance_2_1_2_3-ground,UPPAAL,,,false,out of memory,|
+driverlog,instance_2_1_2_3-cert-conv,shell-script,0.34,39520,true,okay,
+driverlog,instance_2_1_2_3-muntac-cert-check,muntac,0.89,432956,true,okay,
+driverlog,instance_2_1_2_3,tfd,0.05,13800,true,okay,
+driverlog,instance_2_1_2_3,OPTIC,0.00,10804,true,okay,
+driverlog,instance_2_1_2_3-ground,POPF,0.00,10616,true,okay,
+driverlog,instance_2_1_3_1,tck-aLUcovreach,1.24,1091364,true,okay,
+driverlog,instance_2_1_3_1,tck-covreach,1.22,1091580,true,okay,
+driverlog,instance_2_1_3_1-ground,TAMER-ctp,0.00,5204,true,okay,
+driverlog,instance_2_1_3_1-ground,nuXmv,2.96,109984,true,okay,
+driverlog,instance_2_1_3_1-ground,UPPAAL,,,false,out of memory,|
+driverlog,instance_2_1_3_1-cert-conv,shell-script,0.54,57724,true,okay,
+driverlog,instance_2_1_3_1-muntac-cert-check,muntac,1.07,569128,true,okay,
+driverlog,instance_2_1_3_1,tfd,0.05,13780,true,okay,
+driverlog,instance_2_1_3_1,OPTIC,0.00,11116,true,okay,
+driverlog,instance_2_1_3_1-ground,POPF,0.00,10428,true,okay,
+driverlog,instance_2_1_3_2,tck-aLUcovreach,4.58,2745700,true,okay,
+driverlog,instance_2_1_3_2,tck-covreach,4.55,2745936,true,okay,
+driverlog,instance_2_1_3_2-ground,TAMER-ctp,0.01,5732,true,okay,
+driverlog,instance_2_1_3_2-ground,nuXmv,27.17,473968,true,okay,
+driverlog,instance_2_1_3_2-ground,UPPAAL,,,false,out of memory,|
+driverlog,instance_2_1_3_2-cert-conv,shell-script,1.30,126984,true,okay,
+driverlog,instance_2_1_3_2-muntac-cert-check,muntac,2.87,1354680,true,okay,
+driverlog,instance_2_1_3_2,tfd,0.05,13484,true,okay,
+driverlog,instance_2_1_3_2,OPTIC,0.00,11012,true,okay,
+driverlog,instance_2_1_3_2-ground,POPF,0.00,10452,true,okay,
+driverlog,instance_2_1_3_3,tck-aLUcovreach,14.41,8595428,true,okay,
+driverlog,instance_2_1_3_3,tck-covreach,14.43,8595372,true,okay,
+driverlog,instance_2_1_3_3-ground,TAMER-ctp,0.01,5932,true,okay,
+driverlog,instance_2_1_3_3-ground,nuXmv,15.49,347268,true,okay,
+driverlog,instance_2_1_3_3-ground,UPPAAL,,,false,out of memory,|
+driverlog,instance_2_1_3_3-cert-conv,shell-script,1.56,154376,true,okay,
+driverlog,instance_2_1_3_3-muntac-cert-check,muntac,4.13,1857124,true,okay,
+driverlog,instance_2_1_3_3,tfd,0.05,13852,true,okay,
+driverlog,instance_2_1_3_3,OPTIC,0.00,11312,true,okay,
+driverlog,instance_2_1_3_3-ground,POPF,0.00,10800,true,okay,
+driverlog,instance_2_2_1_1,tck-aLUcovreach,0.21,182776,true,okay,
+driverlog,instance_2_2_1_1,tck-covreach,0.20,182632,true,okay,
+driverlog,instance_2_2_1_1-ground,TAMER-ctp,0.00,4696,true,okay,
+driverlog,instance_2_2_1_1-ground,nuXmv,3.01,111380,true,okay,
+driverlog,instance_2_2_1_1-ground,UPPAAL,,,false,out of memory,|
+driverlog,instance_2_2_1_1-cert-conv,shell-script,0.04,13876,true,okay,
+driverlog,instance_2_2_1_1-muntac-cert-check,muntac,0.14,74936,true,okay,
+driverlog,instance_2_2_1_1,tfd,0.05,13592,true,okay,
+driverlog,instance_2_2_1_1,OPTIC,0.00,10740,true,okay,
+driverlog,instance_2_2_1_1-ground,POPF,0.00,10604,true,okay,
+driverlog,instance_2_2_1_2,tck-aLUcovreach,2.92,1945908,true,okay,
+driverlog,instance_2_2_1_2,tck-covreach,2.92,1946064,true,okay,
+driverlog,instance_2_2_1_2-ground,TAMER-ctp,0.01,5732,true,okay,
+driverlog,instance_2_2_1_2-ground,nuXmv,1.72,94192,true,okay,
+driverlog,instance_2_2_1_2-ground,UPPAAL,,,false,out of memory,|
+driverlog,instance_2_2_1_2-cert-conv,shell-script,0.10,17452,true,okay,
+driverlog,instance_2_2_1_2-muntac-cert-check,muntac,0.38,176868,true,okay,
+driverlog,instance_2_2_1_2,tfd,0.05,13484,true,okay,
+driverlog,instance_2_2_1_2,OPTIC,0.00,10936,true,okay,
+driverlog,instance_2_2_1_2-ground,POPF,0.00,10740,true,okay,
+driverlog,instance_2_2_1_3,tck-aLUcovreach,27.30,17022408,true,okay,
+driverlog,instance_2_2_1_3,tck-covreach,27.40,17022572,true,okay,
+driverlog,instance_2_2_1_3-ground,TAMER-ctp,0.02,6500,true,okay,
+driverlog,instance_2_2_1_3-ground,nuXmv,110.91,1572424,true,okay,
+driverlog,instance_2_2_1_3-ground,UPPAAL,,,false,out of memory,|
+driverlog,instance_2_2_1_3-cert-conv,shell-script,0.42,27796,true,okay,
+driverlog,instance_2_2_1_3-muntac-cert-check,muntac,1.08,302456,true,okay,
+driverlog,instance_2_2_1_3,tfd,0.05,13592,true,okay,
+driverlog,instance_2_2_1_3,OPTIC,0.00,11276,true,okay,
+driverlog,instance_2_2_1_3-ground,POPF,0.00,10576,true,okay,
+driverlog,instance_2_2_2_1,tck-aLUcovreach,3.95,1946180,true,okay,
+driverlog,instance_2_2_2_1,tck-covreach,3.94,1946200,true,okay,
+driverlog,instance_2_2_2_1-ground,TAMER-ctp,0.01,5732,true,okay,
+driverlog,instance_2_2_2_1-ground,nuXmv,3.13,120036,true,okay,
+driverlog,instance_2_2_2_1-ground,UPPAAL,,,false,out of memory,|
+driverlog,instance_2_2_2_1-cert-conv,shell-script,2.42,220624,true,okay,
+driverlog,instance_2_2_2_1-muntac-cert-check,muntac,4.99,2209492,true,okay,
+driverlog,instance_2_2_2_1,tfd,0.05,13748,true,okay,
+driverlog,instance_2_2_2_1,OPTIC,0.00,10788,true,okay,
+driverlog,instance_2_2_2_1-ground,POPF,0.00,10208,true,okay,
+driverlog,instance_2_2_2_2,tck-aLUcovreach,17.78,8595520,true,okay,
+driverlog,instance_2_2_2_2,tck-covreach,17.94,8595900,true,okay,
+driverlog,instance_2_2_2_2-ground,TAMER-ctp,0.01,6244,true,okay,
+driverlog,instance_2_2_2_2-ground,nuXmv,,,false,out of time,|
+driverlog,instance_2_2_2_2-ground,UPPAAL,,,false,out of memory,|
+driverlog,instance_2_2_2_2-cert-conv,shell-script,6.99,655132,true,okay,
+driverlog,instance_2_2_2_2-muntac-cert-check,muntac,19.61,7440736,true,okay,
+driverlog,instance_2_2_2_2,tfd,0.05,13536,true,okay,
+driverlog,instance_2_2_2_2,OPTIC,0.00,10852,true,okay,
+driverlog,instance_2_2_2_2-ground,POPF,0.00,10532,true,okay,
+driverlog,instance_2_2_2_3,tck-aLUcovreach,,,false,out of memory,|
+driverlog,instance_2_2_2_3,tck-covreach,,,false,out of memory,|
+driverlog,instance_2_2_2_3-ground,TAMER-ctp,0.02,7268,true,okay,
+driverlog,instance_2_2_2_3-ground,nuXmv,6.59,153784,true,okay,
+driverlog,instance_2_2_2_3-ground,UPPAAL,,,false,out of memory,|
+driverlog,instance_2_2_2_3-cert-conv,shell-script,,,true,out of memory,
+driverlog,instance_2_2_2_3-muntac-cert-check,muntac,,,,file missing,No certificate to check. Expected: ./muntax-dir/driverlog/instance_2_2_2_3.cert
+driverlog,instance_2_2_2_3,tfd,0.05,13524,true,okay,
+driverlog,instance_2_2_2_3,OPTIC,0.00,11088,true,okay,
+driverlog,instance_2_2_2_3-ground,POPF,0.01,10956,true,okay,
+driverlog,instance_2_2_3_1,tck-aLUcovreach,143.28,17022632,true,okay,
+driverlog,instance_2_2_3_1,tck-covreach,166.49,17022340,true,okay,
+driverlog,instance_2_2_3_1-ground,TAMER-ctp,0.02,6500,true,okay,
+driverlog,instance_2_2_3_1-ground,nuXmv,152.13,2397856,true,okay,
+driverlog,instance_2_2_3_1-ground,UPPAAL,,,false,out of memory,|
+driverlog,instance_2_2_3_1-cert-conv,shell-script,114.18,10485696,true,okay,
+driverlog,instance_2_2_3_1-muntac-cert-check,muntac,369.02,32396960,true,okay,
+driverlog,instance_2_2_3_1,tfd,0.05,13780,true,okay,
+driverlog,instance_2_2_3_1,OPTIC,0.00,11224,true,okay,
+driverlog,instance_2_2_3_1-ground,POPF,0.00,10448,true,okay,
+driverlog,instance_2_2_3_2,tck-aLUcovreach,,,false,out of memory,|
+driverlog,instance_2_2_3_2,tck-covreach,,,false,out of memory,|
+driverlog,instance_2_2_3_2-ground,TAMER-ctp,0.02,6952,true,okay,
+driverlog,instance_2_2_3_2-ground,nuXmv,425.26,6586740,true,okay,
+driverlog,instance_2_2_3_2-ground,UPPAAL,,,false,out of memory,|
+driverlog,instance_2_2_3_2-cert-conv,shell-script,,,true,out of memory,
+driverlog,instance_2_2_3_2-muntac-cert-check,muntac,,,,file missing,No certificate to check. Expected: ./muntax-dir/driverlog/instance_2_2_3_2.cert
+driverlog,instance_2_2_3_2,tfd,0.06,14004,true,okay,
+driverlog,instance_2_2_3_2,OPTIC,0.00,11284,true,okay,
+driverlog,instance_2_2_3_2-ground,POPF,0.01,10956,true,okay,
+driverlog,instance_2_2_3_3,tck-aLUcovreach,,,false,out of memory,|
+driverlog,instance_2_2_3_3,tck-covreach,,,false,out of memory,|
+driverlog,instance_2_2_3_3-ground,TAMER-ctp,0.04,8036,true,okay,
+driverlog,instance_2_2_3_3-ground,nuXmv,105.56,1031988,true,okay,
+driverlog,instance_2_2_3_3-ground,UPPAAL,,,false,out of memory,|
+driverlog,instance_2_2_3_3-cert-conv,shell-script,,,true,out of memory,
+driverlog,instance_2_2_3_3-muntac-cert-check,muntac,,,,file missing,No certificate to check. Expected: ./muntax-dir/driverlog/instance_2_2_3_3.cert
+driverlog,instance_2_2_3_3,tfd,0.05,13800,true,okay,
+driverlog,instance_2_2_3_3,OPTIC,0.01,11472,true,okay,
+driverlog,instance_2_2_3_3-ground,POPF,0.00,11264,true,okay,
+driverlog,instance_2_3_1_1,tck-aLUcovreach,1.24,882388,true,okay,
+driverlog,instance_2_3_1_1,tck-covreach,1.00,881804,true,okay,
+driverlog,instance_2_3_1_1-ground,TAMER-ctp,0.01,5476,true,okay,
+driverlog,instance_2_3_1_1-ground,nuXmv,9.96,227552,true,okay,
+driverlog,instance_2_3_1_1-ground,UPPAAL,,,false,out of memory,|
+driverlog,instance_2_3_1_1-cert-conv,shell-script,0.09,17348,true,okay,
+driverlog,instance_2_3_1_1-muntac-cert-check,muntac,0.30,151052,true,okay,
+driverlog,instance_2_3_1_1,tfd,0.05,13780,true,okay,
+driverlog,instance_2_3_1_1,OPTIC,0.00,10832,true,okay,
+driverlog,instance_2_3_1_1-ground,POPF,0.00,10384,true,okay,
+driverlog,instance_2_3_1_2,tck-aLUcovreach,15.66,9713768,true,okay,
+driverlog,instance_2_3_1_2,tck-covreach,15.75,9714148,true,okay,
+driverlog,instance_2_3_1_2-ground,TAMER-ctp,0.02,6500,true,okay,
+driverlog,instance_2_3_1_2-ground,nuXmv,815.02,13169776,true,okay,
+driverlog,instance_2_3_1_2-ground,UPPAAL,,,false,out of memory,|
+driverlog,instance_2_3_1_2-cert-conv,shell-script,0.32,28872,true,okay,
+driverlog,instance_2_3_1_2-muntac-cert-check,muntac,0.94,307628,true,okay,
+driverlog,instance_2_3_1_2,tfd,0.05,13780,true,okay,
+driverlog,instance_2_3_1_2,OPTIC,0.00,10768,true,okay,
+driverlog,instance_2_3_1_2-ground,POPF,0.00,10464,true,okay,
+driverlog,instance_2_3_1_3,tck-aLUcovreach,,,false,out of memory,|
+driverlog,instance_2_3_1_3,tck-covreach,,,false,out of memory,|
+driverlog,instance_2_3_1_3-ground,TAMER-ctp,0.03,7780,true,okay,
+driverlog,instance_2_3_1_3-ground,nuXmv,247.34,3002288,true,okay,
+driverlog,instance_2_3_1_3-ground,UPPAAL,,,false,out of memory,|
+driverlog,instance_2_3_1_3-cert-conv,shell-script,,,true,out of memory,
+driverlog,instance_2_3_1_3-muntac-cert-check,muntac,,,,file missing,No certificate to check. Expected: ./muntax-dir/driverlog/instance_2_3_1_3.cert
+driverlog,instance_2_3_1_3,tfd,0.05,13784,true,okay,
+driverlog,instance_2_3_1_3,OPTIC,0.00,11084,true,okay,
+driverlog,instance_2_3_1_3-ground,POPF,0.01,11152,true,okay,
+driverlog,instance_2_3_2_1,tck-aLUcovreach,258.67,9713984,true,okay,
+driverlog,instance_2_3_2_1,tck-covreach,375.47,9713668,true,okay,
+driverlog,instance_2_3_2_1-ground,TAMER-ctp,0.01,6272,true,okay,
+driverlog,instance_2_3_2_1-ground,nuXmv,93.12,1299680,true,okay,
+driverlog,instance_2_3_2_1-ground,UPPAAL,,,false,out of memory,|
+driverlog,instance_2_3_2_1-cert-conv,shell-script,199.18,17511956,true,okay,
+driverlog,instance_2_3_2_1-muntac-cert-check,muntac,552.33,32763096,true,okay,
+driverlog,instance_2_3_2_1,tfd,0.05,14164,true,okay,
+driverlog,instance_2_3_2_1,OPTIC,0.00,11316,true,okay,
+driverlog,instance_2_3_2_1-ground,POPF,0.00,10640,true,okay,
+driverlog,instance_2_3_2_2,tck-aLUcovreach,,,false,out of memory,|
+driverlog,instance_2_3_2_2,tck-covreach,,,false,out of memory,|
+driverlog,instance_2_3_2_2-ground,TAMER-ctp,0.02,7268,true,okay,
+driverlog,instance_2_3_2_2-ground,nuXmv,226.80,3049344,true,okay,
+driverlog,instance_2_3_2_2-ground,UPPAAL,,,false,out of memory,|
+driverlog,instance_2_3_2_2-cert-conv,shell-script,,,true,out of memory,
+driverlog,instance_2_3_2_2-muntac-cert-check,muntac,,,,file missing,No certificate to check. Expected: ./muntax-dir/driverlog/instance_2_3_2_2.cert
+driverlog,instance_2_3_2_2,tfd,0.05,13596,true,okay,
+driverlog,instance_2_3_2_2,OPTIC,0.00,10996,true,okay,
+driverlog,instance_2_3_2_2-ground,POPF,0.00,10980,true,okay,
+driverlog,instance_2_3_2_3,tck-aLUcovreach,,,false,out of memory,|
+driverlog,instance_2_3_2_3,tck-covreach,,,false,out of memory,|
+driverlog,instance_2_3_2_3-ground,TAMER-ctp,0.05,8548,true,okay,
+driverlog,instance_2_3_2_3-ground,nuXmv,401.51,7536364,true,okay,
+driverlog,instance_2_3_2_3-ground,UPPAAL,,,false,out of memory,|
+driverlog,instance_2_3_2_3-cert-conv,shell-script,,,true,out of memory,
+driverlog,instance_2_3_2_3-muntac-cert-check,muntac,,,,file missing,No certificate to check. Expected: ./muntax-dir/driverlog/instance_2_3_2_3.cert
+driverlog,instance_2_3_2_3,tfd,0.05,13724,true,okay,
+driverlog,instance_2_3_2_3,OPTIC,0.01,11576,true,okay,
+driverlog,instance_2_3_2_3-ground,POPF,0.00,11124,true,okay,
+driverlog,instance_2_3_3_1,tck-aLUcovreach,,,false,out of memory,|
+driverlog,instance_2_3_3_1,tck-covreach,,,false,out of memory,|
+driverlog,instance_2_3_3_1-ground,TAMER-ctp,0.04,7780,true,okay,
+driverlog,instance_2_3_3_1-ground,nuXmv,323.80,5152712,true,okay,
+driverlog,instance_2_3_3_1-ground,UPPAAL,,,false,out of memory,|
+driverlog,instance_2_3_3_1-cert-conv,shell-script,,,true,out of memory,
+driverlog,instance_2_3_3_1-muntac-cert-check,muntac,,,,file missing,No certificate to check. Expected: ./muntax-dir/driverlog/instance_2_3_3_1.cert
+driverlog,instance_2_3_3_1,tfd,0.04,14104,true,okay,
+driverlog,instance_2_3_3_1,OPTIC,0.00,11216,true,okay,
+driverlog,instance_2_3_3_1-ground,POPF,0.01,11200,true,okay,
+driverlog,instance_2_3_3_2,tck-aLUcovreach,,,false,out of memory,|
+driverlog,instance_2_3_3_2,tck-covreach,,,false,out of memory,|
+driverlog,instance_2_3_3_2-ground,TAMER-ctp,0.05,8576,true,okay,
+driverlog,instance_2_3_3_2-ground,nuXmv,146.33,1488760,true,okay,
+driverlog,instance_2_3_3_2-ground,UPPAAL,,,false,out of memory,|
+driverlog,instance_2_3_3_2-cert-conv,shell-script,,,true,out of memory,
+driverlog,instance_2_3_3_2-muntac-cert-check,muntac,,,,file missing,No certificate to check. Expected: ./muntax-dir/driverlog/instance_2_3_3_2.cert
+driverlog,instance_2_3_3_2,tfd,0.05,13804,true,okay,
+driverlog,instance_2_3_3_2,OPTIC,0.01,11604,true,okay,
+driverlog,instance_2_3_3_2-ground,POPF,0.01,11124,true,okay,
+driverlog,instance_2_3_3_3,tck-aLUcovreach,,,false,out of memory,|
+driverlog,instance_2_3_3_3,tck-covreach,,,false,out of memory,|
+driverlog,instance_2_3_3_3-ground,TAMER-ctp,0.08,10084,true,okay,
+driverlog,instance_2_3_3_3-ground,nuXmv,,,false,out of time,|
+driverlog,instance_2_3_3_3-ground,UPPAAL,,,false,out of memory,|
+driverlog,instance_2_3_3_3-cert-conv,shell-script,,,true,out of memory,
+driverlog,instance_2_3_3_3-muntac-cert-check,muntac,,,,file missing,No certificate to check. Expected: ./muntax-dir/driverlog/instance_2_3_3_3.cert
+driverlog,instance_2_3_3_3,tfd,0.05,13564,true,okay,
+driverlog,instance_2_3_3_3,OPTIC,0.00,11544,true,okay,
+driverlog,instance_2_3_3_3-ground,POPF,0.01,11696,true,okay,
+driverlog,instance_3_1_1_1,tck-aLUcovreach,0.06,62616,true,okay,
+driverlog,instance_3_1_1_1,tck-covreach,0.06,62492,true,okay,
+driverlog,instance_3_1_1_1-ground,TAMER-ctp,0.00,4964,true,okay,
+driverlog,instance_3_1_1_1-ground,nuXmv,0.36,67956,true,okay,
+driverlog,instance_3_1_1_1-ground,UPPAAL,,,false,out of memory,|
+driverlog,instance_3_1_1_1-cert-conv,shell-script,0.03,13004,true,okay,
+driverlog,instance_3_1_1_1-muntac-cert-check,muntac,0.08,51888,true,okay,
+driverlog,instance_3_1_1_1,tfd,0.05,13288,true,okay,
+driverlog,instance_3_1_1_1,OPTIC,0.00,10916,true,okay,
+driverlog,instance_3_1_1_1-ground,POPF,0.00,10004,true,okay,
+driverlog,instance_3_1_1_2,tck-aLUcovreach,0.64,555964,true,okay,
+driverlog,instance_3_1_1_2,tck-covreach,0.69,555848,true,okay,
+driverlog,instance_3_1_1_2-ground,TAMER-ctp,0.00,5248,true,okay,
+driverlog,instance_3_1_1_2-ground,nuXmv,180.34,4539716,true,okay,
+driverlog,instance_3_1_1_2-ground,UPPAAL,,,false,out of memory,|
+driverlog,instance_3_1_1_2-cert-conv,shell-script,0.06,15460,true,okay,
+driverlog,instance_3_1_1_2-muntac-cert-check,muntac,0.20,117756,true,okay,
+driverlog,instance_3_1_1_2,tfd,0.05,13652,true,okay,
+driverlog,instance_3_1_1_2,OPTIC,0.00,10964,true,okay,
+driverlog,instance_3_1_1_2-ground,POPF,0.00,10460,true,okay,
+driverlog,instance_3_1_1_3,tck-aLUcovreach,6.53,4378644,true,okay,
+driverlog,instance_3_1_1_3,tck-covreach,6.41,4378592,true,okay,
+driverlog,instance_3_1_1_3-ground,TAMER-ctp,0.01,5988,true,okay,
+driverlog,instance_3_1_1_3-ground,nuXmv,4.19,125632,true,okay,
+driverlog,instance_3_1_1_3-ground,UPPAAL,,,false,out of memory,|
+driverlog,instance_3_1_1_3-cert-conv,shell-script,0.15,19888,true,okay,
+driverlog,instance_3_1_1_3-muntac-cert-check,muntac,0.52,205336,true,okay,
+driverlog,instance_3_1_1_3,tfd,0.05,14036,true,okay,
+driverlog,instance_3_1_1_3,OPTIC,0.00,11028,true,okay,
+driverlog,instance_3_1_1_3-ground,POPF,0.00,10224,true,okay,
+driverlog,instance_3_1_2_1,tck-aLUcovreach,0.76,555980,true,okay,
+driverlog,instance_3_1_2_1,tck-covreach,0.82,555940,true,okay,
+driverlog,instance_3_1_2_1-ground,TAMER-ctp,0.00,5220,true,okay,
+driverlog,instance_3_1_2_1-ground,nuXmv,5.17,131192,true,okay,
+driverlog,instance_3_1_2_1-ground,UPPAAL,,,false,out of memory,|
+driverlog,instance_3_1_2_1-cert-conv,shell-script,0.56,54528,true,okay,
+driverlog,instance_3_1_2_1-muntac-cert-check,muntac,0.84,460992,true,okay,
+driverlog,instance_3_1_2_1,tfd,0.05,13908,true,okay,
+driverlog,instance_3_1_2_1,OPTIC,0.00,11008,true,okay,
+driverlog,instance_3_1_2_1-ground,POPF,0.00,10436,true,okay,
+driverlog,instance_3_1_2_2,tck-aLUcovreach,3.72,2320172,true,okay,
+driverlog,instance_3_1_2_2,tck-covreach,3.64,2319980,true,okay,
+driverlog,instance_3_1_2_2-ground,TAMER-ctp,0.01,5732,true,okay,
+driverlog,instance_3_1_2_2-ground,nuXmv,28.91,434444,true,okay,
+driverlog,instance_3_1_2_2-ground,UPPAAL,,,false,out of memory,|
+driverlog,instance_3_1_2_2-cert-conv,shell-script,0.61,62832,true,okay,
+driverlog,instance_3_1_2_2-muntac-cert-check,muntac,1.30,642948,true,okay,
+driverlog,instance_3_1_2_2,tfd,0.05,13848,true,okay,
+driverlog,instance_3_1_2_2,OPTIC,0.00,11008,true,okay,
+driverlog,instance_3_1_2_2-ground,POPF,0.00,10440,true,okay,
+driverlog,instance_3_1_2_3,tck-aLUcovreach,17.84,10937528,true,okay,
+driverlog,instance_3_1_2_3,tck-covreach,17.81,10937032,true,okay,
+driverlog,instance_3_1_2_3-ground,TAMER-ctp,0.02,6500,true,okay,
+driverlog,instance_3_1_2_3-ground,nuXmv,196.15,3316772,true,okay,
+driverlog,instance_3_1_2_3-ground,UPPAAL,,,false,out of memory,|
+driverlog,instance_3_1_2_3-cert-conv,shell-script,0.84,78816,true,okay,
+driverlog,instance_3_1_2_3-muntac-cert-check,muntac,2.23,870224,true,okay,
+driverlog,instance_3_1_2_3,tfd,0.05,13464,true,okay,
+driverlog,instance_3_1_2_3,OPTIC,0.00,11172,true,okay,
+driverlog,instance_3_1_2_3-ground,POPF,0.00,10492,true,okay,
+driverlog,instance_3_1_3_1,tck-aLUcovreach,7.89,4378868,true,okay,
+driverlog,instance_3_1_3_1,tck-covreach,7.98,4378680,true,okay,
+driverlog,instance_3_1_3_1-ground,TAMER-ctp,0.01,5988,true,okay,
+driverlog,instance_3_1_3_1-ground,nuXmv,2.12,101636,true,okay,
+driverlog,instance_3_1_3_1-ground,UPPAAL,,,false,out of memory,|
+driverlog,instance_3_1_3_1-cert-conv,shell-script,3.78,339616,true,okay,
+driverlog,instance_3_1_3_1-muntac-cert-check,muntac,9.02,3631828,true,okay,
+driverlog,instance_3_1_3_1,tfd,0.05,13908,true,okay,
+driverlog,instance_3_1_3_1,OPTIC,0.00,11204,true,okay,
+driverlog,instance_3_1_3_1-ground,POPF,0.00,10612,true,okay,
+driverlog,instance_3_1_3_2,tck-aLUcovreach,20.00,10937048,true,okay,
+driverlog,instance_3_1_3_2,tck-covreach,20.18,10936704,true,okay,
+driverlog,instance_3_1_3_2-ground,TAMER-ctp,0.02,6244,true,okay,
+driverlog,instance_3_1_3_2-ground,nuXmv,,,false,out of time,|
+driverlog,instance_3_1_3_2-ground,UPPAAL,,,false,out of memory,|
+driverlog,instance_3_1_3_2-cert-conv,shell-script,5.40,495544,true,okay,
+driverlog,instance_3_1_3_2-muntac-cert-check,muntac,15.47,5688392,true,okay,
+driverlog,instance_3_1_3_2,tfd,0.05,13844,true,okay,
+driverlog,instance_3_1_3_2,OPTIC,0.00,10864,true,okay,
+driverlog,instance_3_1_3_2-ground,POPF,0.00,10516,true,okay,
+driverlog,instance_3_1_3_3,tck-aLUcovreach,62.56,33365900,true,okay,
+driverlog,instance_3_1_3_3,tck-covreach,62.31,33365448,true,okay,
+driverlog,instance_3_1_3_3-ground,TAMER-ctp,0.02,6744,true,okay,
+driverlog,instance_3_1_3_3-ground,nuXmv,11.68,227536,true,okay,
+driverlog,instance_3_1_3_3-ground,UPPAAL,,,false,out of memory,|
+driverlog,instance_3_1_3_3-cert-conv,shell-script,15.05,1420148,true,okay,
+driverlog,instance_3_1_3_3-muntac-cert-check,muntac,52.66,17212024,true,okay,
+driverlog,instance_3_1_3_3,tfd,0.05,13852,true,okay,
+driverlog,instance_3_1_3_3,OPTIC,0.00,11264,true,okay,
+driverlog,instance_3_1_3_3-ground,POPF,0.00,10984,true,okay,
+driverlog,instance_3_2_1_1,tck-aLUcovreach,0.87,881960,true,okay,
+driverlog,instance_3_2_1_1,tck-covreach,1.25,882160,true,okay,
+driverlog,instance_3_2_1_1-ground,TAMER-ctp,0.01,5476,true,okay,
+driverlog,instance_3_2_1_1-ground,nuXmv,13.43,313148,true,okay,
+driverlog,instance_3_2_1_1-ground,UPPAAL,,,false,out of memory,|
+driverlog,instance_3_2_1_1-cert-conv,shell-script,0.12,19848,true,okay,
+driverlog,instance_3_2_1_1-muntac-cert-check,muntac,0.33,156064,true,okay,
+driverlog,instance_3_2_1_1,tfd,0.05,13912,true,okay,
+driverlog,instance_3_2_1_1,OPTIC,0.00,11024,true,okay,
+driverlog,instance_3_2_1_1-ground,POPF,0.00,10340,true,okay,
+driverlog,instance_3_2_1_2,tck-aLUcovreach,14.02,8595452,true,okay,
+driverlog,instance_3_2_1_2,tck-covreach,13.89,8595296,true,okay,
+driverlog,instance_3_2_1_2-ground,TAMER-ctp,0.01,5976,true,okay,
+driverlog,instance_3_2_1_2-ground,nuXmv,270.93,4243856,true,okay,
+driverlog,instance_3_2_1_2-ground,UPPAAL,,,false,out of memory,|
+driverlog,instance_3_2_1_2-cert-conv,shell-script,0.37,34384,true,okay,
+driverlog,instance_3_2_1_2-muntac-cert-check,muntac,1.01,431224,true,okay,
+driverlog,instance_3_2_1_2,tfd,0.04,13428,true,okay,
+driverlog,instance_3_2_1_2,OPTIC,0.00,11256,true,okay,
+driverlog,instance_3_2_1_2-ground,POPF,0.00,10736,true,okay,
+driverlog,instance_3_2_1_3,tck-aLUcovreach,,,false,out of memory,|
+driverlog,instance_3_2_1_3,tck-covreach,,,false,out of memory,|
+driverlog,instance_3_2_1_3-ground,TAMER-ctp,0.03,7780,true,okay,
+driverlog,instance_3_2_1_3-ground,nuXmv,478.46,7671612,true,okay,
+driverlog,instance_3_2_1_3-ground,UPPAAL,,,false,out of memory,|
+driverlog,instance_3_2_1_3-cert-conv,shell-script,,,true,out of memory,
+driverlog,instance_3_2_1_3-muntac-cert-check,muntac,,,,file missing,No certificate to check. Expected: ./muntax-dir/driverlog/instance_3_2_1_3.cert
+driverlog,instance_3_2_1_3,tfd,0.04,13472,true,okay,
+driverlog,instance_3_2_1_3,OPTIC,0.00,11136,true,okay,
+driverlog,instance_3_2_1_3-ground,POPF,0.01,11272,true,okay,
+driverlog,instance_3_2_2_1,tck-aLUcovreach,30.16,8595364,true,okay,
+driverlog,instance_3_2_2_1,tck-covreach,30.23,8595536,true,okay,
+driverlog,instance_3_2_2_1-ground,TAMER-ctp,0.01,6244,true,okay,
+driverlog,instance_3_2_2_1-ground,nuXmv,487.04,5496948,true,okay,
+driverlog,instance_3_2_2_1-ground,UPPAAL,,,false,out of memory,|
+driverlog,instance_3_2_2_1-cert-conv,shell-script,24.09,2037448,true,okay,
+driverlog,instance_3_2_2_1-muntac-cert-check,muntac,64.55,11891852,true,okay,
+driverlog,instance_3_2_2_1,tfd,0.05,13532,true,okay,
+driverlog,instance_3_2_2_1,OPTIC,0.00,11344,true,okay,
+driverlog,instance_3_2_2_1-ground,POPF,0.01,10768,true,okay,
+driverlog,instance_3_2_2_2,tck-aLUcovreach,168.05,36418096,true,okay,
+driverlog,instance_3_2_2_2,tck-covreach,407.67,36417896,true,okay,
+driverlog,instance_3_2_2_2-ground,TAMER-ctp,0.02,6744,true,okay,
+driverlog,instance_3_2_2_2-ground,nuXmv,4.30,127584,true,okay,
+driverlog,instance_3_2_2_2-ground,UPPAAL,590.13,634068,true,okay,
+driverlog,instance_3_2_2_2-cert-conv,shell-script,849.99,47687748,true,okay,
+driverlog,instance_3_2_2_2-muntac-cert-check,muntac,,,false,out of time,|
+driverlog,instance_3_2_2_2,tfd,0.15,13628,true,okay,
+driverlog,instance_3_2_2_2,OPTIC,0.00,11236,true,okay,
+driverlog,instance_3_2_2_2-ground,POPF,0.00,10488,true,okay,
+driverlog,instance_3_2_2_3,tck-aLUcovreach,,,false,out of memory,|
+driverlog,instance_3_2_2_3,tck-covreach,,,false,out of memory,|
+driverlog,instance_3_2_2_3-ground,TAMER-ctp,0.05,8020,true,okay,
+driverlog,instance_3_2_2_3-ground,nuXmv,41.59,481956,true,okay,
+driverlog,instance_3_2_2_3-ground,UPPAAL,667.20,384540,true,okay,
+driverlog,instance_3_2_2_3-cert-conv,shell-script,,,true,out of memory,
+driverlog,instance_3_2_2_3-muntac-cert-check,muntac,,,,file missing,No certificate to check. Expected: ./muntax-dir/driverlog/instance_3_2_2_3.cert
+driverlog,instance_3_2_2_3,tfd,0.05,14040,true,okay,
+driverlog,instance_3_2_2_3,OPTIC,0.01,11580,true,okay,
+driverlog,instance_3_2_2_3-ground,POPF,0.01,10976,true,okay,
+driverlog,instance_3_2_3_1,tck-aLUcovreach,,,false,out of memory,|
+driverlog,instance_3_2_3_1,tck-covreach,,,false,out of memory,|
+driverlog,instance_3_2_3_1-ground,TAMER-ctp,0.03,7524,true,okay,
+driverlog,instance_3_2_3_1-ground,nuXmv,56.23,675732,true,okay,
+driverlog,instance_3_2_3_1-ground,UPPAAL,,,false,out of time,|
+driverlog,instance_3_2_3_1-cert-conv,shell-script,,,true,out of memory,
+driverlog,instance_3_2_3_1-muntac-cert-check,muntac,,,,file missing,No certificate to check. Expected: ./muntax-dir/driverlog/instance_3_2_3_1.cert
+driverlog,instance_3_2_3_1,tfd,0.05,13484,true,okay,
+driverlog,instance_3_2_3_1,OPTIC,0.00,11436,true,okay,
+driverlog,instance_3_2_3_1-ground,POPF,0.01,10908,true,okay,
+driverlog,instance_3_2_3_2,tck-aLUcovreach,,,false,out of memory,|
+driverlog,instance_3_2_3_2,tck-covreach,,,false,out of memory,|
+driverlog,instance_3_2_3_2-ground,TAMER-ctp,0.04,8576,true,okay,
+driverlog,instance_3_2_3_2-ground,nuXmv,390.78,7065480,true,okay,
+driverlog,instance_3_2_3_2-ground,UPPAAL,,,false,out of time,|
+driverlog,instance_3_2_3_2-cert-conv,shell-script,,,true,out of memory,
+driverlog,instance_3_2_3_2-muntac-cert-check,muntac,,,,file missing,No certificate to check. Expected: ./muntax-dir/driverlog/instance_3_2_3_2.cert
+driverlog,instance_3_2_3_2,tfd,0.05,14172,true,okay,
+driverlog,instance_3_2_3_2,OPTIC,0.01,11564,true,okay,
+driverlog,instance_3_2_3_2-ground,POPF,0.01,10948,true,okay,
+driverlog,instance_3_2_3_3,tck-aLUcovreach,,,false,out of memory,|
+driverlog,instance_3_2_3_3,tck-covreach,,,false,out of memory,|
+driverlog,instance_3_2_3_3-ground,TAMER-ctp,0.07,10024,true,okay,
+driverlog,instance_3_2_3_3-ground,nuXmv,271.58,2675372,true,okay,
+driverlog,instance_3_2_3_3-ground,UPPAAL,,,false,out of time,|
+driverlog,instance_3_2_3_3-cert-conv,shell-script,,,true,out of memory,
+driverlog,instance_3_2_3_3-muntac-cert-check,muntac,,,,file missing,No certificate to check. Expected: ./muntax-dir/driverlog/instance_3_2_3_3.cert
+driverlog,instance_3_2_3_3,tfd,0.05,13348,true,okay,
+driverlog,instance_3_2_3_3,OPTIC,0.01,11496,true,okay,
+driverlog,instance_3_2_3_3-ground,POPF,0.01,11248,true,okay,
+driverlog,instance_3_3_1_1,tck-aLUcovreach,6.66,4378932,true,okay,
+driverlog,instance_3_3_1_1,tck-covreach,6.66,4379108,true,okay,
+driverlog,instance_3_3_1_1-ground,TAMER-ctp,0.01,5988,true,okay,
+driverlog,instance_3_3_1_1-ground,nuXmv,34.25,584132,true,okay,
+driverlog,instance_3_3_1_1-ground,UPPAAL,0.26,26724,true,okay,
+driverlog,instance_3_3_1_1-cert-conv,shell-script,0.44,44256,true,okay,
+driverlog,instance_3_3_1_1-muntac-cert-check,muntac,1.13,509516,true,okay,
+driverlog,instance_3_3_1_1,tfd,0.05,13856,true,okay,
+driverlog,instance_3_3_1_1,OPTIC,0.00,11428,true,okay,
+driverlog,instance_3_3_1_1-ground,POPF,0.00,10604,true,okay,
+driverlog,instance_3_3_1_2,tck-aLUcovreach,,,false,out of memory,|
+driverlog,instance_3_3_1_2,tck-covreach,,,false,out of memory,|
+driverlog,instance_3_3_1_2-ground,TAMER-ctp,0.04,7524,true,okay,
+driverlog,instance_3_3_1_2-ground,nuXmv,,,false,out of time,|
+driverlog,instance_3_3_1_2-ground,UPPAAL,1.92,37140,true,okay,
+driverlog,instance_3_3_1_2-cert-conv,shell-script,,,true,out of memory,
+driverlog,instance_3_3_1_2-muntac-cert-check,muntac,,,,file missing,No certificate to check. Expected: ./muntax-dir/driverlog/instance_3_3_1_2.cert
+driverlog,instance_3_3_1_2,tfd,0.06,13920,true,okay,
+driverlog,instance_3_3_1_2,OPTIC,0.00,11264,true,okay,
+driverlog,instance_3_3_1_2-ground,POPF,0.01,11064,true,okay,
+driverlog,instance_3_3_1_3,tck-aLUcovreach,,,false,out of memory,|
+driverlog,instance_3_3_1_3,tck-covreach,,,false,out of memory,|
+driverlog,instance_3_3_1_3-ground,TAMER-ctp,0.06,9572,true,okay,
+driverlog,instance_3_3_1_3-ground,nuXmv,148.31,1603004,true,okay,
+driverlog,instance_3_3_1_3-ground,UPPAAL,14.30,62020,true,okay,
+driverlog,instance_3_3_1_3-cert-conv,shell-script,,,true,out of memory,
+driverlog,instance_3_3_1_3-muntac-cert-check,muntac,,,,file missing,No certificate to check. Expected: ./muntax-dir/driverlog/instance_3_3_1_3.cert
+driverlog,instance_3_3_1_3,tfd,0.05,13796,true,okay,
+driverlog,instance_3_3_1_3,OPTIC,0.01,11492,true,okay,
+driverlog,instance_3_3_1_3-ground,POPF,0.01,10988,true,okay,
+driverlog,instance_3_3_2_1,tck-aLUcovreach,,,false,out of memory,|
+driverlog,instance_3_3_2_1,tck-covreach,,,false,out of memory,|
+driverlog,instance_3_3_2_1-ground,TAMER-ctp,0.03,7268,true,okay,
+driverlog,instance_3_3_2_1-ground,nuXmv,181.75,2306896,true,okay,
+driverlog,instance_3_3_2_1-ground,UPPAAL,,,false,out of time,|
+driverlog,instance_3_3_2_1-cert-conv,shell-script,,,true,out of memory,
+driverlog,instance_3_3_2_1-muntac-cert-check,muntac,,,,file missing,No certificate to check. Expected: ./muntax-dir/driverlog/instance_3_3_2_1.cert
+driverlog,instance_3_3_2_1,tfd,0.05,14044,true,okay,
+driverlog,instance_3_3_2_1,OPTIC,0.00,11312,true,okay,
+driverlog,instance_3_3_2_1-ground,POPF,0.01,10632,true,okay,
+driverlog,instance_3_3_2_2,tck-aLUcovreach,,,false,out of memory,|
+driverlog,instance_3_3_2_2,tck-covreach,,,false,out of memory,|
+driverlog,instance_3_3_2_2-ground,TAMER-ctp,0.05,8548,true,okay,
+driverlog,instance_3_3_2_2-ground,nuXmv,348.48,4581288,true,okay,
+driverlog,instance_3_3_2_2-ground,UPPAAL,,,false,out of time,|
+driverlog,instance_3_3_2_2-cert-conv,shell-script,,,true,out of memory,
+driverlog,instance_3_3_2_2-muntac-cert-check,muntac,,,,file missing,No certificate to check. Expected: ./muntax-dir/driverlog/instance_3_3_2_2.cert
+driverlog,instance_3_3_2_2,tfd,0.05,14028,true,okay,
+driverlog,instance_3_3_2_2,OPTIC,0.01,11540,true,okay,
+driverlog,instance_3_3_2_2-ground,POPF,0.00,11004,true,okay,
+driverlog,instance_3_3_2_3,tck-aLUcovreach,,,false,out of memory,|
+driverlog,instance_3_3_2_3,tck-covreach,,,false,out of memory,|
+driverlog,instance_3_3_2_3-ground,TAMER-ctp,0.09,10604,true,okay,
+driverlog,instance_3_3_2_3-ground,nuXmv,,,false,out of time,|
+driverlog,instance_3_3_2_3-ground,UPPAAL,,,false,out of time,|
+driverlog,instance_3_3_2_3-cert-conv,shell-script,,,true,out of memory,
+driverlog,instance_3_3_2_3-muntac-cert-check,muntac,,,,file missing,No certificate to check. Expected: ./muntax-dir/driverlog/instance_3_3_2_3.cert
+driverlog,instance_3_3_2_3,tfd,0.05,13912,true,okay,
+driverlog,instance_3_3_2_3,OPTIC,0.01,11824,true,okay,
+driverlog,instance_3_3_2_3-ground,POPF,0.01,11688,true,okay,
+driverlog,instance_3_3_3_1,tck-aLUcovreach,,,false,out of memory,|
+driverlog,instance_3_3_3_1,tck-covreach,,,false,out of memory,|
+driverlog,instance_3_3_3_1-ground,TAMER-ctp,0.06,9060,true,okay,
+driverlog,instance_3_3_3_1-ground,nuXmv,,,false,out of time,|
+driverlog,instance_3_3_3_1-ground,UPPAAL,,,false,out of time,|
+driverlog,instance_3_3_3_1-cert-conv,shell-script,,,true,out of memory,
+driverlog,instance_3_3_3_1-muntac-cert-check,muntac,,,,file missing,No certificate to check. Expected: ./muntax-dir/driverlog/instance_3_3_3_1.cert
+driverlog,instance_3_3_3_1,tfd,0.05,13944,true,okay,
+driverlog,instance_3_3_3_1,OPTIC,0.00,11540,true,okay,
+driverlog,instance_3_3_3_1-ground,POPF,0.01,11464,true,okay,
+driverlog,instance_3_3_3_2,tck-aLUcovreach,,,false,out of memory,|
+driverlog,instance_3_3_3_2,tck-covreach,,,false,out of memory,|
+driverlog,instance_3_3_3_2-ground,TAMER-ctp,0.09,10580,true,okay,
+driverlog,instance_3_3_3_2-ground,nuXmv,176.34,2147036,true,okay,
+driverlog,instance_3_3_3_2-ground,UPPAAL,,,false,out of time,|
+driverlog,instance_3_3_3_2-cert-conv,shell-script,,,true,out of memory,
+driverlog,instance_3_3_3_2-muntac-cert-check,muntac,,,,file missing,No certificate to check. Expected: ./muntax-dir/driverlog/instance_3_3_3_2.cert
+driverlog,instance_3_3_3_2,tfd,0.06,14048,true,okay,
+driverlog,instance_3_3_3_2,OPTIC,0.01,11788,true,okay,
+driverlog,instance_3_3_3_2-ground,POPF,0.01,11676,true,okay,
+driverlog,instance_3_3_3_3,tck-aLUcovreach,,,false,out of memory,|
+driverlog,instance_3_3_3_3,tck-covreach,,,false,out of memory,|
+driverlog,instance_3_3_3_3-ground,TAMER-ctp,0.17,12900,true,okay,
+driverlog,instance_3_3_3_3-ground,nuXmv,519.09,4394208,true,okay,
+driverlog,instance_3_3_3_3-ground,UPPAAL,,,false,out of time,|
+driverlog,instance_3_3_3_3-cert-conv,shell-script,,,true,out of memory,
+driverlog,instance_3_3_3_3-muntac-cert-check,muntac,,,,file missing,No certificate to check. Expected: ./muntax-dir/driverlog/instance_3_3_3_3.cert
+driverlog,instance_3_3_3_3,tfd,0.05,14068,true,okay,
+driverlog,instance_3_3_3_3,OPTIC,0.00,11816,true,okay,
+driverlog,instance_3_3_3_3-ground,POPF,0.01,11768,true,okay,

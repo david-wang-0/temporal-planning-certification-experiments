@@ -247,7 +247,7 @@ time.sh
 args.sh
 run_tfd.sh
 run_optic.sh
-
+run_nextflap.sh
 
 # result csv
 *.temp.csv
