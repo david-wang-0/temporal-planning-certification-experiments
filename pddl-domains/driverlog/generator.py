@@ -75,7 +75,7 @@ def rand_locs(locatables, locations):
 
 def main():
     seed(42)
-    pathlib.Path("instances\").mkdir(parents=True, exist_ok=True)
+    pathlib.Path("instances").mkdir(parents=True, exist_ok=True)
     for nt in range(1, 4):
         for nd in range(1, 4):
             for ns in range(1, 4):
