@@ -1,4 +1,4 @@
-BENCHMARKS=-b tck-aLU -b tck-covreach -b tamer-ctp-ground -b tamer-ftp-ground -b nuxmv-ground -b uppaal-ground -b cert-conv -b muntac-cert-check -b tfd -b optic -b popf3-ground -b nextflap 
+BENCHMARKS=-b tck-aLU -b tck-covreach -b nuxmv-ground -b uppaal-ground -b cert-conv -b muntac-cert-check -b tamer-ctp-ground -b tamer-ftp-ground -b tfd -b optic -b popf3-ground -b nextflap 
 
 BENCHMARKS2=-b tamer-ftp-ground -b uppaal-ground -b nextflap
 
@@ -31,3 +31,6 @@ sync_benchmarks:
 benchmarks_rep:
 	./run.sh -f more_$(RESULTS) -t $(TIMEOUT) -m $(MEMORY) -p pddl-domains/MatchCellar-impossible $(BENCHMARKS2)
 	./run.sh -f more_$(RESULTS) -t $(TIMEOUT) -m $(MEMORY) -p pddl-domains/driverlog $(BENCHMARKS2)
+
+crew_planning_benchmarks:
+	./run.sh -f crew_plan_$(RESULTS) -t $(TIMEOUT) -m $(MEMORY) -p pddl-domains/crew-planning $(BENCHMARKS)
