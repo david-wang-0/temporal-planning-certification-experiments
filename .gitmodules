@@ -1,0 +1,12 @@
+[submodule "sources/NextFLAP"]
+	path = sources/NextFLAP
+	url = https://github.com/david-wang-0/NextFLAP.git
+[submodule "sources/popf2"]
+	path = sources/popf2
+	url = https://github.com/david-wang-0/popf2.git
+[submodule "sources/optic"]
+	path = sources/optic
+	url = https://github.com/david-wang-0/optic.git
+[submodule "sources/tfd"]
+	path = sources/tfd
+	url = https://github.com/david-wang-0/tfd.git

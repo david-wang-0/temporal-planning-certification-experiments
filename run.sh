@@ -21,7 +21,7 @@ run_with_timeout () {
     if [[ $err == 143 ]] ## time out
     then 
         echo "143>%<>%<>%<>%<"
-    elif [[ $err == 1 || $err == 127 ]] ## out of memory -- terminated
+    elif [[ $err == 1 || $err == 127 || $err == 137 ]] ## out of memory -- terminated
     then
         echo "128>%<>%<>%<>%<"
     elif [[ $err == 0 ]] ## okay
@@ -47,8 +47,9 @@ ground_example () {
     local in_problem=$2
     local out_domain=$3 
     local out_problem=$4
-    ./grounder --write-pddl $out_domain $out_problem $in_domain $in_problem >> /dev/null
+    ./grounder --write-pddl $out_domain $out_problem $in_domain $in_problem
 }
+export -f ground_example
 
 # munta
 convert_to_muntax () {
@@ -56,8 +57,9 @@ convert_to_muntax () {
     local problem=$2
     local muntax=$3
 
-    ./plan_cert -domain $domain -problem $problem -model $muntax >> /dev/null
+    ./plan_cert -domain $domain -problem $problem -model $muntax
 }
+export -f convert_to_muntax
 
 rename () {
     local muntax=$1
@@ -101,6 +103,7 @@ convert_to_tck () {
     local tck=$2
     python -m convert_models.convert $muntax $tck
 }
+export -f convert_to_tck
 
 ground_and_convert_to_tck () {
     ground_example $1 $2 $3 $4
@@ -215,7 +218,9 @@ export -f run_popf
 
 nextflap_unsolvable_regex='.*Goals not reached.*'
 run_nextflap () {
-    msg=$((./nextflap "pddl-domains/driverlog/domain.pddl" "pddl-domains/driverlog/instances/instance_1_1_1_1.pddl") 2>&1)
+    local domain=$1
+    local problem=$2
+    msg=$((./nextflap $domain $problem) 2>&1)
     err=$?
     if [[ $err == 134 && $msg =~ $nextflap_unsolvable_regex ]]
     then
@@ -256,6 +261,36 @@ run_and_match_output () {
     local cmd=$1
     local regex=$2
     cmd_output_matches "$(run_with_timeout "$cmd")" "$regex"
+}
+
+time_ground_example () {
+    local in_domain=$1
+    local in_problem=$2
+    local out_domain=$3 
+    local out_problem=$4 
+
+    local cmd="ground_example $in_domain $in_problem $out_domain $out_problem" 
+    local okay_regex=".*-- Writing ground PDDL.*"
+    run_and_match_output "$cmd" "$okay_regex"
+}
+
+time_convert_to_muntax () {
+    local ground_domain=$1
+    local ground_problem=$2
+    local muntax=$3
+
+    local cmd="convert_to_muntax $ground_domain $ground_problem $muntax" 
+    local okay_regex=".*" 
+    run_and_match_output "$cmd" "$okay_regex"
+}
+
+time_convert_to_tck () {
+    local muntax=$1
+    local tck=$2
+
+    local cmd="convert_to_tck $muntax $tck"
+    local regex=".*"
+    run_and_match_output "$cmd" "$okay_regex"
 }
 
 time_tchecker () {
@@ -627,6 +662,54 @@ ground_instance () {
     ground_example $domain $instance $ground_domain_file $ground_problem_file
 }
 
+# time grounder
+time_grounder () {
+    local domain=$1
+    local instance=$2
+
+    local filename=$(basename -- "$instance")
+    local extension="${filename##*.}"
+    local file_name="${filename%.*}"
+
+    local ground_domain_file=$(ground_domain_file $file_name)
+    local ground_problem_file=$(ground_problem_file $file_name)
+    time_ground_example $domain $instance $ground_domain_file $ground_problem_file
+}
+
+time_converter () {
+    local file_name=$1
+
+    local ground_domain_file=$(ground_domain_file $file_name)
+    local ground_problem_file=$(ground_problem_file $file_name)
+    local muntax_file=$(muntax_file $file_name)
+
+    if [[ ! -f $ground_domain_file ]]
+    then 
+        echo "131>%<>%<>%<>%<No ground domain. Expected: $ground_domain_file"
+    elif [[ ! -f $ground_problem_file ]]
+    then 
+        echo "131>%<>%<>%<>%<No ground problem. Expected: $ground_problem_file"
+    else
+    
+        time_convert_to_muntax $ground_domain_file $ground_problem_file $muntax_file
+    fi
+}
+
+time_model_converter () {
+    local file_name=$1
+
+    local muntax_file=$(muntax_file $file_name)
+    local tck_file=$(tck_file $file_name)
+
+    if [[ ! -f $muntax_file ]]
+    then 
+        echo "131>%<>%<>%<>%<No model to convert. Expected: $muntax_file"
+    else
+    
+        time_convert_to_tck $muntax_file $tck_file
+    fi
+}
+
 to_status () {
     local return_code=$1
     if [[ $return_code == "143" ]]
@@ -697,7 +780,19 @@ run_benchmarks () {
     echo "Domain: $domain_dir_name"
     echo "Instance: $instance_name"
     for benchmark in "${benchmarks[@]}"; do
-        if [[ $benchmark == "tck-covreach" ]]
+        if [[ $benchmark == "ground" ]]
+        then
+            echo -e "\tRunning grounder."
+            record_result "$instance_name" "grounding" "$(time_grounder $domain_file $instance_file $instance_name)"
+        elif [[ $benchmark == "encode" ]]
+        then
+            echo -e "\tRunning conversion from ground PDDL to muntax."
+            record_result "$instance_name" "verified-encoder" "$(time_converter $instance_name)"
+        elif [[ $benchmark == "model-convert" ]]
+        then
+            echo -e "\tRunning conversion from ground muntax to tck."
+            record_result "$instance_name" "python-script" "$(time_model_converter $instance_name)"
+        elif [[ $benchmark == "tck-covreach" ]]
         then
             echo -e "\tRunning TChecker covered subsumption reachability."
             record_result "$instance_name" "tck-covreach" "$(ground_and_time_tchecker $domain_file $instance_file $instance_name 'covreach' 'dfs')"
