@@ -885,6 +885,7 @@ show_help () {
 
 OPTIND=1         # Reset in case getopts has been used previously in the shell.
 
+instances=()
 while getopts "h?p:i:b:d:o:f:t:m:" opt; do
   case $opt in
     h|\?)
@@ -893,7 +894,7 @@ while getopts "h?p:i:b:d:o:f:t:m:" opt; do
       ;;
     p) pddl_dir=$OPTARG
       ;;
-    i) instances+="$OPTARG"
+    i) instances+=("$OPTARG")
       ;;
     d) domain=$OPTARG
       ;;
@@ -928,7 +929,7 @@ get_domain () {
     echo "$1"/domain.pddl
 }
 
-find_instance () {
+find_instances () {
     for i in $2
     do
         echo $1/instances/$i.pddl
@@ -942,7 +943,6 @@ find_domain () {
 # either we have a directory and a few instances
 # or we have a domain and a few instances
 
-instances=()
 # if we have no instances, we take all
 if [ -z ${pddl_dir+x} ]
 then 

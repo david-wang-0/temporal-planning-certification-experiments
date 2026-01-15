@@ -60,3 +60,6 @@ benchmark_model_conversion:
 	./run.sh -f model_conv_$(RESULTS) -t $(LONGER_TIMEOUT) -m $(MEMORY) -p pddl-domains/MatchCellar-impossible $(MODEL_CONV)
 	./run.sh -f model_conv_$(RESULTS) -t $(LONGER_TIMEOUT) -m $(MEMORY) -p pddl-domains/sync-impossible $(MODEL_CONV)
 	./run.sh -f model_conv_$(RESULTS) -t $(LONGER_TIMEOUT) -m $(MEMORY) -p pddl-domains/driverlog $(MODEL_CONV)
+
+benchmark_longer_matchcellar_cont:
+	./run.sh -f longer_MatchCellar_$(RESULTS) -t $(LONGER_TIMEOUT) -m $(MEMORY) -p pddl-domains/MatchCellar-impossible -i instance_10 -b tamer-ftp-ground -b tfd -b optic -b popf3-ground -b nextflap 
