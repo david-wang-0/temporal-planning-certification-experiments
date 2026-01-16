@@ -1,7 +1,5 @@
 BENCHMARKS=-b tck-aLU -b tck-covreach -b nuxmv-ground -b uppaal-ground -b cert-conv -b muntac-cert-check -b tamer-ctp-ground -b tamer-ftp-ground -b tfd -b optic -b popf3-ground -b nextflap 
 
-BENCHMARKS2=-b tamer-ftp-ground -b uppaal-ground -b nextflap
-
 GROUNDING=-b ground -b encode
 
 MODEL_CONV=-b model-convert
@@ -56,10 +54,15 @@ benchmark_longer_matchcellar:
 benchmark_longer_sync:
 	./run.sh -f longer_sync_$(RESULTS) -t $(LONGER_TIMEOUT) -m $(MEMORY) -p pddl-domains/sync-impossible $(BENCHMARKS)
 
-benchmark_model_conversion:
-	./run.sh -f model_conv_$(RESULTS) -t $(LONGER_TIMEOUT) -m $(MEMORY) -p pddl-domains/MatchCellar-impossible $(MODEL_CONV)
-	./run.sh -f model_conv_$(RESULTS) -t $(LONGER_TIMEOUT) -m $(MEMORY) -p pddl-domains/sync-impossible $(MODEL_CONV)
-	./run.sh -f model_conv_$(RESULTS) -t $(LONGER_TIMEOUT) -m $(MEMORY) -p pddl-domains/driverlog $(MODEL_CONV)
+benchmark_longer_painter:
+	./run.sh -f longer_painter_$(RESULTS) -t $(LONGER_TIMEOUT) -m $(MEMORY) -p pddl-domains/painter-impossible $(BENCHMARKS)
 
-benchmark_longer_matchcellar_cont:
-	./run.sh -f longer_MatchCellar_$(RESULTS) -t $(LONGER_TIMEOUT) -m $(MEMORY) -p pddl-domains/MatchCellar-impossible -i instance_10 -b tamer-ftp-ground -b tfd -b optic -b popf3-ground -b nextflap 
+benchmark_longer_driverlog:
+	./run.sh -f longer_painter_$(RESULTS) -t $(LONGER_TIMEOUT) -m $(MEMORY) -p pddl-domains/driverlog $(BENCHMARKS)
+
+
+benchmark_longer_all:
+	benchmark_longer_driverlog
+	benchmark_longer_matchcellar
+	benchmark_longer_sync
+	benchmark_longer_painter

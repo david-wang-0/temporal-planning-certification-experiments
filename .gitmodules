@@ -10,3 +10,6 @@
 [submodule "sources/tfd"]
 	path = sources/tfd
 	url = https://github.com/david-wang-0/tfd.git
+[submodule "sources/temporal-planning-certification"]
+	path = sources/temporal-planning-certification
+	url = https://github.com/david-wang-0/temporal-planning-certification.git

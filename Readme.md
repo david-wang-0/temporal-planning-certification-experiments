@@ -39,7 +39,7 @@ mv -t . sources/nextFLAP/nextflap
 ```
 
 ## POPF2/3
-The following will make it build:
+
 ```sh
 cd sources/popf2
 ./build
@@ -49,7 +49,7 @@ mv -t . sources/popf2/compile/popf2/popf3-clp
 
 ## OPTIC
 
-The instructions in `sources/optic` will make this build.
+Follow the instructions in `sources/optic` to make it build
 
 ```sh
 mv -t . sources/optic/build/src/optic/optic-clp
@@ -66,9 +66,11 @@ Please do not move any files
 
 ## Verified encoding from temporal planning to timed automata
 
-The instructions in `sources/temporal-planning-certifications` will make this build.
+Follow the instructions in `sources/temporal-planning-certifications` to make this build.
 
-Please place the `plan_cert` executable into this project's root directory.
+```sh
+mv -t . sources/temporal-planning-certification/ML/out/plan_cert
+```
 
 ## Muntac (certificate checker)
 
@@ -77,8 +79,14 @@ Please place the `plan_cert` executable into this project's root directory.
 Once the AFP is added run the following to build the certificate checker:
 
 ```sh
-isabelle build -d . -be Munta_Certificate_Checker
+isabelle build -e Munta_Certificate_Checker
+mv -t . <path>/<to>/<afp>/thys/Munta_Certificate_Checker/muntac
 ```
 
-`sources/temporal-planning-certifications/lib/afp-2025/thys/Munta_Certificate_Checker` 
+# How to use
+
+The makefile contains a few examples:
+```
+make benchmark_longer_all
+```
 

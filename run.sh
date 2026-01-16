@@ -21,9 +21,9 @@ run_with_timeout () {
     if [[ $err == 143 ]] ## time out
     then 
         echo "143>%<>%<>%<>%<"
-    elif [[ $err == 1 || $err == 127 || $err == 137 ]] ## out of memory -- terminated
-    then
-        echo "128>%<>%<>%<>%<"
+    # elif [[ $err == 1 || $err == 127 || $err == 137 ]] ## out of memory -- terminated
+    # then
+    #     echo "128>%<>%<>%<>%<"
     elif [[ $err == 0 ]] ## okay
     then
         if [[ $msg =~ $regex ]]
@@ -715,9 +715,9 @@ to_status () {
     if [[ $return_code == "143" ]]
     then
         echo "out of time"
-    elif [[ $return_code == "128" ]]
-    then
-        echo "out of memory"
+    # elif [[ $return_code == "128" ]]
+    # then
+    #     echo "out of memory"
     elif [[ $return_code == "129" ]]
     then
         echo "output of command unexpected"
