@@ -11,11 +11,13 @@ PLANNERS=-b tfd -b optic -b popf3-ground -b nextflap
 
 MODEL_CHECKERS=-b tck-aLU -b nuxmv-ground -b nuxmv -b uppaal-ground -b uppaal
 
-GROUNDING=-b ground
+GROUNDING=-b grounder
 
-MODEL_CONV=-b model-convert
+VERIFIED_ENCODER=-b verified-encoder
 
-PIPELINE=$(GROUNDING) $(MODEL_CONV) $(TCHECKER_CERT)
+MODEL_CONV=-b model-converter
+
+PIPELINE=$(GROUNDING) $(VERIFIED_ENCODER) $(MODEL_CONV) $(TCHECKER_CERT)
 
 BENCHMARKS=$(PIPELINE) $(TAMER) $(TAMER_GROUND) $(PLANNERS) $(MODEL_CHECKERS)
 

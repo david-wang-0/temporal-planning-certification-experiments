@@ -788,18 +788,18 @@ run_benchmarks () {
     echo "Domain: $domain_dir_name"
     echo "Instance: $instance_name"
     for benchmark in "${benchmarks[@]}"; do
-        if [[ $benchmark == "ground" ]]
+        if [[ $benchmark == "grounder" ]]
         then
-            echo -e "\tRunning grounder."
-            record_result "$instance_name" "grounding" "$(time_grounder $domain_file $instance_file $instance_name)"
-        elif [[ $benchmark == "ground" ]]
+            echo -e "\tRunning $benchmark."
+            record_result "$instance_name" "$benchmark" "$(time_grounder $domain_file $instance_file $instance_name)"
+        elif [[ $benchmark == "verified-encoder" ]]
         then
             echo -e "\tRunning conversion from ground PDDL to muntax."
             record_result "$instance_name" "verified-encoder" "$(time_converter $instance_name)"
-        elif [[ $benchmark == "model-convert" ]]
+        elif [[ $benchmark == "model-converter" ]]
         then
             echo -e "\tRunning conversion from ground muntax to tck."
-            record_result "$instance_name" "model-conv" "$(time_model_converter $instance_name)"
+            record_result "$instance_name" "model-converter" "$(time_model_converter $instance_name)"
         elif [[ $benchmark == "tck-covreach" ]]
         then
             echo -e "\tRunning TChecker covered subsumption reachability."
