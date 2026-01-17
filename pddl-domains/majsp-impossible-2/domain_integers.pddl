@@ -6,6 +6,7 @@
         Pallet - object
         Position - object
         Treatment - object
+        Nat - object
     )
 
     (:predicates

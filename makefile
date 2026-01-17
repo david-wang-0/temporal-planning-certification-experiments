@@ -1,4 +1,10 @@
-BENCHMARKS=-b tck-aLU -b tck-covreach -b nuxmv-ground -b uppaal-ground -b cert-conv -b muntac-cert-check -b tamer-ctp-ground -b tamer-ftp-ground -b tfd -b optic -b popf3-ground -b nextflap 
+MODEL_CHECKERS=-b tck-aLU -b tck-covreach -b nuxmv-ground -b uppaal-ground -b cert-conv -b muntac-cert-check
+
+TAMER=-b tamer-ctp -b tamer-ftp
+TAMER_GROUND=-b tamer-ctp-ground -b tamer-ftp-ground
+
+PLANNERS=-b tfd -b optic -b popf3-ground -b nextflap 
+
 
 GROUNDING=-b ground -b encode
 
@@ -60,9 +66,29 @@ benchmark_longer_painter:
 benchmark_longer_driverlog:
 	./run.sh -f longer_painter_$(RESULTS) -t $(LONGER_TIMEOUT) -m $(MEMORY) -p pddl-domains/driverlog $(BENCHMARKS)
 
+benchmark_longer_majsp_planners:
+	./run.sh -f longer_majsp_$(RESULTS) -t $(LONGER_TIMEOUT) -m $(MEMORY) -p pddl-domains/majsp-impossible-1 $(PLANNERS)
+
+benchmark_longer_majsp_tamer:
+	./run.sh -f longer_majsp_$(RESULTS) -t $(LONGER_TIMEOUT) -m $(MEMORY) -p pddl-domains/majsp-impossible-1 $(TAMER) $(TAMER_GROUND)
+
+benchmark_longer_majsp_model_checkers:
+	./run.sh -f longer_majsp_$(RESULTS) -t $(LONGER_TIMEOUT) -m $(MEMORY) -p pddl-domains/majsp-impossible-1 $(MODEL_CHECKERS) 
+
+benchmark_longer_majsp:
+	./run.sh -f longer_majsp_$(RESULTS) -t $(LONGER_TIMEOUT) -m $(MEMORY) -p pddl-domains/majsp-impossible-1 $(PLANNERS) $(MODEL_CHECKERS) $(TAMER) $(TAMER_GROUND)
+
+
 
 benchmark_longer_all:
 	benchmark_longer_driverlog
 	benchmark_longer_matchcellar
 	benchmark_longer_sync
 	benchmark_longer_painter
+
+benchmark_longer_matchcellar_tamer:
+	./run.sh -f longer_MatchCellar_tamer_$(RESULTS) -t $(LONGER_TIMEOUT) -m $(MEMORY) -p pddl-domains/MatchCellar-impossible $(TAMER)
+
+benchmark_longer_sync_tamer:
+	./run.sh -f longer_sync_tamer_$(RESULTS) -t $(LONGER_TIMEOUT) -m $(MEMORY) -p pddl-domains/sync-impossible $(TAMER)
+	

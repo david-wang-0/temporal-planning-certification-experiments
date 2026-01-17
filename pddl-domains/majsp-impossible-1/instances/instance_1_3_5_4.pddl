@@ -1,78 +1,72 @@
+(define (problem p_1_3_5_4)
 
-(define (problem instance1_5_3)
+	(:domain new)
 
-(:domain majsp)
+	(:objects
+		r0 - Robot
+		p0 p1 p2 p3 p4 - Position
+		t0 t1 t2 t3 - Treatment
+		b0 b1 b2 - Pallet 
+		zero one two three four five six seven eight nine ten eleven twelve thirteen fourteen - Nat 
+	)
 
-(:objects
-  r0 - Robot
-  p0 p1 p2 p3 p4 - Position
-  t0 t1 t2 t3 - Treatment
-  b0 b1 b2 - Pallet
-)
+        (:init
+              (next-nat zero one)
+              (next-nat one two)
+              (next-nat two three)
+              (next-nat three four)
+              (next-nat four five)
+              (next-nat five six)
+              (next-nat six seven)
+              (next-nat seven eight)
+              (next-nat eight nine)
+              (next-nat nine ten)
+              (next-nat ten eleven)
+              (next-nat eleven twelve)
+              (next-nat twelve thirteen)
+              (next-nat thirteen fourteen)
 
-(:init
-  (robot-at r0 p4)
+              (robot-at r0 p4)
+              (robot-free r0)
+              (battery-level r0 fourteen)
 
-  (robot-free r0)
+              (pallet-at b0 p4)
+              (pallet-at b1 p4)
+              (pallet-at b2 p4)
 
-  (= (battery-level r0) 14)
+              (is-depot p4)
 
+              (position-free p4)
+              (position-free p4)
+              (position-free p4)
+              (position-free p4)
+              (position-free p4)
 
-  (pallet-at b0 p4)
-  (pallet-at b1 p4)
-  (pallet-at b2 p4)
-  (is-depot p4)
+              (can-do p0 t0)
+              (can-do p1 t1)
+              (can-do p2 t2)
+              (can-do p3 t3)
+              (connected p0 p1)
+              (connected p1 p2)
+              (connected p2 p3)
+              (connected p3 p4)
 
-  (position-free p0)
-  (position-free p1)
-  (position-free p2)
-  (position-free p3)
-  (position-free p4)
+        )
 
-  (can-do p0 t0)
-  (can-do p1 t1)
-  (can-do p2 t2)
-  (can-do p3 t3)
-
-  (= (distance p3 p0) 3)
-  (= (distance p2 p3) 1)
-  (= (distance p1 p0) 1)
-  (= (distance p0 p4) 4)
-  (= (distance p2 p4) 2)
-  (= (distance p1 p2) 1)
-  (= (distance p3 p2) 1)
-  (= (distance p4 p3) 1)
-  (= (distance p1 p3) 2)
-  (= (distance p4 p2) 2)
-  (= (distance p0 p3) 3)
-  (= (distance p4 p1) 3)
-  (= (distance p0 p2) 2)
-  (= (distance p3 p1) 2)
-  (= (distance p4 p0) 4)
-  (= (distance p0 p1) 1)
-  (= (distance p1 p4) 3)
-  (= (distance p3 p4) 1)
-  (= (distance p2 p1) 1)
-  (= (distance p2 p0) 2)
-
-
-)
-
-(:goal
-  (and
-  (treated b0 t0)
-  (treated b1 t0)
-  (treated b2 t0)
-  (treated b0 t1)
-  (treated b1 t1)
-  (treated b2 t1)
-  (treated b0 t2)
-  (treated b1 t2)
-  (treated b2 t2)
-  (treated b0 t3)
-  (treated b1 t3)
-  (treated b2 t3)
-
-  )
-)
+	(:goal
+              (and
+              (treated b0 t0)
+              (treated b0 t1)
+              (treated b0 t2)
+              (treated b0 t3)
+              (treated b1 t0)
+              (treated b1 t1)
+              (treated b1 t2)
+              (treated b1 t3)
+              (treated b2 t0)
+              (treated b2 t1)
+              (treated b2 t2)
+              (treated b2 t3)
+              )
+	)
 )

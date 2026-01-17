@@ -1,11 +1,12 @@
 ﻿(define (domain majsp)
-
+    (:requirements :strips :typing :equality :durative-actions)
 
     (:types
         Robot - object
         Pallet - object
         Position - object
         Treatment - object
+        Nat - object
     )
 
     (:predicates
@@ -29,26 +30,30 @@
         (unload_min_timeout ?b - Pallet ?p - Position ?t - Treatment)
         (unload_min_timeout_can_start ?b - Pallet ?p - Position ?t - Treatment)
         (unload_min_timeout_started ?b - Pallet ?p - Position ?t - Treatment)
+        
+        ;; removing functions
+        (connected ?l ?m - Position)
+        (battery-level ?r - Robot ?n - Nat)
+        (next-nat ?b ?c - Nat)
+        
     )
-
-    (:functions
-        (distance ?a ?b - Position)
-        (battery-level ?r - Robot)
-    )
-
+    
     (:action move
-        :parameters (?r - Robot ?from ?to - Position)
+        :parameters (?r - Robot ?from ?to - Position ?l ?n - Nat)
         :precondition
             (and
                 (not (= ?from ?to))
+                (connected ?from ?to)
                 (robot-at ?r ?from)
-                (>= (battery-level ?r) (distance ?from ?to) )
+                (battery-level ?r ?n)
+                (next-nat ?l ?n)
             )
         :effect
             (and
                 (not (robot-at ?r ?from))
                 (robot-at ?r ?to)
-                (decrease (battery-level ?r) (distance ?from ?to) )
+                (not (battery-level ?r ?n))
+                (battery-level ?r ?l)
             )
     )
 
@@ -87,7 +92,7 @@
 
     (:durative-action unload
         :parameters (?r - Robot ?b - Pallet ?p - Position ?t - Treatment)
-        :duration (= ?duration 0.1)
+        :duration (= ?duration 10)
         :condition
             (and
                 (at start (can-do ?p ?t))
@@ -109,7 +114,7 @@
 
     (:durative-action unload_clip
         :parameters (?b - Pallet ?p - Position ?t - Treatment)
-        :duration (= ?duration 0.03)
+        :duration (= ?duration 3)
         :condition (and
                         (at start (unload_started ?b ?p ?t))
                         (at end (unload_ended ?b ?p ?t))
@@ -128,7 +133,7 @@
 
     (:durative-action unload_min_timeout
         :parameters (?b - Pallet ?p - Position ?t - Treatment)
-        :duration (= ?duration 10)
+        :duration (= ?duration 1000)
         :condition (and
                         (at start (unload_min_timeout_can_start ?b ?p ?t))
                    )
@@ -141,7 +146,7 @@
 
     (:durative-action unload_max_timeout
         :parameters (?b - Pallet ?p - Position ?t - Treatment)
-        :duration (= ?duration 20)
+        :duration (= ?duration 2000)
         :condition (and
                         (at start (unload_max_timeout_can_start ?b ?p ?t))
                    )

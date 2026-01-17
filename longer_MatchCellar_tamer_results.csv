@@ -1,0 +1,5 @@
+domain,instance,solver,time(s),memory(kB),identified as unsolvable,status
+MatchCellar-impossible,instance_02,TAMER-ctp,0.01,4440,true,okay,
+MatchCellar-impossible,instance_02,TAMER-ctp,0.02,4156,true,okay,
+MatchCellar-impossible,instance_03,TAMER-ctp,0.04,4952,true,okay,
+MatchCellar-impossible,instance_03,TAMER-ctp,0.04,4412,true,okay,
