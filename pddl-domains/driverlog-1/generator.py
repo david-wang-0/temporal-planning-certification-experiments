@@ -79,36 +79,36 @@ def main():
     for nt in range(1, 4):
         for nd in range(1, 4):
             for ns in range(1, 4):
-                for ne in range(1, 4):
-                    
-                    pname = "instance_%d_%d_%d_%d" % (nt, nd, ns, ne)
+                for ne in range(1, 5):
+                    if ne % 2 == 0:
+                        pname = "instance_%d_%d_%d_%d" % (nt, nd, ns, ne)
 
-                    trucks = mk_trucks(nt)
-                    drivers = mk_drivers(nd)
-                    starting_locations = mk_starting_locations(ns)
-                    ending_locations = mk_ending_locations(ne)
-                    locations = starting_locations + ending_locations
+                        trucks = mk_trucks(nt)
+                        drivers = mk_drivers(nd)
+                        starting_locations = mk_starting_locations(ns)
+                        ending_locations = mk_ending_locations(ne)
+                        locations = starting_locations + ending_locations
 
-                    starting_scc = mk_scc(starting_locations)
-                    ending_scc = mk_scc(ending_locations)
+                        starting_scc = mk_scc(starting_locations)
+                        ending_scc = mk_scc(ending_locations)
 
-                    footpaths = starting_scc + ending_scc
+                        footpaths = starting_scc + ending_scc
 
-                    roads = starting_scc + ending_scc + [mk_path(choice(starting_locations), choice(ending_locations))]
+                        roads = starting_scc + ending_scc + [mk_path(choice(starting_locations), choice(ending_locations))]
 
-                    starting_locs = rand_locs(drivers + trucks, starting_locations)
-                    ending_locs = rand_locs(drivers, starting_locations) + rand_locs(trucks, ending_locations)
+                        starting_locs = rand_locs(drivers + trucks, starting_locations)
+                        ending_locs = rand_locs(drivers, starting_locations) + rand_locs(trucks, ending_locations)
 
-                    txt = PDDL_TEMPLATE.render(drivers=drivers,
-                                            trucks=trucks,
-                                            locations=locations,
-                                            starting_locs=starting_locs,
-                                            ending_locs=ending_locs,
-                                            footpaths=footpaths,
-                                            links=roads,
-                                            problem_name=pname)
-                    with open("instances/%s.pddl" % pname, 'wt') as fh:
-                        fh.write(txt)
+                        txt = PDDL_TEMPLATE.render(drivers=drivers,
+                                                trucks=trucks,
+                                                locations=locations,
+                                                starting_locs=starting_locs,
+                                                ending_locs=ending_locs,
+                                                footpaths=footpaths,
+                                                links=roads,
+                                                problem_name=pname)
+                        with open("instances/%s.pddl" % pname, 'wt') as fh:
+                            fh.write(txt)
 
 
 if __name__ == '__main__':

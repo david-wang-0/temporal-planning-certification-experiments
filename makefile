@@ -32,20 +32,32 @@ MEMORY=56000000 # in kB. Should be 56 GB
 MATCHCELLAR=pddl-domains/MatchCellar-impossible
 SYNC=pddl-domains/sync-impossible
 PAINTER=pddl-domains/painter-impossible
-DRIVERLOG=pddl-domains/driverlog
-MAJSP=pddl-domains/majsp-impossible-1
+DRIVERLOG_1=pddl-domains/driverlog-1
+DRIVERLOG_2=pddl-domains/driverlog-2
+MAJSP_1=pddl-domains/majsp-impossible-1-1
+MAJSP_2=pddl-domains/majsp-impossible-1-2
 
 clean:
 	rm $(RESULTS)
 	rm $(TEMP_RESULTS)
 
 create_painter_instances:
-	cd pddl-domains/painter-impossible; python -m generator
+	cd $(PAINTER); python -m generator
 
-create_driverlog_instances:
-	cd pddl-domains/driverlog; python -m generator
+create_driverlog_instances_1:
+	cd $(DRIVERLOG_1); python -m generator
 
-create_instances: create_painter_instances create_driverlog_instances
+create_driverlog_instances_2:
+	cd $(DRIVERLOG_2); python -m generator
+
+create_majsp_instances_1:
+	cd $(MAJSP_1); python -m generator
+
+create_majsp_instances_2:
+	cd $(MAJSP_2); python -m generator
+
+
+create_instances: create_painter_instances create_driverlog_instances_1 create_driverlog_instances_2 create_majsp_instances_1 create_majsp_instances_2
 
 benchmark_longer_matchcellar:
 	./run.sh -f longer_MatchCellar_$(RESULTS) -t $(LONGER_TIMEOUT) -m $(MEMORY) -p $(MATCHCELLAR) $(BENCHMARKS)
@@ -56,17 +68,29 @@ benchmark_longer_sync:
 benchmark_longer_painter: create_painter_instances
 	./run.sh -f longer_painter_$(RESULTS) -t $(LONGER_TIMEOUT) -m $(MEMORY) -p $(PAINTER) $(BENCHMARKS)
 
-benchmark_longer_driverlog: create_driverlog_instances
-	./run.sh -f longer_driverlog_$(RESULTS) -t $(LONGER_TIMEOUT) -m $(MEMORY) -p $(DRIVERLOG) $(BENCHMARKS)
+benchmark_longer_driverlog_1: create_driverlog_instances_1
+	./run.sh -f longer_driverlog_1_$(RESULTS) -t $(LONGER_TIMEOUT) -m $(MEMORY) -p $(DRIVERLOG_1) $(BENCHMARKS)
 
-benchmark_longer_majsp:
-	./run.sh -f longer_majsp_$(RESULTS) -t $(LONGER_TIMEOUT) -m $(MEMORY) -p $(MAJSP) $(BENCHMARKS)
+benchmark_longer_driverlog_2: create_driverlog_instances_2
+	./run.sh -f longer_driverlog_2_$(RESULTS) -t $(LONGER_TIMEOUT) -m $(MEMORY) -p $(DRIVERLOG_2) $(BENCHMARKS)
 
-benchmark_longer_all: benchmark_longer_driverlog benchmark_longer_matchcellar benchmark_longer_sync benchmark_longer_painter benchmark_longer_majsp
+benchmark_longer_majsp: benchmark_longer_driverlog_1 .WAIT benchmark_longer_driverlog_2
+
+benchmark_longer_majsp_1: create_majsp_instances_1
+	./run.sh -f longer_majsp_$(RESULTS) -t $(LONGER_TIMEOUT) -m $(MEMORY) -p $(MAJSP_1) $(BENCHMARKS)
+
+benchmark_longer_majsp_2: create_majsp_instances_1
+	./run.sh -f longer_majsp_$(RESULTS) -t $(LONGER_TIMEOUT) -m $(MEMORY) -p $(MAJSP_2) $(BENCHMARKS)
+
+benchmark_longer_majsp: benchmark_longer_majsp_1 .WAIT benchmark_longer_majsp_2
+	
+benchmark_longer_all: benchmark_longer_driverlog_1 benchmark_longer_driverlog_2 benchmark_longer_matchcellar benchmark_longer_sync benchmark_longer_painter benchmark_longer_majsp_1 benchmark_longer_majsp_2
+
+
 
 
 benchmark_short_matchcellar:
-	./run.sh -f short_MatchCellar_$(RESULTS) -t $(TIMEOUT) -m $(MEMORY) -p $(MATCHCELLAR)  $(BENCHMARKS)
+	./run.sh -f short_MatchCellar_$(RESULTS) -t $(TIMEOUT) -m $(MEMORY) -p $(MATCHCELLAR) $(BENCHMARKS)
 
 benchmark_short_sync:
 	./run.sh -f short_sync_$(RESULTS) -t $(TIMEOUT) -m $(MEMORY) -p $(SYNC) $(BENCHMARKS)
@@ -74,13 +98,23 @@ benchmark_short_sync:
 benchmark_short_painter: create_painter_instances
 	./run.sh -f short_painter_$(RESULTS) -t $(TIMEOUT) -m $(MEMORY) -p $(PAINTER) $(BENCHMARKS)
 
-benchmark_short_driverlog: create_driverlog_instances
-	./run.sh -f short_driverlog_$(RESULTS) -t $(TIMEOUT) -m $(MEMORY) -p $(DRIVERLOG) $(BENCHMARKS)
+benchmark_short_driverlog_1: create_driverlog_instances_1
+	./run.sh -f short_driverlog_1_$(RESULTS) -t $(TIMEOUT) -m $(MEMORY) -p $(DRIVERLOG_1) $(BENCHMARKS)
 
-benchmark_short_majsp:
-	./run.sh -f short_majsp_$(RESULTS) -t $(TIMEOUT) -m $(MEMORY) -p $(MAJSP) $(BENCHMARKS)
+benchmark_short_driverlog_2: create_driverlog_instances_2
+	./run.sh -f short_driverlog_2_$(RESULTS) -t $(TIMEOUT) -m $(MEMORY) -p $(DRIVERLOG_2) $(BENCHMARKS)
 
-benchmark_short_all: benchmark_short_driverlog benchmark_short_matchcellar benchmark_short_sync benchmark_short_painter benchmark_short_majsp
+benchmark_short_majsp: benchmark_short_driverlog_1 .WAIT benchmark_short_driverlog_2
+
+benchmark_short_majsp_1: create_majsp_instances_1
+	./run.sh -f short_majsp_1_$(RESULTS) -t $(TIMEOUT) -m $(MEMORY) -p $(MAJSP_1) $(BENCHMARKS)
+
+benchmark_short_majsp_2: create_majsp_instances_1
+	./run.sh -f short_majsp_2_$(RESULTS) -t $(TIMEOUT) -m $(MEMORY) -p $(MAJSP_2) $(BENCHMARKS)
+	
+benchmark_short_majsp: benchmark_short_majsp_1 .WAIT benchmark_short_majsp_2
+
+benchmark_short_all: benchmark_short_driverlog_1 benchmark_short_driverlog_2 benchmark_short_matchcellar benchmark_short_sync benchmark_short_painter benchmark_short_majsp_1 benchmark_short_majsp_2
 
 
 benchmark_short_majsp_tamer:
