@@ -1,94 +1,84 @@
-MODEL_CHECKERS=-b tck-aLU -b tck-covreach -b nuxmv-ground -b uppaal-ground -b cert-conv -b muntac-cert-check
+TCHECKER_CERT=-b tck-covreach -b cert-conv -b muntac-cert-check
+
+
+# the -ground suffix is needed, because sometimes tamer's parser does not recognise the lifted pddl files (when subtyping is involved)
+# popf3 also segfaults on some domains...
 
 TAMER=-b tamer-ctp -b tamer-ftp
 TAMER_GROUND=-b tamer-ctp-ground -b tamer-ftp-ground
 
 PLANNERS=-b tfd -b optic -b popf3-ground -b nextflap 
 
+MODEL_CHECKERS=-b tck-aLU -b nuxmv-ground -b nuxmv -b uppaal-ground -b uppaal
 
-GROUNDING=-b ground -b encode
+GROUNDING=-b ground
 
 MODEL_CONV=-b model-convert
 
-# the -ground suffix is needed, because sometimes tamer's parser does not recognise the lifted pddl files (when subtyping is involved)
-# popf3 also segfaults on some domains...
+PIPELINE=$(GROUNDING) $(MODEL_CONV) $(TCHECKER_CERT)
+
+BENCHMARKS=$(PIPELINE) $(TAMER) $(TAMER_GROUND) $(PLANNERS) $(MODEL_CHECKERS)
 
 RESULTS=results.csv
 TEMP_RESULTS=results.temp.csv
 
+# time out and memory
 TIMEOUT=900s
 LONGER_TIMEOUT=1800s
+
 MEMORY=56000000 # in kB. Should be 56 GB
+
+MATCHCELLAR=pddl-domains/MatchCellar-impossible
+SYNC=pddl-domains/sync-impossible
+PAINTER=pddl-domains/painter-impossible
+DRIVERLOG=pddl-domains/driverlog
+MAJSP=pddl-domains/majsp-impossible-1
 
 clean:
 	rm $(RESULTS)
 	rm $(TEMP_RESULTS)
 
-benchmarks_temp:
-	./run.sh -f $(TEMP_RESULTS) -t $(TIMEOUT) -m $(MEMORY) -p pddl-domains/MatchCellar-impossible $(BENCHMARKS)
-	./run.sh -f $(TEMP_RESULTS) -t $(TIMEOUT) -m $(MEMORY) -p pddl-domains/sync-impossible $(BENCHMARKS)
-	./run.sh -f $(TEMP_RESULTS) -t $(TIMEOUT) -m $(MEMORY) -p pddl-domains/driverlog $(BENCHMARKS)
-
-benchmarks:
-	./run.sh -f $(RESULTS) -t $(TIMEOUT) -m $(MEMORY) -p pddl-domains/MatchCellar-impossible $(BENCHMARKS)
-	./run.sh -f $(RESULTS) -t $(TIMEOUT) -m $(MEMORY) -p pddl-domains/sync-impossible $(BENCHMARKS)
-	./run.sh -f $(RESULTS) -t $(TIMEOUT) -m $(MEMORY) -p pddl-domains/driverlog $(BENCHMARKS)
-
-sync_benchmarks:
-	./run.sh -f sync_$(RESULTS) -t $(TIMEOUT) -m $(MEMORY) -p pddl-domains/sync-impossible $(BENCHMARKS)
-
-benchmarks_rep:
-	./run.sh -f more_$(RESULTS) -t $(TIMEOUT) -m $(MEMORY) -p pddl-domains/MatchCellar-impossible $(BENCHMARKS2)
-	./run.sh -f more_$(RESULTS) -t $(TIMEOUT) -m $(MEMORY) -p pddl-domains/driverlog $(BENCHMARKS2)
-
-crew_planning_benchmarks:
-	./run.sh -f crew_plan_$(RESULTS) -t $(TIMEOUT) -m $(MEMORY) -p pddl-domains/crew-planning $(BENCHMARKS)
-
-benchmark_nextflap:
-	./run.sh -f nextflap_$(RESULTS) -t $(TIMEOUT) -m $(MEMORY) -p pddl-domains/driverlog -b nextflap
-	./run.sh -f nextflap_$(RESULTS) -t $(TIMEOUT) -m $(MEMORY) -p pddl-domains/sync-impossible -b nextflap
-	./run.sh -f nextflap_$(RESULTS) -t $(TIMEOUT) -m $(MEMORY) -p pddl-domains/MatchCellar-impossible -b nextflap
-	
-benchmark_conversion:
-	./run.sh -f encode_$(RESULTS) -t $(LONGER_TIMEOUT) -m $(MEMORY) -p pddl-domains/MatchCellar-impossible $(GROUNDING)
-	./run.sh -f encode_$(RESULTS) -t $(LONGER_TIMEOUT) -m $(MEMORY) -p pddl-domains/sync-impossible $(GROUNDING)
-	./run.sh -f encode_$(RESULTS) -t $(LONGER_TIMEOUT) -m $(MEMORY) -p pddl-domains/driverlog $(GROUNDING)
-
 benchmark_longer_matchcellar:
-	./run.sh -f longer_MatchCellar_$(RESULTS) -t $(LONGER_TIMEOUT) -m $(MEMORY) -p pddl-domains/MatchCellar-impossible $(BENCHMARKS)
+	./run.sh -f longer_MatchCellar_$(RESULTS) -t $(LONGER_TIMEOUT) -m $(MEMORY) -p $(MATCHCELLAR) $(BENCHMARKS)
 
 benchmark_longer_sync:
-	./run.sh -f longer_sync_$(RESULTS) -t $(LONGER_TIMEOUT) -m $(MEMORY) -p pddl-domains/sync-impossible $(BENCHMARKS)
+	./run.sh -f longer_sync_$(RESULTS) -t $(LONGER_TIMEOUT) -m $(MEMORY) -p $(SYNC) $(BENCHMARKS)
 
 benchmark_longer_painter:
-	./run.sh -f longer_painter_$(RESULTS) -t $(LONGER_TIMEOUT) -m $(MEMORY) -p pddl-domains/painter-impossible $(BENCHMARKS)
+	./run.sh -f longer_painter_$(RESULTS) -t $(LONGER_TIMEOUT) -m $(MEMORY) -p $(PAINTER) $(BENCHMARKS)
 
 benchmark_longer_driverlog:
-	./run.sh -f longer_painter_$(RESULTS) -t $(LONGER_TIMEOUT) -m $(MEMORY) -p pddl-domains/driverlog $(BENCHMARKS)
-
-benchmark_longer_majsp_planners:
-	./run.sh -f longer_majsp_$(RESULTS) -t $(LONGER_TIMEOUT) -m $(MEMORY) -p pddl-domains/majsp-impossible-1 $(PLANNERS)
-
-benchmark_longer_majsp_tamer:
-	./run.sh -f longer_majsp_$(RESULTS) -t $(LONGER_TIMEOUT) -m $(MEMORY) -p pddl-domains/majsp-impossible-1 $(TAMER) $(TAMER_GROUND)
-
-benchmark_longer_majsp_model_checkers:
-	./run.sh -f longer_majsp_$(RESULTS) -t $(LONGER_TIMEOUT) -m $(MEMORY) -p pddl-domains/majsp-impossible-1 $(MODEL_CHECKERS) 
+	./run.sh -f longer_driverlog_$(RESULTS) -t $(LONGER_TIMEOUT) -m $(MEMORY) -p $(DRIVERLOG) $(BENCHMARKS)
 
 benchmark_longer_majsp:
-	./run.sh -f longer_majsp_$(RESULTS) -t $(LONGER_TIMEOUT) -m $(MEMORY) -p pddl-domains/majsp-impossible-1 $(PLANNERS) $(MODEL_CHECKERS) $(TAMER) $(TAMER_GROUND)
+	./run.sh -f longer_majsp_$(RESULTS) -t $(LONGER_TIMEOUT) -m $(MEMORY) -p $(MAJSP) $(BENCHMARKS)
+
+benchmark_longer_all: benchmark_longer_driverlog benchmark_longer_matchcellar benchmark_longer_sync benchmark_longer_painter benchmark_longer_majsp
 
 
+benchmark_short_matchcellar:
+	./run.sh -f short_MatchCellar_$(RESULTS) -t $(LONGER_TIMEOUT) -m $(MEMORY) -p $(MATCHCELLAR)  $(BENCHMARKS)
 
-benchmark_longer_all:
-	benchmark_longer_driverlog
-	benchmark_longer_matchcellar
-	benchmark_longer_sync
-	benchmark_longer_painter
+benchmark_short_sync:
+	./run.sh -f short_sync_$(RESULTS) -t $(LONGER_TIMEOUT) -m $(MEMORY) -p $(SYNC) $(BENCHMARKS)
 
-benchmark_longer_matchcellar_tamer:
-	./run.sh -f longer_MatchCellar_tamer_$(RESULTS) -t $(LONGER_TIMEOUT) -m $(MEMORY) -p pddl-domains/MatchCellar-impossible $(TAMER)
+benchmark_short_painter:
+	./run.sh -f short_painter_$(RESULTS) -t $(LONGER_TIMEOUT) -m $(MEMORY) -p $(PAINTER) $(BENCHMARKS)
 
-benchmark_longer_sync_tamer:
-	./run.sh -f longer_sync_tamer_$(RESULTS) -t $(LONGER_TIMEOUT) -m $(MEMORY) -p pddl-domains/sync-impossible $(TAMER)
-	
+benchmark_short_driverlog:
+	./run.sh -f short_driverlog_$(RESULTS) -t $(LONGER_TIMEOUT) -m $(MEMORY) -p $(DRIVERLOG) $(BENCHMARKS)
+
+benchmark_short_majsp:
+	./run.sh -f short_majsp_$(RESULTS) -t $(LONGER_TIMEOUT) -m $(MEMORY) -p $(MAJSP) $(BENCHMARKS)
+
+benchmark_short_all: benchmark_short_driverlog benchmark_short_matchcellar benchmark_short_sync benchmark_short_painter benchmark_short_majsp
+
+
+benchmark_short_majsp_tamer:
+	./run.sh -f short_majsp_tamer_$(RESULTS) -t $(LONGER_TIMEOUT) -m $(MEMORY) -p $(MAJSP) $(TAMER)
+
+benchmark_short_matchcellar_tamer:
+	./run.sh -f short_matchcellar_tamer_$(RESULTS) -t $(LONGER_TIMEOUT) -m $(MEMORY) -p $(MATCHCELLAR) $(TAMER)
+
+benchmark_short_sync_tamer:
+	./run.sh -f short_sync_tamer_$(RESULTS) -t $(LONGER_TIMEOUT) -m $(MEMORY) -p $(SYNC) $(TAMER)

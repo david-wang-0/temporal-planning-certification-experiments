@@ -16,7 +16,7 @@ benchmarks=()
 run_with_timeout () {
     local f=$1
     local regex='(.*)%%%([0-9]+)%([\.0-9]+)%([0-9]+)'
-    msg=$(timeout -p $TIMEOUT bash -c "ulimit -HSv $MEM_LIMIT && { command time -f \"%%%%%%%x%%%e%%%M\" bash -c \"$f\" ; } 2>&1")
+    msg=$(timeout -p $TIMEOUT bash -c "ulimit -HSv $MEM_LIMIT && { command time -f \"%%%%%%%x%%%e%%%M\" bash -c \"$f\" ; } 2>&1" | tr '\n' ' ')
     err=$?
     if [[ $err == 143 ]] ## time out
     then 
@@ -510,6 +510,14 @@ ground_and_time_tamer () {
     time_tamer $ground_domain_file $ground_problem_file $mode
 }
 
+time_tamer_on_pddl () {
+    local domain=$1
+    local instance=$2
+    local mode=$3
+
+    time_tamer $domain $instance $mode
+}
+
 time_nuxmv_on_pddl () {
     local domain=$1
     local instance=$2
@@ -784,7 +792,7 @@ run_benchmarks () {
         then
             echo -e "\tRunning grounder."
             record_result "$instance_name" "grounding" "$(time_grounder $domain_file $instance_file $instance_name)"
-        elif [[ $benchmark == "encode" ]]
+        elif [[ $benchmark == "ground" ]]
         then
             echo -e "\tRunning conversion from ground PDDL to muntax."
             record_result "$instance_name" "verified-encoder" "$(time_converter $instance_name)"
@@ -811,11 +819,11 @@ run_benchmarks () {
         elif [[ $benchmark == "tamer-ctp" ]]
         then
             echo -e "\tRunning TAMER ctp."
-            record_result "$instance_name" "TAMER-ctp" "$(time_tamer $domain_file $instance_file 'ctp')"
+            record_result "$instance_name" "TAMER-ctp" "$(time_tamer_on_pddl $domain_file $instance_file 'ctp')"
         elif [[ $benchmark == "tamer-ftp" ]]
         then
             echo -e "\tRunning TAMER ftp."
-            record_result "$instance_name" "TAMER-ctp" "$(time_tamer $domain_file $instance_file 'ftp')"
+            record_result "$instance_name" "TAMER-ctp" "$(time_tamer_on_pddl $domain_file $instance_file 'ftp')"
         elif [[ $benchmark == "nuxmv" ]]
         then
             echo -e "\tRunning nuXmv."
