@@ -66,28 +66,28 @@ benchmark_longer_all: benchmark_longer_driverlog benchmark_longer_matchcellar be
 
 
 benchmark_short_matchcellar:
-	./run.sh -f short_MatchCellar_$(RESULTS) -t $(LONGER_TIMEOUT) -m $(MEMORY) -p $(MATCHCELLAR)  $(BENCHMARKS)
+	./run.sh -f short_MatchCellar_$(RESULTS) -t $(TIMEOUT) -m $(MEMORY) -p $(MATCHCELLAR)  $(BENCHMARKS)
 
 benchmark_short_sync:
-	./run.sh -f short_sync_$(RESULTS) -t $(LONGER_TIMEOUT) -m $(MEMORY) -p $(SYNC) $(BENCHMARKS)
+	./run.sh -f short_sync_$(RESULTS) -t $(TIMEOUT) -m $(MEMORY) -p $(SYNC) $(BENCHMARKS)
 
 benchmark_short_painter: create_painter_instances
-	./run.sh -f short_painter_$(RESULTS) -t $(LONGER_TIMEOUT) -m $(MEMORY) -p $(PAINTER) $(BENCHMARKS)
+	./run.sh -f short_painter_$(RESULTS) -t $(TIMEOUT) -m $(MEMORY) -p $(PAINTER) $(BENCHMARKS)
 
 benchmark_short_driverlog: create_driverlog_instances
-	./run.sh -f short_driverlog_$(RESULTS) -t $(LONGER_TIMEOUT) -m $(MEMORY) -p $(DRIVERLOG) $(BENCHMARKS)
+	./run.sh -f short_driverlog_$(RESULTS) -t $(TIMEOUT) -m $(MEMORY) -p $(DRIVERLOG) $(BENCHMARKS)
 
 benchmark_short_majsp:
-	./run.sh -f short_majsp_$(RESULTS) -t $(LONGER_TIMEOUT) -m $(MEMORY) -p $(MAJSP) $(BENCHMARKS)
+	./run.sh -f short_majsp_$(RESULTS) -t $(TIMEOUT) -m $(MEMORY) -p $(MAJSP) $(BENCHMARKS)
 
 benchmark_short_all: benchmark_short_driverlog benchmark_short_matchcellar benchmark_short_sync benchmark_short_painter benchmark_short_majsp
 
 
 benchmark_short_majsp_tamer:
-	./run.sh -f short_majsp_tamer_$(RESULTS) -t $(LONGER_TIMEOUT) -m $(MEMORY) -p $(MAJSP) $(TAMER)
+	./run.sh -f short_majsp_tamer_$(RESULTS) -t $(TIMEOUT) -m $(MEMORY) -p $(MAJSP) $(TAMER)
 
 benchmark_short_matchcellar_tamer:
-	./run.sh -f short_matchcellar_tamer_$(RESULTS) -t $(LONGER_TIMEOUT) -m $(MEMORY) -p $(MATCHCELLAR) $(TAMER)
+	./run.sh -f short_matchcellar_tamer_$(RESULTS) -t $(TIMEOUT) -m $(MEMORY) -p $(MATCHCELLAR) $(TAMER)
 
 benchmark_short_sync_tamer:
-	./run.sh -f short_sync_tamer_$(RESULTS) -t $(LONGER_TIMEOUT) -m $(MEMORY) -p $(SYNC) $(TAMER)
+	./run.sh -f short_sync_tamer_$(RESULTS) -t $(TIMEOUT) -m $(MEMORY) -p $(SYNC) $(TAMER)
