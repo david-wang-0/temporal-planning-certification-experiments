@@ -172,7 +172,7 @@ run_tfd_unsolv () {
     local problem=$2
     local plan=$3
 
-    msg=$((./tfd/downward/tfd $domain $problem $plan) 2>&1)
+    msg=$((./sources/tfd/downward/tfd $domain $problem $plan) 2>&1)
     err=$?
     if [[ $err == 1 && $msg =~ $tfd_unsolv_regex ]]
     then
@@ -183,7 +183,7 @@ run_tfd_unsolv () {
 }
 export -f run_tfd_unsolv
 
-optic_unsolv_regex=".*;; Problem unsolvable!.*"
+optic_unsolv_regex="(.*;; Problem unsolvable!.*|.*unsolvable\..*)"
 
 run_optic () {
     local domain=$1

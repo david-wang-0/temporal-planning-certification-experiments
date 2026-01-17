@@ -1,16 +1,11 @@
 (define (domain new)
-
-    (:requirements :equality :typing :durative-actions :fluents :strips :conditional-effects)
-
-    (:types Item Treatment Nat)
+    (:requirements :typing :equality :negative-preconditions :durative-actions) 
+    (:types Item Treatment)
 
     (:predicates
         (busy)
-        (not_busy)
         (treated ?i - Item ?t - Treatment)
-        (not_treated ?i - Item ?t - Treatment)
         (started ?i - Item ?t - Treatment)
-        (not_started ?i - Item ?t - Treatment)
         (ready ?i - Item ?t - Treatment)
         (consecutive ?t ?next - Treatment)
         (s1 ?i - Item ?t ?next - Treatment)
@@ -19,26 +14,19 @@
         (s4 ?i - Item ?t ?next - Treatment)
         (not_is_end ?t - Treatment)
         (joined)
-        (true)
 
-        (next_count ?n ?m - Nat)
-        (item_id ?i - Item ?n - Nat)
-        (counter ?t - Treatment ?n - Nat)
-    )
-
-
-    (:constants
-        last_t - Treatment
-        zero - Nat
+        (next_to_treat ?t - Treatment ?i - Item)
+        (next_item ?i ?j - Item)
+        (start_item ?i - Item)
     )
 
     (:action join
-        :parameters (?i1 ?i2 - Item ?t - Treatment)
+        :parameters (?i1 - Item ?i2 - Item ?t - Treatment)
         :precondition (and
                         (not (= ?i1 ?i2))
                         (not_is_end ?t)
-                        (not_treated ?i1 ?t)
-                        (not_treated ?i2 ?t)
+                        (not (treated ?i1 ?t))
+                        (not (treated ?i2 ?t))
                         (started ?i1 ?t)
                         (started ?i2 ?t)
                         (ready ?i1 ?t)
@@ -48,52 +36,47 @@
     )
 
     (:action reset
-        :parameters ()
-        :precondition (and (true))
+        :parameters (?j - Item)
+        :precondition (start_item ?j)
         :effect (and
                   (forall (?t - Treatment) (and
                     (forall (?i - Item) (and
                       (not (started ?i ?t))
                       (not (treated ?i ?t))
                     ))
-                    (counter ?t zero)
+                    (next_to_treat ?t ?j)
                   ))
                 )
     )
 
 
     (:durative-action make_treatment1
-        :parameters (?i - Item ?t ?next - Treatment ?n ?m - Nat )
+        :parameters (?i ?j - Item ?t ?next - Treatment)
         :duration (= ?duration 4)
         :condition
             (and
                 (at start (and
                               (s1 ?i ?t ?next)
-                              (item_id ?i ?n) 
-                              (counter ?t ?n)
-                              (not_busy)
+                              (next_to_treat ?t ?i)
+                              (not (busy))
                               (consecutive ?t ?next)
-                              (not_treated ?i ?t)
-                              (not_started ?i ?t)
+                              (not (treated ?i ?t))
+                              (not (started ?i ?t))
                               (ready ?i ?t)
-                              (next_count ?n ?m)
+                              (next_item ?i ?j)
                               ))
             )
         :effect
             (and
                 (at start (and
                               (not (s1 ?i ?t ?next))
-
-                              (counter ?t ?m)
+                              (not (next_to_treat ?t ?i))
+                              (next_to_treat ?t ?j)
                               (busy)
-                              (not (not_busy))
-                              (not (not_started ?i ?t))
                               (started ?i ?t)))
                 (at end (and
                             (s2 ?i ?t ?next)
                             (treated ?i ?t)
-                            (not (not_treated ?i ?t))
-                            (not_busy)
                             (not (busy))))
             )
     )

@@ -4,43 +4,15 @@
 
 	(:objects
 		i0 i1 i2 - Item
-		t0 t1 t2 t3 - Treatment
-     zero one two three - Nat
+		t0 t1 t2 t3 last_t - Treatment
 	)
 
         (:init
-              (next_count zero one)
-              (next_count one two)
-              (next_count two three)
-              (not_busy)
-              (true)
-              (not_treated i0 t0)
-              (not_treated i0 t1)
-              (not_treated i0 t2)
-              (not_treated i0 t3)
-              (not_treated i1 t0)
-              (not_treated i1 t1)
-              (not_treated i1 t2)
-              (not_treated i1 t3)
-              (not_treated i2 t0)
-              (not_treated i2 t1)
-              (not_treated i2 t2)
-              (not_treated i2 t3)
-              (not_started i0 t0)
-              (not_started i0 t1)
-              (not_started i0 t2)
-              (not_started i0 t3)
-              (not_started i1 t0)
-              (not_started i1 t1)
-              (not_started i1 t2)
-              (not_started i1 t3)
-              (not_started i2 t0)
-              (not_started i2 t1)
-              (not_started i2 t2)
-              (not_started i2 t3)
-              (item_id i0 zero)
-              (item_id i1 one)
-              (item_id i2 two)
+              (start_item i0)
+              (next_item i0 i1)
+
+              (next_item i1 i2)
+
               (consecutive t0 t1)
               (consecutive t1 t2)
               (consecutive t2 t3)
@@ -51,15 +23,14 @@
               (ready i1 t0)
               (started i2 last_t)
               (ready i2 t0)
-              (counter t0 zero)
+              (next_to_treat t0 i0)
               (not_is_end t0)
-              (counter t1 zero)
+              (next_to_treat t1 i0)
               (not_is_end t1)
-              (counter t2 zero)
+              (next_to_treat t2 i0)
               (not_is_end t2)
-              (counter t3 zero)
+              (next_to_treat t3 i0)
               (not_is_end t3)
-              (counter last_t zero)
         )
 
 	(:goal
