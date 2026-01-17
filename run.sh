@@ -795,79 +795,79 @@ run_benchmarks () {
         elif [[ $benchmark == "verified-encoder" ]]
         then
             echo -e "\tRunning conversion from ground PDDL to muntax."
-            record_result "$instance_name" "verified-encoder" "$(time_converter $instance_name)"
+            record_result "$instance_name" "$benchmark" "$(time_converter $instance_name)"
         elif [[ $benchmark == "model-converter" ]]
         then
             echo -e "\tRunning conversion from ground muntax to tck."
-            record_result "$instance_name" "model-converter" "$(time_model_converter $instance_name)"
+            record_result "$instance_name" "$benchmark" "$(time_model_converter $instance_name)"
         elif [[ $benchmark == "tck-covreach" ]]
         then
             echo -e "\tRunning TChecker covered subsumption reachability."
-            record_result "$instance_name" "tck-covreach" "$(ground_and_time_tchecker $domain_file $instance_file $instance_name 'covreach' 'dfs')"
+            record_result "$instance_name" "$benchmark" "$(ground_and_time_tchecker $domain_file $instance_file $instance_name 'covreach' 'dfs')"
         elif [[ $benchmark == "tck-aLU" ]]
         then
             echo -e "\tRunning TChecker aLU abstracted subsumption reachability."
-            record_result "$instance_name" "tck-aLUcovreach" "$(ground_and_time_tchecker $domain_file $instance_file $instance_name 'aLU-covreach' 'dfs')"
+            record_result "$instance_name" "$benchmark" "$(ground_and_time_tchecker $domain_file $instance_file $instance_name 'aLU-covreach' 'dfs')"
         elif [[ $benchmark == "tamer-ctp-ground" ]]
         then
             echo -e "\tRunning TAMER ctp (ground)."
-            record_result "$instance_name" "TAMER-ctp-ground" "$(ground_and_time_tamer $domain_file $instance_file $instance_name 'ctp')"
+            record_result "$instance_name" "$benchmark" "$(ground_and_time_tamer $domain_file $instance_file $instance_name 'ctp')"
         elif [[ $benchmark == "tamer-ftp-ground" ]]
         then
             echo -e "\tRunning TAMER ftp (ground)."
-            record_result "$instance_name" "TAMER-ftp-ground" "$(ground_and_time_tamer $domain_file $instance_file $instance_name 'ftp')"
+            record_result "$instance_name" "$benchmark" "$(ground_and_time_tamer $domain_file $instance_file $instance_name 'ftp')"
         elif [[ $benchmark == "tamer-ctp" ]]
         then
             echo -e "\tRunning TAMER ctp."
-            record_result "$instance_name" "TAMER-ctp" "$(time_tamer_on_pddl $domain_file $instance_file 'ctp')"
+            record_result "$instance_name" "$benchmark" "$(time_tamer_on_pddl $domain_file $instance_file 'ctp')"
         elif [[ $benchmark == "tamer-ftp" ]]
         then
             echo -e "\tRunning TAMER ftp."
-            record_result "$instance_name" "TAMER-ftp" "$(time_tamer_on_pddl $domain_file $instance_file 'ftp')"
+            record_result "$instance_name" "$benchmark" "$(time_tamer_on_pddl $domain_file $instance_file 'ftp')"
         elif [[ $benchmark == "nuxmv" ]]
         then
             echo -e "\tRunning nuXmv."
-            record_result "$instance_name" "nuXmv" "$(time_nuxmv_on_pddl $domain_file $instance_file $instance_name)"
+            record_result "$instance_name" "$benchmark" "$(time_nuxmv_on_pddl $domain_file $instance_file $instance_name)"
         elif [[ $benchmark == "nuxmv-ground" ]]
         then
             echo -e "\tRunning nuXmv (ground)."
-            record_result "$instance_name" "nuXmv-ground" "$(ground_and_time_nuxmv $domain_file $instance_file $instance_name)"
+            record_result "$instance_name" "$benchmark" "$(ground_and_time_nuxmv $domain_file $instance_file $instance_name)"
         elif [[ $benchmark == "uppaal" ]]
         then
             echo -e "\tRunning UPPAAL."
-            record_result "$instance_name" "UPPAAL" "$(time_uppaal_on_pddl $domain_file $instance_file $instance_name)"
+            record_result "$instance_name" "$benchmark" "$(time_uppaal_on_pddl $domain_file $instance_file $instance_name)"
         elif [[ $benchmark == "uppaal-ground" ]]
         then
             echo -e "\tRunning UPPAAL (ground)."
-            record_result "$instance_name" "UPPAAL-ground" "$(ground_and_time_uppaal $domain_file $instance_file $instance_name)"
+            record_result "$instance_name" "$benchmark" "$(ground_and_time_uppaal $domain_file $instance_file $instance_name)"
         elif [[ $benchmark == "cert-conv" ]]
         then 
             echo -e "\tConverting certificate from \`.dot\` to \`.cert\`."
-            record_result "$instance_name" "cert-conv" "$(time_convert_to_cert $instance_name)"
+            record_result "$instance_name" "$benchmark" "$(time_convert_to_cert $instance_name)"
         elif [[ $benchmark == "muntac-cert-check" ]]
         then 
             echo -e "\tChecking certificate using muntac."
-            record_result "$instance_name" "muntac-cert-check" "$(time_muntac_check_cert $instance_name)"
+            record_result "$instance_name" "$benchmark" "$(time_muntac_check_cert $instance_name)"
         elif [[ $benchmark == "tfd" ]]
         then 
             echo -e "\tRunning TFD (2014 IPC version)."
-            record_result "$instance_name" "tfd" "$(time_tfd_on_pddl $domain_file $instance_file $instance_name)"
+            record_result "$instance_name" "$benchmark" "$(time_tfd_on_pddl $domain_file $instance_file $instance_name)"
         elif [[ $benchmark == "optic" ]]
         then 
             echo -e "\tRunning OPTIC."
-            record_result "$instance_name" "OPTIC" "$(time_optic_on_pddl $domain_file $instance_file)"
+            record_result "$instance_name" "$benchmark" "$(time_optic_on_pddl $domain_file $instance_file)"
         elif [[ $benchmark == "popf3" ]]
         then 
             echo -e "\tRunning POPF2/3."
-            record_result "$instance_name" "POPF" "$(time_popf_on_pddl $domain_file $instance_file)"
+            record_result "$instance_name" "$benchmark" "$(time_popf_on_pddl $domain_file $instance_file)"
         elif [[ $benchmark == "popf3-ground" ]]
         then 
             echo -e "\tRunning POPF2/3 (ground)."
-            record_result "$instance_name" "POPF-ground" "$(ground_and_time_popf $domain_file $instance_file $instance_name)"
+            record_result "$instance_name" "$benchmark" "$(ground_and_time_popf $domain_file $instance_file $instance_name)"
         elif [[ $benchmark == "nextflap" ]]
         then 
             echo -e "\tRunning nextflap."
-            record_result "$instance_name" "nextflap" "$(time_nextflap_on_pddl $domain_file $instance_file)"
+            record_result "$instance_name" "$benchmark" "$(time_nextflap_on_pddl $domain_file $instance_file)"
         else
             echo -e "\tWARNING: Benchmark \"$benchmark\" unknown."
         fi
