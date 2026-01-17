@@ -823,7 +823,7 @@ run_benchmarks () {
         elif [[ $benchmark == "tamer-ftp" ]]
         then
             echo -e "\tRunning TAMER ftp."
-            record_result "$instance_name" "TAMER-ctp" "$(time_tamer_on_pddl $domain_file $instance_file 'ftp')"
+            record_result "$instance_name" "TAMER-ftp" "$(time_tamer_on_pddl $domain_file $instance_file 'ftp')"
         elif [[ $benchmark == "nuxmv" ]]
         then
             echo -e "\tRunning nuXmv."
