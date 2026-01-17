@@ -1,6 +1,6 @@
 (define (problem p_2_4_3_3)
 
-	(:domain new)
+	(:domain majsp)
 
 	(:objects
 		r0 r1 - Robot
@@ -11,36 +11,38 @@
 	)
 
         (:init
-              (next-nat zero one)
-              (next-nat one two)
-              (next-nat two three)
-              (next-nat three four)
-              (next-nat four five)
-              (next-nat five six)
+              (next_nat zero one)
+              (next_nat one two)
+              (next_nat two three)
+              (next_nat three four)
+              (next_nat four five)
+              (next_nat five six)
 
-              (robot-at r0 p2)
-              (robot-free r0)
-              (battery-level r0 six)
-              (robot-at r1 p2)
-              (robot-free r1)
-              (battery-level r1 six)
+              (robot_at r0 p2)
+              (robot_free r0)
+              (battery_level r0 six)
+              (robot_at r1 p2)
+              (robot_free r1)
+              (battery_level r1 six)
 
-              (pallet-at b0 p2)
-              (pallet-at b1 p2)
-              (pallet-at b2 p2)
-              (pallet-at b3 p2)
+              (pallet_at b0 p2)
+              (pallet_at b1 p2)
+              (pallet_at b2 p2)
+              (pallet_at b3 p2)
 
-              (is-depot p2)
+              (is_depot p2)
 
-              (position-free p2)
-              (position-free p2)
-              (position-free p2)
+              (position_free p2)
+              (position_free p2)
+              (position_free p2)
 
-              (can-do p0 t0)
-              (can-do p1 t1)
-              (can-do p2 t2)
+              (can_do p0 t0)
+              (can_do p1 t1)
+              (can_do p2 t2)
               (connected p0 p1)
+              (connected p1 p0)
               (connected p1 p2)
+              (connected p2 p1)
 
         )
 

@@ -7,7 +7,7 @@ for n_r in range(1, 4): # robots
                 filename = "instances/instance_" + str(n_r) + "_" + str(n_b) + "_" + str(n_p) + "_" + str(n_t) + ".pddl"
                 out = open(filename, "w+")
                 out.write("(define (problem p_" + str(n_r) + "_" + str(n_b) + "_" + str(n_p) + "_" + str(n_t) + ")\n\n")
-                out.write("	(:domain new)\n\n")
+                out.write("	(:domain majsp)\n\n")
                 out.write("	(:objects\n")
 
                 out.write("		")
@@ -40,38 +40,39 @@ for n_r in range(1, 4): # robots
                 out.write("	)\n\n")
                 out.write("        (:init\n")
                 for t in range(max_battery):
-                    out.write("              (next-nat " + num2words(t) + " " + num2words(t+1) + ")\n")
+                    out.write("              (next_nat " + num2words(t) + " " + num2words(t+1) + ")\n")
                 out.write("\n")
                 # all robots
                 for i in range(n_r):
-                    out.write("              (robot-at r" + str(i) + " p" + str(n_p-1) + ")\n")
-                    out.write("              (robot-free r" + str(i) + ")\n")
-                    out.write("              (battery-level r" + str(i) + " " + num2words(max_battery) + ")\n")
+                    out.write("              (robot_at r" + str(i) + " p" + str(n_p-1) + ")\n")
+                    out.write("              (robot_free r" + str(i) + ")\n")
+                    out.write("              (battery_level r" + str(i) + " " + num2words(max_battery) + ")\n")
                 out.write("\n")
                 
                 # all pallets are at the max_location
 
                 for i in range(n_b):
-                        out.write("              (pallet-at b" + str(i) + " p" + str(n_p-1) + ")\n")
+                        out.write("              (pallet_at b" + str(i) + " p" + str(n_p-1) + ")\n")
                 out.write("\n")
 
                 # max_location is a depot
-                out.write("              (is-depot p" + str(n_p-1) + ")\n")
+                out.write("              (is_depot p" + str(n_p-1) + ")\n")
                 out.write("\n")
                 # positions are free
                 for i in range(n_p):
-                    out.write("              (position-free p" + str(n_p-1) + ")\n")
+                    out.write("              (position_free p" + str(n_p-1) + ")\n")
                 out.write("\n")
                 # if there are more treatments than positions, then make them all possible at position 0, else pair them
                 if n_t > n_p:
-                        out.write("              (can-do p" + str(i) + " t0)\n")
+                        out.write("              (can_do p" + str(i) + " t0)\n")
                 else:
                     for i in range(n_t):
-                        out.write("              (can-do p" + str(i) + " t" + str(i) + ")\n")
+                        out.write("              (can_do p" + str(i) + " t" + str(i) + ")\n")
 
                 # positions are connected
                 for i in range(n_p-1):
                     out.write("              (connected p" + str(i) + " p" + str(i+1) + ")\n")
+                    out.write("              (connected p" + str(i+1) + " p" + str(i) + ")\n")
                 out.write("\n")
 
                 out.write("        )\n\n")
