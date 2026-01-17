@@ -19,8 +19,7 @@ PIPELINE=$(GROUNDING) $(MODEL_CONV) $(TCHECKER_CERT)
 
 BENCHMARKS=$(PIPELINE) $(TAMER) $(TAMER_GROUND) $(PLANNERS) $(MODEL_CHECKERS)
 
-RESULTS=results.csv
-TEMP_RESULTS=results.temp.csv
+RESULTS=results.$(shell date +%s).csv
 
 # time out and memory
 TIMEOUT=900s
@@ -38,16 +37,24 @@ clean:
 	rm $(RESULTS)
 	rm $(TEMP_RESULTS)
 
+create_painter_instances:
+	cd pddl-domains/painter-impossible; python -m generator
+
+create_driverlog_instances:
+	cd pddl-domains/driverlog; python -m generator
+
+create_instances: create_painter_instances create_driverlog_instances
+
 benchmark_longer_matchcellar:
 	./run.sh -f longer_MatchCellar_$(RESULTS) -t $(LONGER_TIMEOUT) -m $(MEMORY) -p $(MATCHCELLAR) $(BENCHMARKS)
 
 benchmark_longer_sync:
 	./run.sh -f longer_sync_$(RESULTS) -t $(LONGER_TIMEOUT) -m $(MEMORY) -p $(SYNC) $(BENCHMARKS)
 
-benchmark_longer_painter:
+benchmark_longer_painter: create_painter_instances
 	./run.sh -f longer_painter_$(RESULTS) -t $(LONGER_TIMEOUT) -m $(MEMORY) -p $(PAINTER) $(BENCHMARKS)
 
-benchmark_longer_driverlog:
+benchmark_longer_driverlog: create_driverlog_instances
 	./run.sh -f longer_driverlog_$(RESULTS) -t $(LONGER_TIMEOUT) -m $(MEMORY) -p $(DRIVERLOG) $(BENCHMARKS)
 
 benchmark_longer_majsp:
@@ -62,10 +69,10 @@ benchmark_short_matchcellar:
 benchmark_short_sync:
 	./run.sh -f short_sync_$(RESULTS) -t $(LONGER_TIMEOUT) -m $(MEMORY) -p $(SYNC) $(BENCHMARKS)
 
-benchmark_short_painter:
+benchmark_short_painter: create_painter_instances
 	./run.sh -f short_painter_$(RESULTS) -t $(LONGER_TIMEOUT) -m $(MEMORY) -p $(PAINTER) $(BENCHMARKS)
 
-benchmark_short_driverlog:
+benchmark_short_driverlog: create_driverlog_instances
 	./run.sh -f short_driverlog_$(RESULTS) -t $(LONGER_TIMEOUT) -m $(MEMORY) -p $(DRIVERLOG) $(BENCHMARKS)
 
 benchmark_short_majsp:
