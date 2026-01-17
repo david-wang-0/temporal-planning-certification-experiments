@@ -799,7 +799,7 @@ run_benchmarks () {
         elif [[ $benchmark == "model-convert" ]]
         then
             echo -e "\tRunning conversion from ground muntax to tck."
-            record_result "$instance_name" "python-script" "$(time_model_converter $instance_name)"
+            record_result "$instance_name" "model-conv" "$(time_model_converter $instance_name)"
         elif [[ $benchmark == "tck-covreach" ]]
         then
             echo -e "\tRunning TChecker covered subsumption reachability."
@@ -811,11 +811,11 @@ run_benchmarks () {
         elif [[ $benchmark == "tamer-ctp-ground" ]]
         then
             echo -e "\tRunning TAMER ctp (ground)."
-            record_result "$instance_name-ground" "TAMER-ctp" "$(ground_and_time_tamer $domain_file $instance_file $instance_name 'ctp')"
+            record_result "$instance_name" "TAMER-ctp-ground" "$(ground_and_time_tamer $domain_file $instance_file $instance_name 'ctp')"
         elif [[ $benchmark == "tamer-ftp-ground" ]]
         then
             echo -e "\tRunning TAMER ftp (ground)."
-            record_result "$instance_name-ground" "TAMER-ftp" "$(ground_and_time_tamer $domain_file $instance_file $instance_name 'ftp')"
+            record_result "$instance_name" "TAMER-ftp-ground" "$(ground_and_time_tamer $domain_file $instance_file $instance_name 'ftp')"
         elif [[ $benchmark == "tamer-ctp" ]]
         then
             echo -e "\tRunning TAMER ctp."
@@ -831,7 +831,7 @@ run_benchmarks () {
         elif [[ $benchmark == "nuxmv-ground" ]]
         then
             echo -e "\tRunning nuXmv (ground)."
-            record_result "$instance_name-ground" "nuXmv" "$(ground_and_time_nuxmv $domain_file $instance_file $instance_name)"
+            record_result "$instance_name" "nuXmv-ground" "$(ground_and_time_nuxmv $domain_file $instance_file $instance_name)"
         elif [[ $benchmark == "uppaal" ]]
         then
             echo -e "\tRunning UPPAAL."
@@ -839,15 +839,15 @@ run_benchmarks () {
         elif [[ $benchmark == "uppaal-ground" ]]
         then
             echo -e "\tRunning UPPAAL (ground)."
-            record_result "$instance_name-ground" "UPPAAL" "$(ground_and_time_uppaal $domain_file $instance_file $instance_name)"
+            record_result "$instance_name" "UPPAAL-ground" "$(ground_and_time_uppaal $domain_file $instance_file $instance_name)"
         elif [[ $benchmark == "cert-conv" ]]
         then 
             echo -e "\tConverting certificate from \`.dot\` to \`.cert\`."
-            record_result "$instance_name-cert-conv" "shell-script" "$(time_convert_to_cert $instance_name)"
+            record_result "$instance_name" "cert-conv" "$(time_convert_to_cert $instance_name)"
         elif [[ $benchmark == "muntac-cert-check" ]]
         then 
             echo -e "\tChecking certificate using muntac."
-            record_result "$instance_name-muntac-cert-check" "muntac" "$(time_muntac_check_cert $instance_name)"
+            record_result "$instance_name" "muntac-cert-check" "$(time_muntac_check_cert $instance_name)"
         elif [[ $benchmark == "tfd" ]]
         then 
             echo -e "\tRunning TFD (2014 IPC version)."
@@ -863,7 +863,7 @@ run_benchmarks () {
         elif [[ $benchmark == "popf3-ground" ]]
         then 
             echo -e "\tRunning POPF2/3 (ground)."
-            record_result "$instance_name-ground" "POPF" "$(ground_and_time_popf $domain_file $instance_file $instance_name)"
+            record_result "$instance_name" "POPF-ground" "$(ground_and_time_popf $domain_file $instance_file $instance_name)"
         elif [[ $benchmark == "nextflap" ]]
         then 
             echo -e "\tRunning nextflap."

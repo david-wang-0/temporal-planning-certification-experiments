@@ -1,0 +1,9 @@
+domain,instance,solver,time(s),memory(kB),identified as unsolvable,status
+sync-impossible,instance_1_2,grounding,0.00,3648,true,okay,
+sync-impossible,instance_1_2,model-conv,0.01,10052,true,okay,
+sync-impossible,instance_1_2,tck-covreach,0.01,10008,true,okay,
+sync-impossible,instance_1_2,cert-conv,0.05,14324,true,okay,
+sync-impossible,instance_1_2,muntac-cert-check,0.03,23580,true,okay,
+sync-impossible,instance_1_2,TAMER-ctp,0.00,3668,false,1,|ERROR: An error of type ParserError was thrown during the execution of TAMER. The reported error is: ParserError: syntax error at line 3 Command exited with non-zero status 1 
+sync-impossible,instance_1_2,TAMER-ctp,0.00,3664,false,1,|ERROR: An error of type ParserError was thrown during the execution of TAMER. The reported error is: ParserError: syntax error at line 3 Command exited with non-zero status 1 
+sync-impossible,instance_1_2,TAMER-ctp-ground,0.00,4216,true,okay,
