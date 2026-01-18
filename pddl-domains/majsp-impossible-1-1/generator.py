@@ -4,7 +4,8 @@ for n_r in range(1, 4): # robots
     for n_b in range(2, 5): # pallets
         for n_p in range(3, 7): # positions
             for n_t in range(1, 5): # treatments
-                if n_p % 2 == 0:
+                total = (n_t - 1) + 4 * (n_p - 3) + 16 * (n_b - 2) + 48 * (n_r - 1)
+                if total % 6 == 0:
                     filename = "instances/instance_" + str(n_r) + "_" + str(n_b) + "_" + str(n_p) + "_" + str(n_t) + ".pddl"
                     out = open(filename, "w+")
                     out.write("(define (problem p_" + str(n_r) + "_" + str(n_b) + "_" + str(n_p) + "_" + str(n_t) + ")\n\n")

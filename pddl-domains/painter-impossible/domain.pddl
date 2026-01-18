@@ -1,5 +1,5 @@
 (define (domain new)
-    (:requirements :typing :equality :negative-preconditions :durative-actions) 
+    (:requirements :typing :equality :negative-preconditions :durative-actions :conditional-effects) 
     (:types Item Treatment)
 
     (:predicates
@@ -15,6 +15,10 @@
         (not_is_end ?t - Treatment)
         (joined)
 
+        (not_busy)
+        (not_treated ?i - Item ?t - Treatment)
+        (not_started ?i - Item ?t - Treatment)
+
         (next_to_treat ?t - Treatment ?i - Item)
         (next_item ?i ?j - Item)
         (start_item ?i - Item)
@@ -25,8 +29,8 @@
         :precondition (and
                         (not (= ?i1 ?i2))
                         (not_is_end ?t)
-                        (not (treated ?i1 ?t))
-                        (not (treated ?i2 ?t))
+                        (not_treated ?i1 ?t)
+                        (not_treated ?i2 ?t)
                         (started ?i1 ?t)
                         (started ?i2 ?t)
                         (ready ?i1 ?t)
@@ -41,7 +45,9 @@
         :effect (and
                   (forall (?t - Treatment) (and
                     (forall (?i - Item) (and
+                      (not_started ?i ?t)
                       (not (started ?i ?t))
+                      (not_treated ?i ?t)
                       (not (treated ?i ?t))
                     ))
                     (next_to_treat ?t ?j)
@@ -58,10 +64,10 @@
                 (at start (and
                               (s1 ?i ?t ?next)
                               (next_to_treat ?t ?i)
-                              (not (busy))
+                              (not_busy)
                               (consecutive ?t ?next)
-                              (not (treated ?i ?t))
-                              (not (started ?i ?t))
+                              (not_treated ?i ?t)
+                              (not_started ?i ?t)
                               (ready ?i ?t)
                               (next_item ?i ?j)
                               ))
@@ -73,11 +79,17 @@
                               (not (next_to_treat ?t ?i))
                               (next_to_treat ?t ?j)
                               (busy)
-                              (started ?i ?t)))
+                              (started ?i ?t)
+                              (not (not_busy))
+                              (not (not_started ?i ?t))
+                ))
                 (at end (and
                             (s2 ?i ?t ?next)
                             (treated ?i ?t)
-                            (not (busy))))
+                            (not (not_treated ?i ?t))
+                            (not_busy)
+                            (not (busy))
+                ))
             )
     )
 
