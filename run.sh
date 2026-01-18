@@ -15,28 +15,26 @@ benchmarks=()
 # %M   maximum resident set size in KB
 run_with_timeout () {
     local f=$1
-    local regex='(.*)%%%([0-9]+)%([\.0-9]+)%([0-9]+)'
-    msg=$(timeout -p $TIMEOUT bash -c "ulimit -HSv $MEM_LIMIT && { command time -f \"%%%%%%%x%%%e%%%M\" bash -c \"$f\" ; } 2>&1" | tr '\n' ' ')
+    local regex='(.*)>%<([0-9]+)>%<([\.0-9]+)>%<([0-9]+)'
+    msg=$(timeout -p $TIMEOUT bash -c "ulimit -HSv $MEM_LIMIT && { command time -f \">%%<%x>%%<%e>%%<%M\" bash -c \"$f\" ; } 2>&1" | tr '\n' ' ')
     err=$?
-    if [[ $err == 143 ]] ## time out
-    then 
-        echo "143>%<>%<>%<>%<"
     # elif [[ $err == 1 || $err == 127 || $err == 137 ]] ## out of memory -- terminated
     # then
     #     echo "128>%<>%<>%<>%<"
-    elif [[ $err == 0 ]] ## okay
-    then
-        if [[ $msg =~ $regex ]]
-        then 
-            echo "${BASH_REMATCH[2]}>%<${BASH_REMATCH[3]}>%<${BASH_REMATCH[4]}>%<${BASH_REMATCH[1]}>%<"
-            # exit_code>%<time>%<memory>%<stdout
-            # exit code will be whatever the command output
-        else
-            echo "129>%<>%<>%<$msg>%<" ## something unexpected happened
-        fi
-    else
-        echo "${err}>%<>%<>%<$msg>%<" ## unknown
-    fi
+    # if [[ $err == 0 ]] ## okay
+    # then
+    #     if [[ $msg =~ $regex ]]
+    #     then 
+    #         echo "${BASH_REMATCH[2]}>%<${BASH_REMATCH[3]}>%<${BASH_REMATCH[4]}>%<${BASH_REMATCH[1]}>%<"
+    #         # exit_code>%<time>%<memory>%<stdout
+    #         # exit code will be whatever the command output
+    #     else
+    #         echo "0>%<>%<>%<$msg>%<" ## something unexpected happened
+    #     fi
+    # else
+    #     echo "${err}>%<>%<>%<$msg>%<" ## unknown
+    # fi
+    echo "$err>%<$msg"
 }
 
 # these functions should be called with paths and files (relative to the working directory or absolute)
@@ -236,31 +234,32 @@ export -f run_nextflap
 cmd_output_matches () {
     local msg=$1
     local to_match=$2
-
-    local regex="(-?[0-9]+)>%<(.*)>%<(.*)>%<(.*)>%<(.*)"
+    
+    local regex="(-?[0-9]+)>%<(.*)"
 
     if [[ $msg =~ $regex ]]
     then
         local return_code=${BASH_REMATCH[1]}
-        local time=${BASH_REMATCH[2]}
-        local memory_usage=${BASH_REMATCH[3]}
-        local cmd_output=${BASH_REMATCH[4]}
-        local additional_info=${BASH_REMATCH[5]}
+        local cmd_output=${BASH_REMATCH[2]}
+        # local memory_usage=${BASH_REMATCH[3]}
+        # local cmd_output=${BASH_REMATCH[4]}
+        # local additional_info=${BASH_REMATCH[5]}
         if [[ $cmd_output =~ $to_match ]]
         then
-            echo "$return_code>%<$time>%<$memory_usage>%<true>%<$additional_info"
+            echo "$return_code>%<true>%<$cmd_output"
         else
-            echo "$return_code>%<$time>%<$memory_usage>%<false>%<$additional_info|$cmd_output"
+            echo "$return_code>%<false>%<$cmd_output"
         fi
     else
-        echo "130>%<>%<>%<>%<$msg" # input ill-formatted
+        echo "244>%<$msg" # input ill-formatted
     fi
 }
 
 run_and_match_output () {
     local cmd=$1
     local regex=$2
-    cmd_output_matches "$(run_with_timeout "$cmd")" "$regex"
+    echo "$(run_with_timeout "$cmd")"
+    # cmd_output_matches "$(run_with_timeout "$cmd")" "$regex"
 }
 
 time_ground_example () {
@@ -525,6 +524,8 @@ time_nuxmv_on_pddl () {
 
     local smv_file=$(smv_file $file_name)
 
+    rm "$smv_file"
+
     convert_to_smv $domain $instance $smv_file
     time_nuxmv $smv_file
 }
@@ -538,6 +539,8 @@ ground_and_time_nuxmv () {
     local ground_problem_file=$(ground_problem_file $file_name)
     local smv_file=$(smv_file $file_name)
 
+    rm "$smv_file"
+
     ground_and_convert_to_smv $domain $instance $ground_domain_file $ground_problem_file $smv_file
     time_nuxmv $smv_file
 }
@@ -549,6 +552,9 @@ time_uppaal_on_pddl () {
 
     local ta_file=$(ta_file $file_name)
     local q_file=$(q_file $file_name)
+
+    rm "$ta_file"
+    rm "$q_file"
 
     convert_to_ta_and_q $domain $instance $ta_file $q_file
     time_uppaal $ta_file $q_file
@@ -564,6 +570,9 @@ ground_and_time_uppaal () {
 
     local ta_file=$(ta_file $file_name)
     local q_file=$(q_file $file_name)
+
+    rm "$ta_file"
+    rm "$q_file"
 
     ground_and_convert_to_ta_and_q $domain $instance $ground_domain_file $ground_problem_file $ta_file $q_file
     time_uppaal $ta_file $q_file
@@ -624,10 +633,10 @@ time_convert_to_cert() {
 
     if [[ ! -f $muntax_file ]]
     then 
-        echo "131>%<>%<>%<>%<No model to obtain renaming. Expected: $muntax_file"
+        echo "131>%<No model to obtain renaming. Expected: $muntax_file"
     elif  [[ ! -f $dot_file ]]
     then 
-        echo "131>%<>%<>%<>%<No certificate to convert. Expected: $dot_file"
+        echo "131>%<No certificate to convert. Expected: $dot_file"
     else 
         rename $muntax_file $renaming_file
         time_dot_to_cert_conversion $muntax_file $renaming_file $dot_file $cert_file
@@ -644,13 +653,13 @@ time_muntac_check_cert () {
 
     if [[ ! -f $muntax_file ]]
     then 
-        echo "131>%<>%<>%<>%<No model to obtain renaming. Expected: $muntax_file"
+        echo "131>%<No model to obtain renaming. Expected: $muntax_file"
     elif [[ ! -f $renaming_file ]]
     then 
-        echo "131>%<>%<>%<>%<No renaming file. Expected: $renaming_file"
+        echo "131>%<No renaming file. Expected: $renaming_file"
     elif [[ ! -f $cert_file ]]
     then 
-        echo "131>%<>%<>%<>%<No certificate to check. Expected: $cert_file"
+        echo "131>%<No certificate to check. Expected: $cert_file"
     else 
         time_cert_check $muntax_file $renaming_file $cert_file
     fi
@@ -693,10 +702,10 @@ time_converter () {
 
     if [[ ! -f $ground_domain_file ]]
     then 
-        echo "131>%<>%<>%<>%<No ground domain. Expected: $ground_domain_file"
+        echo "131>%<No ground domain. Expected: $ground_domain_file"
     elif [[ ! -f $ground_problem_file ]]
     then 
-        echo "131>%<>%<>%<>%<No ground problem. Expected: $ground_problem_file"
+        echo "131>%<No ground problem. Expected: $ground_problem_file"
     else
     
         time_convert_to_muntax $ground_domain_file $ground_problem_file $muntax_file
@@ -711,7 +720,7 @@ time_model_converter () {
 
     if [[ ! -f $muntax_file ]]
     then 
-        echo "131>%<>%<>%<>%<No model to convert. Expected: $muntax_file"
+        echo "131>%<No model to convert. Expected: $muntax_file"
     else
     
         time_convert_to_tck $muntax_file $tck_file
@@ -720,19 +729,19 @@ time_model_converter () {
 
 to_status () {
     local return_code=$1
-    if [[ $return_code == "143" ]]
-    then
-        echo "out of time"
+    # if [[ $return_code == "143" ]]
+    # then
+    #     echo "out of time"
     # elif [[ $return_code == "128" ]]
     # then
-    #     echo "out of memory"
-    elif [[ $return_code == "129" ]]
-    then
-        echo "output of command unexpected"
-    elif [[ $return_code == "130" ]]
-    then
-        echo "could not interpret correctness of result"
-    elif [[ $return_code == "131" ]]
+    # #     echo "out of memory"
+    # elif [[ $return_code == "129" ]]
+    # then
+    #     echo "output of command unexpected"
+    # elif [[ $return_code == "130" ]]
+    # then
+    #     echo "could not interpret correctness of result"
+    if [[ $return_code == "131" ]]
     then
         echo "file missing"
     elif [[ $return_code == "0" ]]
@@ -748,30 +757,30 @@ record_result () {
     local solver=$2
     local res=$3
 
-    local regex="(-?[0-9]+)>%<(.*)>%<(.*)>%<(.*)>%<(.*)"
+    local regex="(-?[0-9]+)>%<(.*)"
 
     if [[ $res =~ $regex ]]
     then
         local return_code=${BASH_REMATCH[1]}
-        local time=${BASH_REMATCH[2]}
-        local memory_usage=${BASH_REMATCH[3]}
-        local correctly_identified=${BASH_REMATCH[4]}
-        local info=${BASH_REMATCH[5]}
+        local info=${BASH_REMATCH[2]}
+        # local memory_usage=${BASH_REMATCH[3]}
+        # local correctly_identified=${BASH_REMATCH[4]}
+        # local info=${BASH_REMATCH[5]}
 
         local status=$(to_status "$return_code")
 
         if [[ ! -z $file ]]
         then 
-            echo "$domain_dir_name,$instance,$solver,$time,$memory_usage,$correctly_identified,$status,$info" >> "$file"
+            echo "$domain_dir_name>%<$instance>%<$solver>%<$status>%<$info" >> "$file"
         else 
-            echo "$domain_dir_name,$instance,$solver,$time,$memory_usage,$correctly_identified,$status,$info"
+            echo "$domain_dir_name>%<$instance>%<$solver>%<$status>%<$info"
         fi
     else
         if [[ ! -z $file ]]
         then 
-            echo "$domain_dir_name,,,,,,,\"Error: '$res'\"" >> "$file"
+            echo "$domain_dir_name>%<$instance>%<$solver>%<Error:'$res'" >> "$file"
         else 
-            echo "$domain_dir_name,,,,,,,\"Error: '$res'\""
+            echo "$domain_dir_name>%<$instance>%<$solver>%<Error:'$res'"
         fi
     fi
 }
@@ -997,7 +1006,7 @@ fi
 # set up output file
 if [[ ! -z $file ]]
 then 
-    echo "domain,instance,solver,time(s),memory(kB),identified as unsolvable,status" >> "$file"
+    echo "domain>%<instance>%<solver>%<status>%<output>%<time(s)>%<memory(kB)" >> "$file"
 fi
 # make all folders
 make_dirs
@@ -1060,7 +1069,7 @@ fi
 # A good format for returned values
 
 # what do we need to limit?
-# - memory usage (do not let exceed; hitting limit does not cause termination)
+# - memory usage (hitting limit causes termination)
 # - time (hitting limit causes termination)
 
 
