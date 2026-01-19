@@ -351,3 +351,5 @@ benchmark_longer_driverlog_6: create_driverlog_instances
 	./run.sh -f longer_driverlog_6_$(RESULTS) -t $(30MIN) -m $(50GMEM) -p $(DRIVERLOG_6) $(MINIMAL_BENCHMARKS)
 
 benchmark_longer_driverlog: benchmark_longer_driverlog_1 benchmark_longer_driverlog_2 benchmark_longer_driverlog_3 benchmark_longer_driverlog_4 benchmark_longer_driverlog_5 benchmark_longer_driverlog_6
+
+benchmark_minimal_all: benchmark_minimal_majsp benchmark_minimal_matchcellar benchmark_minimal_painter benchmark_minimal_painter

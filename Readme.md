@@ -87,6 +87,6 @@ mv -t . <path>/<to>/<afp>/thys/Munta_Certificate_Checker/muntac
 
 The makefile contains a few examples:
 ```
-make benchmark_longer_all
+make benchmark_minimal_all
 ```
 
