@@ -1,6 +1,7 @@
 from random import randint, seed
 from collections import namedtuple
 from jinja2 import Template
+import pathlib
 
 PDDL_TEMPLATE = Template('''(define (problem {{problem_name}})
   (:domain sync)
@@ -129,9 +130,13 @@ def mk_parallels(n):
 
 def main():
     seed(42)
+    d = 6
+    for i in range(1, d+1):
+        pathlib.Path("sync-impossible-%d/instances/" % i).mkdir(parents=True, exist_ok=True)
 
     for n in range(1, 2):
         for k in range(2, 10):
+            coll = (k % d) + 1
             pname = "instance_%d_%d" % (n, k)
             pars = mk_parallels(k)
             robots = mk_robots(n, pars)
@@ -139,22 +144,22 @@ def main():
             txt = PDDL_TEMPLATE.render(robots=robots,
                                        problem_name=pname,
                                        parallels=pars)
-            with open("pddl/instances/%s.pddl" % pname, 'wt') as fh:
+            with open("sync-impossible-%d/instances/%s.pddl" % (coll, pname), 'wt') as fh:
                 fh.write(txt)
-            with open("tpp/instances/%s.pddl" % pname, 'wt') as fh:
-                fh.write(txt)
+            # with open("tpp/instances/%s.pddl" % pname, 'wt') as fh:
+            #     fh.write(txt)
 
-            txt = ANML_TEMPLATE.render(robots=robots,
-                                       problem_name=pname,
-                                       parallels=pars)
-            with open("anml/instances/%s.anml" % pname, 'wt') as fh:
-                fh.write(txt)
+            # txt = ANML_TEMPLATE.render(robots=robots,
+            #                            problem_name=pname,
+            #                            parallels=pars)
+            # with open("anml/instances/%s.anml" % pname, 'wt') as fh:
+            #     fh.write(txt)
 
-            txt = TPP_TEMPLATE.render(robots=robots,
-                                      problem_name=pname,
-                                      parallels=pars)
-            with open("tpp/instances/%s.ck.pddl" % pname, 'wt') as fh:
-                fh.write(txt)
+            # txt = TPP_TEMPLATE.render(robots=robots,
+            #                           problem_name=pname,
+            #                           parallels=pars)
+            # with open("tpp/instances/%s.ck.pddl" % pname, 'wt') as fh:
+            #     fh.write(txt)
 
 
 if __name__ == '__main__':
