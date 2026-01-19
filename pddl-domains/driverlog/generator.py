@@ -81,7 +81,7 @@ def main():
             for ns in range(1, 4):
                 for ne in range(1, 5):
                     total = ne + 4 * ns + 2 * 4 * (3 - nd) + 3 * 3 * 4 * nt
-                    coll = total % 6 + 1
+                    coll = (total % 6) + 1
                     pname = "instance_%d_%d_%d_%d" % (nt, nd, ns, ne)
 
                     trucks = mk_trucks(nt)
