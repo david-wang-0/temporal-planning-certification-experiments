@@ -1,5 +1,7 @@
 # This Readme and artifact
 
+This is the artifact for the paper: "Formally Verified Certification of Unsolvability of Temporal Planning Problems"
+
 This `README` contains information regarding:
 - The software used and how to build it from sources when necessary.
 - The sources of code and programs used.
@@ -8,7 +10,7 @@ This artifact contains:
 - An appendix to our paper.
 - The lifted PDDL domains and instances used in our benchmarks.
 - The grounded PDDL domains and instances used in our benchmarks.
-- The code for our verified encoder.
+- The code for our verified encoder and instructions to build it in: `sources/temporal-planning-certification`
 
 ## We have taken some code from
 The code to create PDDL instances is taken from and changed:  https://es-static.fbk.eu/people/amicheli/resources/aaai22/
