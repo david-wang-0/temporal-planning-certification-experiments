@@ -1,15 +1,19 @@
-# This Readme and artifact
+# This Artifact
 
 This is the artifact for the paper: "Formally Verified Certification of Unsolvability of Temporal Planning Problems"
+
+This artifact contains:
+- An appendix to our paper.
+- The grounded PDDL domains and instances used in our benchmarks in: `sources/temporal-planning-certification/examples`
+- The code for our verified encoder and instructions to build it in: `sources/temporal-planning-certification`
+- An [index file](sources/temporal-planning-certification/Index.thy), which can be navigated to find locales, theorems, lemmas, and definitions from our paper.
+    - Follow the instructions in[`sources/temporal-planning-certification/Readme.md`](sources/temporal-planning-certification/Readme.md)
+
+# This Readme
 
 This `README` contains information regarding:
 - The software used and how to build it from sources when necessary.
 - The sources of code and programs used.
-
-This artifact contains:
-- An appendix to our paper.
-- The grounded PDDL domains and instances used in our benchmarks in: : `sources/temporal-planning-certification/examples`
-- The code for our verified encoder and instructions to build it in: `sources/temporal-planning-certification`
 
 ## We have taken some code from
 The code to create PDDL instances is taken from and changed:  https://es-static.fbk.eu/people/amicheli/resources/aaai22/
@@ -34,12 +38,9 @@ Follow the instructions in: https://github.com/KavrakiLab/optic
 
 ## Grounder
 
-OPTIC's grounder is used for our benchmarks. Unfortunately, we 
+OPTIC's grounder is used for our benchmarks.
 
 ## Verified encoding from temporal planning to timed automata
 
-Follow the instructions in `sources/temporal-planning-certifications` to make the code build
+Follow the instructions in `sources/temporal-planning-certifications` to build and run the code.
 
-```sh
-mv -t . sources/temporal-planning-certification/ML/out/plan_cert
-```
