@@ -8,8 +8,7 @@ This `README` contains information regarding:
 
 This artifact contains:
 - An appendix to our paper.
-- The lifted PDDL domains and instances used in our benchmarks.
-- The grounded PDDL domains and instances used in our benchmarks.
+- The grounded PDDL domains and instances used in our benchmarks in: : `sources/temporal-planning-certification/examples`
 - The code for our verified encoder and instructions to build it in: `sources/temporal-planning-certification`
 
 ## We have taken some code from
